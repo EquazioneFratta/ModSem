@@ -1,0 +1,326 @@
+@prefix : <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14/> .
+
+<http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#HaFrutto
+:HaFrutto rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Ammiraglio
+:Ammiraglio rdf:type owl:Class ;
+            rdfs:subClassOf :Marines .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Aokiji
+:Aokiji rdf:type owl:Class ;
+        rdfs:subClassOf :Ammiraglio .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Avalo_Pizarro
+:Avalo_Pizarro rdf:type owl:Class ;
+               rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Bartholomew_Kuma
+:Bartholomew_Kuma rdf:type owl:Class ;
+                  rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Belo_Betty
+:Belo_Betty rdf:type owl:Class ;
+            rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Brooke
+:Brooke rdf:type owl:Class ;
+        rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Burges
+:Burges rdf:type owl:Class ;
+        rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Capo
+:Capo rdf:type owl:Class ;
+      rdfs:subClassOf :Rivoluzionari .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Caterina_Devon
+:Caterina_Devon rdf:type owl:Class ;
+                rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Ciurma
+:Ciurma rdf:type owl:Class ;
+        rdfs:subClassOf :Fazioni .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Comandanti
+:Comandanti rdf:type owl:Class ;
+            rdfs:subClassOf :Rivoluzionari .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Emporio_Ivankov
+:Emporio_Ivankov rdf:type owl:Class ;
+                 rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Eustass_Kid
+:Eustass_Kid rdf:type owl:Class ;
+             rdfs:subClassOf :Pirati_di_Kidd .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Fazioni
+:Fazioni rdf:type owl:Class ;
+         rdfs:subClassOf :OnePieceWorld .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Frankie
+:Frankie rdf:type owl:Class ;
+         rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#FruttoDelDiavolo
+:FruttoDelDiavolo rdf:type owl:Class ;
+                  rdfs:subClassOf :OnePieceWorld .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#GrandAmmiraglio
+:GrandAmmiraglio rdf:type owl:Class ;
+                 rdfs:subClassOf :Marines .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Heat
+:Heat rdf:type owl:Class ;
+      rdfs:subClassOf :Pirati_di_Kidd .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Hore_Horu_no_Mi
+:Hore_Horu_no_Mi rdf:type owl:Class ;
+                 rdfs:subClassOf :Paramisha ;
+                 rdfs:comment "Permette di modificare i corpi della gente tramite ormoni" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Jimbe
+:Jimbe rdf:type owl:Class ;
+       rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Karasu
+:Karasu rdf:type owl:Class ;
+        rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Killer
+:Killer rdf:type owl:Class ;
+        rdfs:subClassOf :Pirati_di_Kidd .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Kizaru_Borsalino
+:Kizaru_Borsalino rdf:type owl:Class ;
+                  rdfs:subClassOf :Ammiraglio .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Koala
+:Koala rdf:type owl:Class ;
+       rdfs:subClassOf :Membri .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Kobu_Kobu_no_Mi
+:Kobu_Kobu_no_Mi rdf:type owl:Class ;
+                 rdfs:subClassOf :Paramisha ;
+                 rdfs:comment "Richiama persone a se e gli dona forza come un comandante" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Laffitte
+:Laffitte rdf:type owl:Class ;
+          rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Lindberg
+:Lindberg rdf:type owl:Class ;
+          rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Marines
+:Marines rdf:type owl:Class ;
+         rdfs:subClassOf :Fazioni .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Marshall_D._Teach
+:Marshall_D._Teach rdf:type owl:Class ;
+                   rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Membri
+:Membri rdf:type owl:Class ;
+        rdfs:subClassOf :Rivoluzionari .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Mera_Mera_no_Mi
+:Mera_Mera_no_Mi rdf:type owl:Class ;
+                 rdfs:subClassOf :Rogia ;
+                 rdfs:comment "Permette all'utilizzatore di diventare e controllare il fuoco" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Monkey_D._Dragon
+:Monkey_D._Dragon rdf:type owl:Class ;
+                  rdfs:subClassOf :Capo .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Monkey_D._Garp
+:Monkey_D._Garp rdf:type owl:Class ;
+                rdfs:subClassOf :Vice-Ammiraglio .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Monkey_D._Rufy
+:Monkey_D._Rufy rdf:type owl:Class ;
+                rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Morley
+:Morley rdf:type owl:Class ;
+        rdfs:subClassOf :Comandanti .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Nami
+:Nami rdf:type owl:Class ;
+      rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Nico_Robin
+:Nico_Robin rdf:type owl:Class ;
+            rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Nikyu_Nikyu_no_Mi
+:Nikyu_Nikyu_no_Mi rdf:type owl:Class ;
+                   rdfs:subClassOf :Paramisha ;
+                   rdfs:comment "Fa crescere dei polpastrelli animaleschi sulle mani che permettono di respingere ciò che viene a contatto con loro" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#OnePieceWorld
+:OnePieceWorld rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Oshi_Oshi_no_Mi
+:Oshi_Oshi_no_Mi rdf:type owl:Class ;
+                 rdfs:subClassOf :Paramisha ;
+                 rdfs:comment "Permette di modificare la pietra come fosse argilla" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Paramisha
+:Paramisha rdf:type owl:Class ;
+           rdfs:subClassOf :FruttoDelDiavolo ;
+           rdfs:comment "Frutti che permettono di usare varie abilità" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Pirati_di_Barbanera
+:Pirati_di_Barbanera rdf:type owl:Class ;
+                     rdfs:subClassOf :Ciurma .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Pirati_di_CappelloDiPaglia
+:Pirati_di_CappelloDiPaglia rdf:type owl:Class ;
+                            rdfs:subClassOf :Ciurma .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Pirati_di_Kidd
+:Pirati_di_Kidd rdf:type owl:Class ;
+                rdfs:subClassOf :Ciurma .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Rivoluzionari
+:Rivoluzionari rdf:type owl:Class ;
+               rdfs:subClassOf :Fazioni .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Rogia
+:Rogia rdf:type owl:Class ;
+       rdfs:subClassOf :FruttoDelDiavolo ;
+       rdfs:comment "Frutti che permettono all'utilizzatore di diventare un elemento e di controllarlo" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Roronoa_Zoro
+:Roronoa_Zoro rdf:type owl:Class ;
+              rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Sabo
+:Sabo rdf:type owl:Class ;
+      rdfs:subClassOf :Capo .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Sakazuki_Akainu
+:Sakazuki_Akainu rdf:type owl:Class ;
+                 rdfs:subClassOf :Ammiraglio .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Sengoku_the_Buddha
+:Sengoku_the_Buddha rdf:type owl:Class ;
+                    rdfs:subClassOf :GrandAmmiraglio .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Shiryu
+:Shiryu rdf:type owl:Class ;
+        rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Susu_Susu_no_Mi
+:Susu_Susu_no_Mi rdf:type owl:Class ;
+                 rdfs:subClassOf :Rogia ;
+                 rdfs:comment "Permette all'utilizzatore di diventare e controllare la fuliggine" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Tony_Tony_Chopper
+:Tony_Tony_Chopper rdf:type owl:Class ;
+                   rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Usopp
+:Usopp rdf:type owl:Class ;
+       rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Van_Augar
+:Van_Augar rdf:type owl:Class ;
+           rdfs:subClassOf :Pirati_di_Barbanera .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Vice-Ammiraglio
+:Vice-Ammiraglio rdf:type owl:Class ;
+                 rdfs:subClassOf :Marines .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Vinsmoke_Sanji
+:Vinsmoke_Sanji rdf:type owl:Class ;
+                rdfs:subClassOf :Pirati_di_CappelloDiPaglia .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#Wire
+:Wire rdf:type owl:Class ;
+      rdfs:subClassOf :Pirati_di_Kidd .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-14#ZooZoo
+:ZooZoo rdf:type owl:Class ;
+        rdfs:subClassOf :FruttoDelDiavolo ;
+        rdfs:comment "Frutti che permettono all'utilizzatore di trasformarsi in un animale" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
