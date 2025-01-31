@@ -1,18 +1,59 @@
 @prefix : <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
 
-<http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16> rdf:type owl:Ontology .
+<http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16> rdf:type owl:Ontology ;
+                                                                           dc:creator "Frattarola Marco" ,
+                                                                                      "Ghione Alessio" ;
+                                                                           dc:date "2025-01-31" ;
+                                                                           dc:description "" ;
+                                                                           dc:title "Ontologia sui media giapponesi" ;
+                                                                           vann:preferredNamespacePrefix "jm" ;
+                                                                           rdfs:label "Japanese media" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#animatoDa
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/animatoDa
 :animatoDa rdf:type owl:ObjectProperty ;
            rdfs:domain [ rdf:type owl:Restriction ;
                          owl:onProperty :animatoDa ;
@@ -25,7 +66,7 @@
                       ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#direttoDa
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/direttoDa
 :direttoDa rdf:type owl:ObjectProperty ;
            rdfs:domain [ rdf:type owl:Restriction ;
                          owl:onProperty :direttoDa ;
@@ -38,7 +79,7 @@
                       ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haAdattamentoAnime
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAdattamentoAnime
 :haAdattamentoAnime rdf:type owl:ObjectProperty ,
                              owl:AsymmetricProperty ;
                     rdfs:domain [ rdf:type owl:Restriction ;
@@ -51,7 +92,7 @@
                                ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haAutore
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAutore
 :haAutore rdf:type owl:ObjectProperty ;
           rdfs:domain [ rdf:type owl:Restriction ;
                         owl:onProperty :haAutore ;
@@ -64,7 +105,7 @@
                      ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haPrequel
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haPrequel
 :haPrequel rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            owl:inverseOf :haSequel ;
@@ -81,7 +122,7 @@
                       ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haSequel
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haSequel
 :haSequel rdf:type owl:ObjectProperty ,
                    owl:AsymmetricProperty ,
                    owl:TransitiveProperty ,
@@ -96,7 +137,7 @@
                      ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haTarget
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haTarget
 :haTarget rdf:type owl:ObjectProperty ,
                    owl:FunctionalProperty ;
           rdfs:domain [ rdf:type owl:Restriction ;
@@ -114,7 +155,7 @@
                      ] .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#pubblicatoDa
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/pubblicatoDa
 :pubblicatoDa rdf:type owl:ObjectProperty ;
               rdfs:domain [ rdf:type owl:Restriction ;
                             owl:onProperty :pubblicatoDa ;
@@ -131,144 +172,144 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Animatore
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Animatore
 :Animatore rdf:type owl:Class ;
            rdfs:subClassOf :Staff .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Anime
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Anime
 :Anime rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#AnimeFilm
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
 :AnimeFilm rdf:type owl:Class ;
            rdfs:subClassOf :Anime .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#AnimeSerie
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeSerie
 :AnimeSerie rdf:type owl:Class ;
             rdfs:subClassOf :Anime .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Autore
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Autore
 :Autore rdf:type owl:Class ;
         rdfs:subClassOf :Persona .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#CasaEditrice
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/CasaEditrice
 :CasaEditrice rdf:type owl:Class ;
               rdfs:subClassOf :Organizzazione .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Josei
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
 :Josei rdf:type owl:Class ;
        rdfs:subClassOf :Target ;
        rdfs:comment "Pubblico femminile adulto" .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Kodomo
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
 :Kodomo rdf:type owl:Class ;
         rdfs:subClassOf :Target ;
         rdfs:comment "Bambini" .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#LongRunning
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/LongRunning
 :LongRunning rdf:type owl:Class ;
              rdfs:subClassOf :TVSeries .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Manga
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Manga
 :Manga rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#MangaCompleto
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaCompleto
 :MangaCompleto rdf:type owl:Class ;
                rdfs:subClassOf :MangaSerie .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#MangaInCorso
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaInCorso
 :MangaInCorso rdf:type owl:Class ;
               rdfs:subClassOf :MangaSerie .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#MangaOneShot
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaOneShot
 :MangaOneShot rdf:type owl:Class ;
               rdfs:subClassOf :Manga .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#MangaSerie
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaSerie
 :MangaSerie rdf:type owl:Class ;
             rdfs:subClassOf :Manga .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#OVA
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OVA
 :OVA rdf:type owl:Class ;
      rdfs:subClassOf :AnimeSerie .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#OperaArtistica
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaArtistica
 :OperaArtistica rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#OperaNipponica
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaNipponica
 :OperaNipponica rdf:type owl:Class ;
                 rdfs:subClassOf :OperaArtistica .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Organizzazione
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Organizzazione
 :Organizzazione rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Persona
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Persona
 :Persona rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Regista
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Regista
 :Regista rdf:type owl:Class ;
          rdfs:subClassOf :Staff .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Seinen
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
 :Seinen rdf:type owl:Class ;
         rdfs:subClassOf :Target ;
         rdfs:comment "Pubblico maschile adulto" .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Shonen
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
 :Shonen rdf:type owl:Class ;
         rdfs:subClassOf :Target ;
         rdfs:comment "Teenager Maschi" .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Shoujo
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shoujo
 :Shoujo rdf:type owl:Class ;
         rdfs:subClassOf :Target ;
         rdfs:comment "Teenager Femmine" .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Staff
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
 :Staff rdf:type owl:Class ;
        rdfs:subClassOf :Persona .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Stagionale
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Stagionale
 :Stagionale rdf:type owl:Class ;
             rdfs:subClassOf :TVSeries .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#StudioAnimazione
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/StudioAnimazione
 :StudioAnimazione rdf:type owl:Class ;
                   rdfs:subClassOf :Organizzazione .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#TVSeries
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/TVSeries
 :TVSeries rdf:type owl:Class ;
           rdfs:subClassOf :AnimeSerie .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Target
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Target
 :Target rdf:type owl:Class .
 
 
