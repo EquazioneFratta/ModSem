@@ -50,54 +50,49 @@ rdfs:label rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/animatoDa
-:animatoDa rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Restriction ;
-                         owl:onProperty :animatoDa ;
-                         owl:someValuesFrom :Anime
-                       ] ;
-           rdfs:range [ rdf:type owl:Restriction ;
-                        owl:onProperty :animatoDa ;
-                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Animatore
-                      ] .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/anima
+:anima rdf:type owl:ObjectProperty ;
+       rdfs:domain :Animatore ;
+       rdfs:range :Anime .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/dipendenteDi
+:dipendenteDi rdf:type owl:ObjectProperty ;
+              rdfs:domain :Staff ;
+              rdfs:range :StudioAnimazione ;
+              owl:propertyChainAxiom ( :anima
+                                       :prodottoDa
+                                     ) .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/direttoDa
 :direttoDa rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Restriction ;
-                         owl:onProperty :direttoDa ;
-                         owl:someValuesFrom :Anime
-                       ] ;
-           rdfs:range [ rdf:type owl:Restriction ;
-                        owl:onProperty :direttoDa ;
-                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Regista
-                      ] .
+           owl:inverseOf :haDiretto ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Anime ;
+           rdfs:range :Regista .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAdattamentoAnime
-:haAdattamentoAnime rdf:type owl:ObjectProperty ,
-                             owl:AsymmetricProperty ;
-                    rdfs:domain [ rdf:type owl:Restriction ;
-                                  owl:onProperty :haAdattamentoAnime ;
-                                  owl:someValuesFrom :Manga
-                                ] ;
-                    rdfs:range [ rdf:type owl:Restriction ;
-                                 owl:onProperty :haAdattamentoAnime ;
-                                 owl:someValuesFrom :Anime
-                               ] .
+:haAdattamentoAnime rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Manga ;
+                    rdfs:range :Anime .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAutore
 :haAutore rdf:type owl:ObjectProperty ;
-          rdfs:domain [ rdf:type owl:Restriction ;
-                        owl:onProperty :haAutore ;
-                        owl:someValuesFrom :OperaArtistica
-                      ] ;
+          rdfs:domain :OperaArtistica ;
           rdfs:range [ rdf:type owl:Restriction ;
                        owl:onProperty :haAutore ;
                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -105,67 +100,81 @@ rdfs:label rdf:type owl:AnnotationProperty .
                      ] .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haDiretto
+:haDiretto rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:InverseFunctionalProperty ;
+           rdfs:domain :Regista ;
+           rdfs:range :Anime .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haPrequel
 :haPrequel rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            owl:inverseOf :haSequel ;
-           rdf:type owl:AsymmetricProperty ,
-                    owl:TransitiveProperty ,
-                    owl:IrreflexiveProperty ;
-           rdfs:domain [ rdf:type owl:Restriction ;
-                         owl:onProperty :haPrequel ;
-                         owl:someValuesFrom :OperaArtistica
-                       ] ;
-           rdfs:range [ rdf:type owl:Restriction ;
-                        owl:onProperty :haPrequel ;
-                        owl:someValuesFrom :OperaArtistica
-                      ] .
+           rdf:type owl:TransitiveProperty ;
+           rdfs:domain :OperaArtistica ;
+           rdfs:range :OperaArtistica .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haSequel
 :haSequel rdf:type owl:ObjectProperty ,
-                   owl:AsymmetricProperty ,
-                   owl:TransitiveProperty ,
-                   owl:IrreflexiveProperty ;
-          rdfs:domain [ rdf:type owl:Restriction ;
-                        owl:onProperty :haSequel ;
-                        owl:someValuesFrom :OperaArtistica
-                      ] ;
-          rdfs:range [ rdf:type owl:Restriction ;
-                       owl:onProperty :haSequel ;
-                       owl:someValuesFrom :OperaArtistica
-                     ] .
+                   owl:TransitiveProperty ;
+          rdfs:domain :OperaArtistica ;
+          rdfs:range :OperaArtistica .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haTarget
 :haTarget rdf:type owl:ObjectProperty ,
                    owl:FunctionalProperty ;
-          rdfs:domain [ rdf:type owl:Restriction ;
-                        owl:onProperty :haTarget ;
-                        owl:someValuesFrom :Anime
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :haTarget ;
-                        owl:someValuesFrom :Manga
-                      ] ;
-          rdfs:range [ rdf:type owl:Restriction ;
-                       owl:onProperty :haTarget ;
-                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onClass :Target
-                     ] .
+          rdfs:domain :Anime ,
+                      :Manga ;
+          rdfs:range :Target .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/prodottoDa
+:prodottoDa rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Anime ;
+            rdfs:range :StudioAnimazione .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/pubblicatoDa
-:pubblicatoDa rdf:type owl:ObjectProperty ;
-              rdfs:domain [ rdf:type owl:Restriction ;
-                            owl:onProperty :pubblicatoDa ;
-                            owl:someValuesFrom :OperaArtistica
-                          ] ;
-              rdfs:range [ rdf:type owl:Restriction ;
-                           owl:onProperty :pubblicatoDa ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :CasaEditrice
-                         ] .
+:pubblicatoDa rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Manga ;
+              rdfs:range :CasaEditrice .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#annoPubblicazione
+:annoPubblicazione rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Anime ,
+                               :Manga ;
+                   rdfs:range xsd:gYear .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/inProduzione
+:inProduzione rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Anime ,
+                          :Manga ;
+              rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/numeroCapitoli
+:numeroCapitoli rdf:type owl:DatatypeProperty ;
+                rdfs:domain :MangaSerie ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/titoloPrincipale
+:titoloPrincipale rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Anime ,
+                              :Manga ;
+                  rdfs:range xsd:string .
 
 
 #################################################################
@@ -311,6 +320,27 @@ rdfs:label rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Target
 :Target rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Dragonball
+:Dragonball rdf:type owl:NamedIndividual ,
+                     :Stagionale ;
+            :prodottoDa :Toei .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Nakatsuru
+:Nakatsuru rdf:type owl:NamedIndividual ,
+                    :Animatore ;
+           :anima :Dragonball .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
+:Toei rdf:type owl:NamedIndividual ,
+               :StudioAnimazione .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
