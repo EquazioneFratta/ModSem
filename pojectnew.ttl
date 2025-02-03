@@ -61,6 +61,17 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#collegaDi
+:collegaDi rdf:type owl:ObjectProperty ,
+                    owl:SymmetricProperty ,
+                    owl:TransitiveProperty ;
+           rdfs:domain :Staff ;
+           rdfs:range :Staff ;
+           owl:propertyChainAxiom ( :haDiretto
+                                    :anima
+                                  ) .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/anima
 :anima rdf:type owl:ObjectProperty ;
        rdfs:domain :Animatore ;
@@ -72,6 +83,9 @@ xsd:gYear rdf:type rdfs:Datatype .
               rdfs:domain :Staff ;
               rdfs:range :StudioAnimazione ;
               owl:propertyChainAxiom ( :anima
+                                       :prodottoDa
+                                     ) ,
+                                     ( :haDiretto
                                        :prodottoDa
                                      ) .
 
@@ -117,6 +131,13 @@ xsd:gYear rdf:type rdfs:Datatype .
            rdfs:range :OperaArtistica .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haScritto
+:haScritto rdf:type owl:ObjectProperty ,
+                    owl:InverseFunctionalProperty ;
+           rdfs:domain :Autore ;
+           rdfs:range :Manga .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haSequel
 :haSequel rdf:type owl:ObjectProperty ,
                    owl:TransitiveProperty ;
@@ -127,8 +148,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haTarget
 :haTarget rdf:type owl:ObjectProperty ,
                    owl:FunctionalProperty ;
-          rdfs:domain :Anime ,
-                      :Manga ;
+          rdfs:domain :OperaNipponica ;
           rdfs:range :Target .
 
 
@@ -150,7 +170,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#annoPubblicazione
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/annoPubblicazione
 :annoPubblicazione rdf:type owl:DatatypeProperty ;
                    rdfs:domain :Anime ,
                                :Manga ;
@@ -211,18 +231,6 @@ xsd:gYear rdf:type rdfs:Datatype .
               rdfs:subClassOf :Organizzazione .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
-:Josei rdf:type owl:Class ;
-       rdfs:subClassOf :Target ;
-       rdfs:comment "Pubblico femminile adulto" .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
-:Kodomo rdf:type owl:Class ;
-        rdfs:subClassOf :Target ;
-        rdfs:comment "Bambini" .
-
-
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/LongRunning
 :LongRunning rdf:type owl:Class ;
              rdfs:subClassOf :TVSeries .
@@ -280,24 +288,6 @@ xsd:gYear rdf:type rdfs:Datatype .
          rdfs:subClassOf :Staff .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
-:Seinen rdf:type owl:Class ;
-        rdfs:subClassOf :Target ;
-        rdfs:comment "Pubblico maschile adulto" .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
-:Shonen rdf:type owl:Class ;
-        rdfs:subClassOf :Target ;
-        rdfs:comment "Teenager Maschi" .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shoujo
-:Shoujo rdf:type owl:Class ;
-        rdfs:subClassOf :Target ;
-        rdfs:comment "Teenager Femmine" .
-
-
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
 :Staff rdf:type owl:Class ;
        rdfs:subClassOf :Persona .
@@ -326,16 +316,35 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Daisuke_Nishio
+:Daisuke_Nishio rdf:type owl:NamedIndividual ,
+                         :Regista ;
+                owl:differentFrom :Nakatsuru ;
+                :haDiretto :Dragonball .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Dragonball
 :Dragonball rdf:type owl:NamedIndividual ,
                      :Stagionale ;
             :prodottoDa :Toei .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/DragonballManga
+:DragonballManga rdf:type owl:NamedIndividual ,
+                          :MangaInCorso ;
+                 :haAdattamentoAnime :Dragonball ;
+                 :haTarget :Shonen .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Nakatsuru
 :Nakatsuru rdf:type owl:NamedIndividual ,
                     :Animatore ;
            :anima :Dragonball .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
+:Shonen rdf:type owl:NamedIndividual ,
+                 :Target .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
