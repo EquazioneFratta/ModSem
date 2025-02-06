@@ -16,7 +16,7 @@ interface ResultsTableProps {
 }
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
-  // Se non ci sono risultati, mostra un messaggio
+  // Se la query non produce risultati, mostra un messaggio
   if (!results || results.length === 0) {
     return (
       <Box sx={{ textAlign: 'center', mt: 4 }}>
@@ -40,7 +40,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
                 key={column}
                 sx={{
                   fontWeight: 'bold',
-                  backgroundColor: (theme) => theme.palette.grey[200]
+                  backgroundColor: (theme) => theme.palette.grey[50]
                 }}
               >
                 {column}
@@ -53,11 +53,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
             <TableRow
               key={index}
               hover
-              sx={{
-                '&:nth-of-type(odd)': {
-                  backgroundColor: (theme) => theme.palette.action.hover
-                }
-              }}
             >
               {columns.map((column) => (
                 <TableCell key={`${index}-${column}`}>

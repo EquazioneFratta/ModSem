@@ -56,44 +56,36 @@ r2 = {
 }
 SPARQL_ENDPOINT = ""
 
-@csrf_exempt
+@csrf_exempt # Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
 def query_sparql(request):
   try:
-    data = json.loads(request.body)
+    data = json.loads(request.body) 
     id = data.get('id')
     parameters = data.get('parameters')
-
-    # Verifica esistenza della query
-    if id not in PREDEFINED_QUERIES:
-      return JsonResponse({
-        'error': 'Query non trovata', 
-        'status': 'error'
-      }, status=404)
     
-    print("id:", id)
-    print("parameters: ", parameters)
+    # Recupera la query predefinita
+    query_template = PREDEFINED_QUERIES[id]['query']
+    required_params = PREDEFINED_QUERIES[id]['required_params']
+
+    # Verifica i parametri richiesti
+    for param in required_params:
+        if param not in parameters or not parameters[param]:
+            return JsonResponse({
+                'error': f'Parametro mancante: {param}', 
+                'status': 'error'
+            }, status=400)
+
+    # Formatta la query con i parametri
+    formatted_query = query_template.format(**parameters)
+
     # return JsonResponse({"results": f"Query ricevuta"}, status=200)
     # return JsonResponse({"results": }, status=200)
-    return JsonResponse(r1)
+    return JsonResponse(r2)
 
   except Exception as e:
     return JsonResponse({"error": f"Internal Server Error: {e}"}, status=500)
     
-    # roba per quando avremo delle vere query
-        # # Recupera la query predefinita
-        # query_template = PREDEFINED_QUERIES[query_id]['query']
-        # required_params = PREDEFINED_QUERIES[query_id]['required_params']
 
-        # # Verifica dei parametri richiesti
-        # for param in required_params:
-        #     if param not in parameters or not parameters[param]:
-        #         return JsonResponse({
-        #             'error': f'Parametro mancante: {param}', 
-        #             'status': 'error'
-        #         }, status=400)
-
-        # Formatta la query con i parametri
-        # formatted_query = query_template.format(**parameters)
 
         # Configurazione endpoint SPARQL
         # sparql = SPARQLWrapper("http://your-sparql-endpoint.com/sparql")

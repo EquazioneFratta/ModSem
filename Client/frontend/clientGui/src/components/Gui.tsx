@@ -15,13 +15,12 @@ import ResultsTable from "./ResultsTable"
 const BACKEND_URL = "http://127.0.0.1:8000/";
 
 function SparqlClient() {
-  const [selectedQuery, setSelectedQuery] = useState<Query>();
-  const [paramValues, setParamValues] = useState<string[]>([]);
+  const [selectedQuery, setSelectedQuery] = useState<Query>(); //Query che si vuole eseuguire scelta da un insieme predefinito
+  const [paramValues, setParamValues] = useState<string[]>([]); // Valori dei parametri della query, array di stringhe
 
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState(); //Risultato della query, array di oggetti [{},{}]
 
-  const [isLoding, setIsLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -30,20 +29,20 @@ function SparqlClient() {
       id: 1,
       label: "Persone",
       paramLabel: ["studio", "animatore"],
-      paramValue: ["studio_param", "animatore_param"]  // Valori univoci per identificare i parametri
+      // paramValue: ["studio_param", "animatore_param"]  // Valori univoci per identificare i parametri
     },
     {
       id: 2,
       label: "Libri",
-      paramLabel: ["nomeSerie", "serializzazione"],
-      paramValue: ["serie_param", "serializzazione_param"]  // Valori univoci per identificare i parametri
+      paramLabel: ["serializzazione"],
+      // paramValue: ["serie_param", "serializzazione_param"]  // Valori univoci per identificare i parametri
     }
   ];
 
   const handleQueryChange = (_event: any, newQuery: Query | null) => {
     setSelectedQuery(newQuery || undefined);
     if (newQuery) {
-      setParamValues(new Array(newQuery.paramValue.length).fill(""));
+      setParamValues(new Array(newQuery.paramLabel.length).fill(""));
     } else {
       setParamValues([]);
     }
@@ -59,17 +58,22 @@ function SparqlClient() {
     setIsLoading(true);
     setError(false);
     setErrorMessage("");
-
+    //TODO: in caso poi si dovesse riaggiungere paramValue, sosituire sutte i paramLabel qui sotto
     if (selectedQuery) {
-      const parameterMap = selectedQuery.paramValue.reduce((acc, paramValue, index) => {
-        acc[paramValue] = paramValues[index];
+      // Trasforma l'array in un oggetto vuoto chiave-valore di tipo `Record<string, string>` 
+      // (ossia un oggetto in cui ogni chiave è una stringa e ogni valore è una stringa)
+      //acc: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
+      const parameterMap = selectedQuery.paramLabel.reduce((acc, paramLabel, i) => {
+        // Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
+        acc[paramLabel] = paramValues[i];
         return acc;
-      }, {} as Record<string, string>);
+      }, {} as Record<string, string>); // Definisce il tipo dell'oggetto vuoto iniziale
 
       const jsonData = {
         id: selectedQuery.id,
         parameters: parameterMap,
       };
+      
       try {
         const response = await fetch(
           BACKEND_URL + "sparql/",
@@ -89,9 +93,7 @@ function SparqlClient() {
           setIsLoading(false)
           setError(false);
           setErrorMessage("");
-          setSuccess(true);
           setResults(data.results);
-          console.log(results)
         } else {
           const data = await response.json();
           setError(true);
@@ -103,8 +105,6 @@ function SparqlClient() {
         setError(true);
         setErrorMessage("Server al momento non raggiungibile");
       }
-      console.log("Query selezionata:", selectedQuery.label);
-      console.log("Parametri:", parameterMap);
     }
   };
 
@@ -140,7 +140,7 @@ function SparqlClient() {
 
           {selectedQuery && selectedQuery.paramLabel.map((label, index) => (
             <TextField
-              key={`${selectedQuery.label}-${selectedQuery.paramValue[index]}`}
+              key={`${selectedQuery.label}-${selectedQuery.paramLabel[index]}`}
               sx={{ flex: 1 }}
               label={label}
               value={paramValues[index] || ""}
@@ -164,7 +164,7 @@ function SparqlClient() {
         </Box>
 
         <Box>
-          {isLoding && (
+          {isLoading && (
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
               <CircularProgress />
             </Box>
@@ -172,11 +172,7 @@ function SparqlClient() {
 
           {results && (
             <ResultsTable results={results} />
-          )
-            //  <div>
-            //    {results}
-            //  </div>
-          }
+          )}
         </Box>
 
         {error && (
