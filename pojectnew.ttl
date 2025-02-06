@@ -9,6 +9,7 @@
 @base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
 
 <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16> rdf:type owl:Ontology ;
+                                                                           owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ;
                                                                            dc:creator "Frattarola Marco" ,
                                                                                       "Ghione Alessio" ;
                                                                            dc:date "2025-01-31" ;
@@ -61,20 +62,22 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#appartieneA
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#contieneArcoNarrativoAnime
+:contieneArcoNarrativoAnime rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
+                            rdfs:domain :ArcoNarrativoItem .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haPrimoArcoNarrativo
+:haPrimoArcoNarrativo rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/appartieneA
 :appartieneA rdf:type owl:ObjectProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain :Rivista ;
              rdfs:range :CasaEditrice .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#detieneDiritti
-:detieneDiritti rdf:type owl:ObjectProperty ;
-                rdfs:domain :CasaEditrice ;
-                rdfs:range :Manga ;
-                owl:propertyChainAxiom ( :pubblicatoDa
-                                         :appartieneA
-                                       ) .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/collegaDi
@@ -86,6 +89,15 @@ xsd:gYear rdf:type rdfs:Datatype .
            owl:propertyChainAxiom ( :haAnimato
                                     :direttoDa
                                   ) .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/detieneDiritti
+:detieneDiritti rdf:type owl:ObjectProperty ;
+                rdfs:domain :CasaEditrice ;
+                rdfs:range :Manga ;
+                owl:propertyChainAxiom ( :pubblicatoDa
+                                         :appartieneA
+                                       ) .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/dipendenteDi
@@ -190,23 +202,21 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/annoPubblicazione
-:annoPubblicazione rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :Anime ,
-                               :Manga ;
-                   rdfs:range xsd:gYear .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#prezzoVolumeEuro
+:prezzoVolumeEuro rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Manga ;
+                  rdfs:range xsd:float .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/inProduzione
 :inProduzione rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Anime ,
-                          :Manga ;
+              rdfs:domain :OperaNipponica ;
               rdfs:range xsd:boolean .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/numeroCapitoli
 :numeroCapitoli rdf:type owl:DatatypeProperty ;
-                rdfs:domain :MangaSerie ;
+                rdfs:domain :ArcoNarrativoItem ;
                 rdfs:range xsd:integer .
 
 
@@ -221,23 +231,18 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Rivista
-:Rivista rdf:type owl:Class .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#ArcoNarrativoItem
+:ArcoNarrativoItem rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#RivistaMonthly
-:RivistaMonthly rdf:type owl:Class ;
-                rdfs:subClassOf :Rivista .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#EpisodioAnime
+:EpisodioAnime rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#RivistaWeekly
-:RivistaWeekly rdf:type owl:Class ;
-               rdfs:subClassOf :Rivista .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#VoiceActorOrActress
-:VoiceActorOrActress rdf:type owl:Class ;
-                     rdfs:subClassOf :Staff .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#StagioneAnime
+:StagioneAnime rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Animatore
@@ -262,10 +267,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Autore
 :Autore rdf:type owl:Class ;
-        owl:equivalentClass [ rdf:type owl:Restriction ;
-                              owl:onProperty :haScritto ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Manga
+        owl:equivalentClass [ owl:intersectionOf ( :Persona
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :haScritto ;
+                                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                     owl:onClass :Manga
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
                             ] ;
         rdfs:subClassOf :Persona .
 
@@ -287,7 +296,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaCompleto
 :MangaCompleto rdf:type owl:Class ;
-               owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+               owl:equivalentClass [ owl:intersectionOf ( :MangaSerie
+                                                          [ rdf:type owl:Restriction ;
                                                             owl:onProperty :pubblicatoDa ;
                                                             owl:someValuesFrom :Rivista
                                                           ]
@@ -303,7 +313,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaInCorso
 :MangaInCorso rdf:type owl:Class ;
-              owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+              owl:equivalentClass [ owl:intersectionOf ( :MangaSerie
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty :pubblicatoDa ;
                                                            owl:someValuesFrom :Rivista
                                                          ]
@@ -338,9 +349,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaNipponica
 :OperaNipponica rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty :haTarget ;
-                                      owl:someValuesFrom :Target
+                owl:equivalentClass [ owl:intersectionOf ( :OperaArtistica
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :haTarget ;
+                                                             owl:someValuesFrom :Target
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf :OperaArtistica .
 
@@ -356,6 +371,20 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Regista
 :Regista rdf:type owl:Class ;
          rdfs:subClassOf :Staff .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rivista
+:Rivista rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/RivistaMonthly
+:RivistaMonthly rdf:type owl:Class ;
+                rdfs:subClassOf :Rivista .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/RivistaWeekly
+:RivistaWeekly rdf:type owl:Class ;
+               rdfs:subClassOf :Rivista .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
@@ -390,39 +419,39 @@ xsd:gYear rdf:type rdfs:Datatype .
                             ] .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/VoiceActorOrActress
+:VoiceActorOrActress rdf:type owl:Class ;
+                     rdfs:subClassOf :Staff .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Josei
-:Josei rdf:type owl:NamedIndividual ,
-                :Target .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Esame_degli_Hunter
+:Esame_degli_Hunter rdf:type owl:NamedIndividual ,
+                             :ArcoNarrativoItem ;
+                    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Zoldyck_e_il_recupero_di_Killua .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Kodomo
-:Kodomo rdf:type owl:NamedIndividual ,
-                 :Target .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#HunterXHunter
+:HunterXHunter rdf:type owl:NamedIndividual ,
+                        :Stagionale ;
+               :haPrimoArcoNarrativo :Esame_degli_Hunter ;
+               :haAutore :Yoshihiro_Togashi ;
+               :haTarget :Shonen ;
+               :pubblicatoDa :Shonen_Jump ;
+               :inProduzione "false"^^xsd:boolean .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Seinen
-:Seinen rdf:type owl:NamedIndividual ,
-                 :Target .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Yoshihiro_Togashi
+:Yoshihiro_Togashi rdf:type owl:NamedIndividual ,
+                            :Autore .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Shojo
-:Shojo rdf:type owl:NamedIndividual ,
-                :Target .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Shonen_Jump
-:Shonen_Jump rdf:type owl:NamedIndividual ,
-                      :RivistaWeekly ;
-             :appartieneA :Shueisha .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Shueisha
-:Shueisha rdf:type owl:NamedIndividual ,
-                   :CasaEditrice .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Zoldyck_e_il_recupero_di_Killua
+:Zoldyck_e_il_recupero_di_Killua rdf:type owl:NamedIndividual ,
+                                          :ArcoNarrativoItem .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Daisuke_Nishio
@@ -445,7 +474,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/DragonballManga
-:DragonballManga rdf:type owl:NamedIndividual ;
+:DragonballManga rdf:type owl:NamedIndividual ,
+                          :MangaInCorso ;
                  :haAdattamentoAnime :Dragonball ;
                  :haTarget :Shonen ;
                  :pubblicatoDa :Shonen_Jump ;
@@ -458,15 +488,46 @@ xsd:gYear rdf:type rdfs:Datatype .
              :haSequel :DragonballGT .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
+:Josei rdf:type owl:NamedIndividual ,
+                :Target .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
+:Kodomo rdf:type owl:NamedIndividual ,
+                 :Target .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Nakatsuru
 :Nakatsuru rdf:type owl:NamedIndividual ,
                     :Animatore ;
            :haAnimato :Dragonball .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
+:Seinen rdf:type owl:NamedIndividual ,
+                 :Target .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shojo
+:Shojo rdf:type owl:NamedIndividual ,
+                :Target .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
 :Shonen rdf:type owl:NamedIndividual ,
                  :Target .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen_Jump
+:Shonen_Jump rdf:type owl:NamedIndividual ,
+                      :RivistaWeekly ;
+             :appartieneA :Shueisha .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shueisha
+:Shueisha rdf:type owl:NamedIndividual ,
+                   :CasaEditrice .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
