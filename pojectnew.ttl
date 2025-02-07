@@ -62,12 +62,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#contieneArcoNarrativoAnime
-:contieneArcoNarrativoAnime rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
-                            rdfs:domain :ArcoNarrativoItem .
-
-
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#haPrimoArcoNarrativo
 :haPrimoArcoNarrativo rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> .
@@ -202,12 +196,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#prezzoVolumeEuro
-:prezzoVolumeEuro rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :Manga ;
-                  rdfs:range xsd:float .
-
-
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/inProduzione
 :inProduzione rdf:type owl:DatatypeProperty ;
               rdfs:domain :OperaNipponica ;
@@ -216,8 +204,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/numeroCapitoli
 :numeroCapitoli rdf:type owl:DatatypeProperty ;
-                rdfs:domain :ArcoNarrativoItem ;
                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/prezzoVolumeEuro
+:prezzoVolumeEuro rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Manga ;
+                  rdfs:range xsd:float .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/titoloPrincipale
@@ -231,18 +224,15 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#ArcoNarrativoItem
-:ArcoNarrativoItem rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#ArcoNarrativo
+:ArcoNarrativo rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#EpisodioAnime
-:EpisodioAnime rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#StagioneAnime
-:StagioneAnime rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#MangaSerie
+:MangaSerie rdf:type owl:Class ;
+            owl:equivalentClass :MangaSerie ;
+            rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Animatore
@@ -252,7 +242,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Anime
 :Anime rdf:type owl:Class ;
-       rdfs:subClassOf :OperaNipponica .
+       rdfs:subClassOf :OperaNipponica ;
+       owl:disjointWith :Manga .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
@@ -428,30 +419,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Esame_degli_Hunter
-:Esame_degli_Hunter rdf:type owl:NamedIndividual ,
-                             :ArcoNarrativoItem ;
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Esame_Degli_Hunter
+:Esame_Degli_Hunter rdf:type owl:NamedIndividual ,
+                             :ArcoNarrativo ;
                     <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Zoldyck_e_il_recupero_di_Killua .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#HunterXHunter
-:HunterXHunter rdf:type owl:NamedIndividual ,
-                        :Stagionale ;
-               :haPrimoArcoNarrativo :Esame_degli_Hunter ;
-               :haAutore :Yoshihiro_Togashi ;
-               :haTarget :Shonen ;
-               :pubblicatoDa :Shonen_Jump ;
-               :inProduzione "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Yoshihiro_Togashi
-:Yoshihiro_Togashi rdf:type owl:NamedIndividual ,
-                            :Autore .
-
-
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Zoldyck_e_il_recupero_di_Killua
-:Zoldyck_e_il_recupero_di_Killua rdf:type owl:NamedIndividual ,
-                                          :ArcoNarrativoItem .
+:Zoldyck_e_il_recupero_di_Killua rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Daisuke_Nishio
@@ -486,6 +461,16 @@ xsd:gYear rdf:type rdfs:Datatype .
 :DragonballZ rdf:type owl:NamedIndividual ,
                       :Stagionale ;
              :haSequel :DragonballGT .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/HunterXHunter
+:HunterXHunter rdf:type owl:NamedIndividual ,
+                        :MangaCompleto ;
+               :haPrimoArcoNarrativo :Esame_Degli_Hunter ;
+               :haAutore :Yoshihiro_Togashi ;
+               :haTarget :Shonen ;
+               :pubblicatoDa :Shonen_Jump ;
+               :inProduzione "false"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
@@ -533,6 +518,11 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
 :Toei rdf:type owl:NamedIndividual ,
                :StudioAnimazione .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yoshihiro_Togashi
+:Yoshihiro_Togashi rdf:type owl:NamedIndividual ,
+                            :Autore .
 
 
 #################################################################
