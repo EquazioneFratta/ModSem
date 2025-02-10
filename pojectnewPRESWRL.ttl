@@ -9,7 +9,8 @@
 @base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
 
 <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16> rdf:type owl:Ontology ;
-                                                                           owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ;
+                                                                           owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ,
+                                                                                       <http://www.w3.org/2004/02/skos/core> ;
                                                                            dc:creator "Frattarola Marco" ,
                                                                                       "Ghione Alessio" ;
                                                                            dc:date "2025-01-31" ;
@@ -48,6 +49,10 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2000/01/rdf-schema#label
 rdfs:label rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -249,7 +254,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Anime
 :Anime rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica ;
-       owl:disjointWith :Manga .
+       owl:disjointWith :Manga ;
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "http://www.wikidata.org/entity/Q1107" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
@@ -431,93 +437,23 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Assassinio_del_portatore_della_spada
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Arena_Celeste
+:Arena_Celeste rdf:type owl:NamedIndividual ,
+                        :ArcoNarrativo ;
+               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :York_Shin_City .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Assassinio_del_portatore_della_spada
 :Assassinio_del_portatore_della_spada rdf:type owl:NamedIndividual ,
                                                :ArcoNarrativo .
 
 
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Death_Parade_Anime
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Death_Parade_Anime
 :Death_Parade_Anime rdf:type owl:NamedIndividual ,
                              :Stagionale ;
                     :prodottoDa :Madhouse ;
                     :inProduzione "false"^^xsd:boolean ;
                     :numeroEpisodi 12 .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Futabasha
-:Futabasha rdf:type owl:NamedIndividual ,
-                    :CasaEditrice .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Hoshi_Mamoru_Inu
-:Hoshi_Mamoru_Inu rdf:type owl:NamedIndividual ,
-                           :MangaOneShot ;
-                  :haSequel :Hoshi_Mamoru_Inu_2 ;
-                  :haTarget :Seinen ;
-                  :pubblicatoDa :Weekly_Manga_Action ;
-                  :titoloAlternativo "Il cane che guarda le stelle" .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Hoshi_Mamoru_Inu_2
-:Hoshi_Mamoru_Inu_2 rdf:type owl:NamedIndividual ,
-                             :MangaOneShot ;
-                    :haTarget :Seinen ;
-                    :pubblicatoDa :Weekly_Manga_Action .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Kagurabachi
-:Kagurabachi rdf:type owl:NamedIndividual ,
-                      :MangaInCorso ;
-             <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> :Assassinio_del_portatore_della_spada ,
-                                                                            :Rakuzaichi ;
-             :haPrimoArcoNarrativo :Versus_Shojo ;
-             :haTarget :Shonen ;
-             :pubblicatoDa :Shonen_Jump .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Rakuzaichi
-:Rakuzaichi rdf:type owl:NamedIndividual ,
-                     :ArcoNarrativo ;
-            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Assassinio_del_portatore_della_spada .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Takashi_Murakami
-:Takashi_Murakami rdf:type owl:NamedIndividual ,
-                           :Autore ;
-                  :haScritto :Hoshi_Mamoru_Inu .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Takeru_Hokazono
-:Takeru_Hokazono rdf:type owl:NamedIndividual ;
-                 :haScritto :Kagurabachi .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Tomoaki_Maeno
-:Tomoaki_Maeno rdf:type owl:NamedIndividual ;
-               :haDoppiato :Death_Parade_Anime .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Versus_Shojo
-:Versus_Shojo rdf:type owl:NamedIndividual ,
-                       :ArcoNarrativo ;
-              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Rakuzaichi .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Weekly_Manga_Action
-:Weekly_Manga_Action rdf:type owl:NamedIndividual ,
-                              :RivistaWeekly ;
-                     :appartieneA :Futabasha .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16#Yuzuru_Tachikawa
-:Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
-                  :haDiretto :Death_Parade_Anime .
-
-
-###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Arena_Celeste
-:Arena_Celeste rdf:type owl:NamedIndividual ,
-                        :ArcoNarrativo ;
-               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :York_Shin_City .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Elezione_Nuovo_Predisente
@@ -537,6 +473,11 @@ xsd:gYear rdf:type rdfs:Datatype .
               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Elezione_Nuovo_Predisente .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Futabasha
+:Futabasha rdf:type owl:NamedIndividual ,
+                    :CasaEditrice .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Greed_Island
 :Greed_Island rdf:type owl:NamedIndividual ,
                        :ArcoNarrativo ;
@@ -546,6 +487,22 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hiroshi_Kojina
 :Hiroshi_Kojina rdf:type owl:NamedIndividual ;
                 :haDiretto :HunterXHunterAnime .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hoshi_Mamoru_Inu
+:Hoshi_Mamoru_Inu rdf:type owl:NamedIndividual ,
+                           :MangaOneShot ;
+                  :haSequel :Hoshi_Mamoru_Inu_2 ;
+                  :haTarget :Seinen ;
+                  :pubblicatoDa :Weekly_Manga_Action ;
+                  :titoloAlternativo "Il cane che guarda le stelle" .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hoshi_Mamoru_Inu_2
+:Hoshi_Mamoru_Inu_2 rdf:type owl:NamedIndividual ,
+                             :MangaOneShot ;
+                    :haTarget :Seinen ;
+                    :pubblicatoDa :Weekly_Manga_Action .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/HunterXHunter
@@ -580,6 +537,16 @@ xsd:gYear rdf:type rdfs:Datatype .
                 :Target .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kagurabachi
+:Kagurabachi rdf:type owl:NamedIndividual ,
+                      :MangaInCorso ;
+             <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> :Assassinio_del_portatore_della_spada ,
+                                                                            :Rakuzaichi ;
+             :haPrimoArcoNarrativo :Versus_Shojo ;
+             :haTarget :Shonen ;
+             :pubblicatoDa :Shonen_Jump .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
 :Kodomo rdf:type owl:NamedIndividual ,
                  :Target .
@@ -594,6 +561,12 @@ xsd:gYear rdf:type rdfs:Datatype .
 :Megumi_Han rdf:type owl:NamedIndividual ,
                      :VoiceActorOrActress ;
             :haDoppiato :HunterXHunterAnime .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rakuzaichi
+:Rakuzaichi rdf:type owl:NamedIndividual ,
+                     :ArcoNarrativo ;
+            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Assassinio_del_portatore_della_spada .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
@@ -622,9 +595,37 @@ xsd:gYear rdf:type rdfs:Datatype .
                    :CasaEditrice .
 
 
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Takashi_Murakami
+:Takashi_Murakami rdf:type owl:NamedIndividual ,
+                           :Autore ;
+                  :haScritto :Hoshi_Mamoru_Inu .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Takeru_Hokazono
+:Takeru_Hokazono rdf:type owl:NamedIndividual ;
+                 :haScritto :Kagurabachi .
+
+
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
 :Toei rdf:type owl:NamedIndividual ,
                :StudioAnimazione .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Tomoaki_Maeno
+:Tomoaki_Maeno rdf:type owl:NamedIndividual ;
+               :haDoppiato :Death_Parade_Anime .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Versus_Shojo
+:Versus_Shojo rdf:type owl:NamedIndividual ,
+                       :ArcoNarrativo ;
+              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Rakuzaichi .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Weekly_Manga_Action
+:Weekly_Manga_Action rdf:type owl:NamedIndividual ,
+                              :RivistaWeekly ;
+                     :appartieneA :Futabasha .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/York_Shin_City
@@ -635,6 +636,11 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yoshihiro_Togashi
 :Yoshihiro_Togashi rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yuzuru_Tachikawa
+:Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
+                  :haDiretto :Death_Parade_Anime .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Zoldyck_e_il_recupero_di_Killua
