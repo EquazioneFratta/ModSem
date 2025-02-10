@@ -51,6 +51,10 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 rdfs:label rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#exactMatch
 <http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:AnnotationProperty .
 
@@ -260,12 +264,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
 :AnimeFilm rdf:type owl:Class ;
-           rdfs:subClassOf :Anime .
+           rdfs:subClassOf :Anime ;
+           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q20650540" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeSerie
 :AnimeSerie rdf:type owl:Class ;
-            rdfs:subClassOf :Anime .
+            rdfs:subClassOf :Anime ;
+            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q117467261" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/ArcoNarrativo
@@ -284,12 +290,14 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                  ) ;
                               rdf:type owl:Class
                             ] ;
-        rdfs:subClassOf :Persona .
+        rdfs:subClassOf :Persona ;
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q482980" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/CasaEditrice
 :CasaEditrice rdf:type owl:Class ;
-              rdfs:subClassOf :Organizzazione .
+              rdfs:subClassOf :Organizzazione ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2085381" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/LongRunning
@@ -299,7 +307,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Manga
 :Manga rdf:type owl:Class ;
-       rdfs:subClassOf :OperaNipponica .
+       rdfs:subClassOf :OperaNipponica ;
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8274" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaCompleto
@@ -338,22 +347,26 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaOneShot
 :MangaOneShot rdf:type owl:Class ;
-              rdfs:subClassOf :Manga .
+              rdfs:subClassOf :Manga ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q21202185" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaSerie
 :MangaSerie rdf:type owl:Class ;
             rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ,
-                            :Manga .
+                            :Manga ;
+            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q21198342" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OVA
 :OVA rdf:type owl:Class ;
-     rdfs:subClassOf :AnimeSerie .
+     rdfs:subClassOf :AnimeFilm ;
+     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q220898" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaArtistica
-:OperaArtistica rdf:type owl:Class .
+:OperaArtistica rdf:type owl:Class ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q386724" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaNipponica
@@ -370,35 +383,42 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Organizzazione
-:Organizzazione rdf:type owl:Class .
+:Organizzazione rdf:type owl:Class ;
+                <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q43229" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Persona
-:Persona rdf:type owl:Class .
+:Persona rdf:type owl:Class ;
+         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q5" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Regista
 :Regista rdf:type owl:Class ;
-         rdfs:subClassOf :Staff .
+         rdfs:subClassOf :Staff ;
+         <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q3455803" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rivista
-:Rivista rdf:type owl:Class .
+:Rivista rdf:type owl:Class ;
+         <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q15296520" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/RivistaMonthly
 :RivistaMonthly rdf:type owl:Class ;
-                rdfs:subClassOf :Rivista .
+                rdfs:subClassOf :Rivista ;
+                <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q11780435" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/RivistaWeekly
 :RivistaWeekly rdf:type owl:Class ;
-               rdfs:subClassOf :Rivista .
+               rdfs:subClassOf :Rivista ;
+               <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q12340140" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
 :Staff rdf:type owl:Class ;
-       rdfs:subClassOf :Persona .
+       rdfs:subClassOf :Persona ;
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q105764136" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Stagionale
@@ -408,12 +428,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/StudioAnimazione
 :StudioAnimazione rdf:type owl:Class ;
-                  rdfs:subClassOf :Organizzazione .
+                  rdfs:subClassOf :Organizzazione ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1107679" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/TVSeries
 :TVSeries rdf:type owl:Class ;
-          rdfs:subClassOf :AnimeSerie .
+          rdfs:subClassOf :AnimeSerie ;
+          <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q63952888" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Target
@@ -425,12 +447,14 @@ xsd:gYear rdf:type rdfs:Datatype .
                                           :Shojo
                                           :Shonen
                                         )
-                            ] .
+                            ] ;
+        <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q2604680" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/VoiceActorOrActress
 :VoiceActorOrActress rdf:type owl:Class ;
-                     rdfs:subClassOf :Staff .
+                     rdfs:subClassOf :Staff ;
+                     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2405480" .
 
 
 #################################################################
@@ -453,7 +477,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                              :Stagionale ;
                     :prodottoDa :Madhouse ;
                     :inProduzione "false"^^xsd:boolean ;
-                    :numeroEpisodi 12 .
+                    :numeroEpisodi 12 ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11320614" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Elezione_Nuovo_Predisente
@@ -475,7 +500,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Futabasha
 :Futabasha rdf:type owl:NamedIndividual ,
-                    :CasaEditrice .
+                    :CasaEditrice ;
+           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2579061" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Greed_Island
@@ -486,7 +512,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hiroshi_Kojina
 :Hiroshi_Kojina rdf:type owl:NamedIndividual ;
-                :haDiretto :HunterXHunterAnime .
+                :haDiretto :HunterXHunterAnime ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11589697" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hoshi_Mamoru_Inu
@@ -495,7 +522,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                   :haSequel :Hoshi_Mamoru_Inu_2 ;
                   :haTarget :Seinen ;
                   :pubblicatoDa :Weekly_Manga_Action ;
-                  :titoloAlternativo "Il cane che guarda le stelle" .
+                  :titoloAlternativo "Il cane che guarda le stelle" ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q16951255" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hoshi_Mamoru_Inu_2
@@ -522,19 +550,22 @@ xsd:gYear rdf:type rdfs:Datatype .
                :pubblicatoDa :Shonen_Jump ;
                :inProduzione "false"^^xsd:boolean ;
                :prezzoVolumeEuro 5.5 ;
-               :titoloAlternativo "HxH" .
+               :titoloAlternativo "HxH" ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q696071" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/HunterXHunterAnime
 :HunterXHunterAnime rdf:type owl:NamedIndividual ;
                     :prodottoDa :Madhouse ;
                     :inProduzione "false"^^xsd:boolean ;
-                    :numeroEpisodi 148 .
+                    :numeroEpisodi 148 ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q70209136" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
 :Josei rdf:type owl:NamedIndividual ,
-                :Target .
+                :Target ;
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q503106" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kagurabachi
@@ -549,18 +580,21 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
 :Kodomo rdf:type owl:NamedIndividual ,
-                 :Target .
+                 :Target ;
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q478804" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Madhouse
 :Madhouse rdf:type owl:NamedIndividual ,
-                   :StudioAnimazione .
+                   :StudioAnimazione ;
+          <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q650867" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Megumi_Han
 :Megumi_Han rdf:type owl:NamedIndividual ,
                      :VoiceActorOrActress ;
-            :haDoppiato :HunterXHunterAnime .
+            :haDoppiato :HunterXHunterAnime ;
+            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8966502" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rakuzaichi
@@ -571,49 +605,58 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
 :Seinen rdf:type owl:NamedIndividual ,
-                 :Target .
+                 :Target ;
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q237338" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shojo
 :Shojo rdf:type owl:NamedIndividual ,
-                :Target .
+                :Target ;
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q242492" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
 :Shonen rdf:type owl:NamedIndividual ,
-                 :Target .
+                 :Target ;
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q231302" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen_Jump
 :Shonen_Jump rdf:type owl:NamedIndividual ,
                       :RivistaWeekly ;
-             :appartieneA :Shueisha .
+             :appartieneA :Shueisha ;
+             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q220015" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shueisha
 :Shueisha rdf:type owl:NamedIndividual ,
-                   :CasaEditrice .
+                   :CasaEditrice ;
+          <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q844822" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Takashi_Murakami
 :Takashi_Murakami rdf:type owl:NamedIndividual ,
                            :Autore ;
-                  :haScritto :Hoshi_Mamoru_Inu .
+                  :haScritto :Hoshi_Mamoru_Inu ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11522652" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Takeru_Hokazono
 :Takeru_Hokazono rdf:type owl:NamedIndividual ;
-                 :haScritto :Kagurabachi .
+                 :haScritto :Kagurabachi ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q126006258" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Toei
 :Toei rdf:type owl:NamedIndividual ,
-               :StudioAnimazione .
+               :StudioAnimazione ;
+      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q730179" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Tomoaki_Maeno
 :Tomoaki_Maeno rdf:type owl:NamedIndividual ;
-               :haDoppiato :Death_Parade_Anime .
+               :haDoppiato :Death_Parade_Anime ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1206674" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Versus_Shojo
@@ -625,7 +668,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Weekly_Manga_Action
 :Weekly_Manga_Action rdf:type owl:NamedIndividual ,
                               :RivistaWeekly ;
-                     :appartieneA :Futabasha .
+                     :appartieneA :Futabasha ;
+                     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q922549" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/York_Shin_City
@@ -635,12 +679,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yoshihiro_Togashi
-:Yoshihiro_Togashi rdf:type owl:NamedIndividual .
+:Yoshihiro_Togashi rdf:type owl:NamedIndividual ;
+                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q550311" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yuzuru_Tachikawa
 :Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
-                  :haDiretto :Death_Parade_Anime .
+                  :haDiretto :Death_Parade_Anime ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q17350112" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Zoldyck_e_il_recupero_di_Killua
