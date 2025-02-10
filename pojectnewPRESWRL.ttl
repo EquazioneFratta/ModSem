@@ -51,6 +51,10 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 rdfs:label rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#broadMatch
+<http://www.w3.org/2004/02/skos/core#broadMatch> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
 <http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
 
@@ -259,12 +263,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 :Anime rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica ;
        owl:disjointWith :Manga ;
+       <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/VideoObject" ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "http://www.wikidata.org/entity/Q1107" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
 :AnimeFilm rdf:type owl:Class ;
            rdfs:subClassOf :Anime ;
+           <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/Movie" ;
            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q20650540" .
 
 
@@ -291,12 +297,14 @@ xsd:gYear rdf:type rdfs:Datatype .
                               rdf:type owl:Class
                             ] ;
         rdfs:subClassOf :Persona ;
-        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q482980" .
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/author" ,
+                                                         "https://www.wikidata.org/wiki/Q482980" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/CasaEditrice
 :CasaEditrice rdf:type owl:Class ;
               rdfs:subClassOf :Organizzazione ;
+              <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/publisher" ;
               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2085381" .
 
 
@@ -308,6 +316,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Manga
 :Manga rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica ;
+       <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/ComicSeries" ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8274" .
 
 
@@ -366,7 +375,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaArtistica
 :OperaArtistica rdf:type owl:Class ;
-                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q386724" .
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/CreativeWork" ,
+                                                                 "https://www.wikidata.org/wiki/Q386724" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaNipponica
@@ -384,22 +394,26 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Organizzazione
 :Organizzazione rdf:type owl:Class ;
-                <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q43229" .
+                <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q43229" ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/Organization" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Persona
 :Persona rdf:type owl:Class ;
-         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q5" .
+         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/Person" ,
+                                                          "https://www.wikidata.org/wiki/Q5" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Regista
 :Regista rdf:type owl:Class ;
          rdfs:subClassOf :Staff ;
-         <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q3455803" .
+         <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q3455803" ;
+         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/director" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rivista
 :Rivista rdf:type owl:Class ;
+         <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/Periodical" ;
          <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q15296520" .
 
 
@@ -418,7 +432,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
 :Staff rdf:type owl:Class ;
        rdfs:subClassOf :Persona ;
-       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q105764136" .
+       <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/employee" ,
+                                                        "https://www.wikidata.org/wiki/Q105764136" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Stagionale
@@ -435,6 +450,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/TVSeries
 :TVSeries rdf:type owl:Class ;
           rdfs:subClassOf :AnimeSerie ;
+          <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/VideoObject" ;
           <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q63952888" .
 
 
@@ -448,12 +464,14 @@ xsd:gYear rdf:type rdfs:Datatype .
                                           :Shonen
                                         )
                             ] ;
-        <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q2604680" .
+        <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/Audience" ,
+                                                         "https://www.wikidata.org/wiki/Q2604680" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/VoiceActorOrActress
 :VoiceActorOrActress rdf:type owl:Class ;
                      rdfs:subClassOf :Staff ;
+                     <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/actor" ;
                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2405480" .
 
 
