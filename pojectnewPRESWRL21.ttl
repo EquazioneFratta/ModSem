@@ -13,10 +13,12 @@
                                                                                        <http://www.w3.org/2004/02/skos/core> ;
                                                                            dc:creator "Frattarola Marco" ,
                                                                                       "Ghione Alessio" ;
-                                                                           dc:date "2025-01-31" ;
-                                                                           dc:description "" ;
-                                                                           dc:title "Ontologia sui media giapponesi" ;
+                                                                           dc:date "2025-01-20" ;
+                                                                           dc:description "An ontology describing various aspects of Japanese media, including anime, manga, and related concepts."@en ,
+                                                                                          "Un'ontologia che descrive vari aspetti dei media giapponesi, inclusi anime, manga e concetti correlati"@it ;
+                                                                           dc:title "Japanese Media Ontology"@en ;
                                                                            vann:preferredNamespacePrefix "jm" ;
+                                                                           vann:preferredNamespaceUri "http://www.semanticweb.org/japanese-media/" ;
                                                                            rdfs:label "Japanese media" .
 
 #################################################################
@@ -79,7 +81,9 @@ xsd:gYear rdf:type rdfs:Datatype .
 :appartieneA rdf:type owl:ObjectProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain :Rivista ;
-             rdfs:range :CasaEditrice .
+             rdfs:range :CasaEditrice ;
+             rdfs:comment "Indica la rivista a quale casa editrice appartiene"@it ;
+             rdfs:label "Appartiene a"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/collegaDi
@@ -87,7 +91,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                     owl:SymmetricProperty ,
                     owl:TransitiveProperty ;
            rdfs:domain :Staff ;
-           rdfs:range :Staff .
+           rdfs:range :Staff ;
+           rdfs:comment "Crea un collegamento che lega due colleghi"@it ;
+           rdfs:label "Collega di"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/detieneDiritti
@@ -96,7 +102,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                 rdfs:range :Manga ;
                 owl:propertyChainAxiom ( :pubblicatoDa
                                          :appartieneA
-                                       ) .
+                                       ) ;
+                rdfs:comment "Indica quale casa editrice detiene i diritti di pubblicazione di un certo manga"@it ;
+                rdfs:label "Detiene diritti"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/dipendenteDi
@@ -105,7 +113,9 @@ xsd:gYear rdf:type rdfs:Datatype .
               rdfs:range :StudioAnimazione ;
               owl:propertyChainAxiom ( :haDiretto
                                        :prodottoDa
-                                     ) .
+                                     ) ;
+              rdfs:comment "Indica di quale studio di animazione è dipendente un dipendente"@it ;
+              rdfs:label "Dipendente di"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/direttoDa
@@ -113,35 +123,45 @@ xsd:gYear rdf:type rdfs:Datatype .
            owl:inverseOf :haDiretto ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :Anime ;
-           rdfs:range :Regista .
+           rdfs:range :Regista ;
+           rdfs:comment "Indica il regista di un determinato anime"@it ;
+           rdfs:label "Diretto da"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAdattamentoAnime
 :haAdattamentoAnime rdf:type owl:ObjectProperty ;
                     rdfs:domain :Manga ;
-                    rdfs:range :Anime .
+                    rdfs:range :Anime ;
+                    rdfs:comment "Dato un manga indica quale anime è il suo adattamento"@it ;
+                    rdfs:label "Ha adattamento anime"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haAutore
 :haAutore rdf:type owl:ObjectProperty ;
           owl:inverseOf :haScritto ;
           rdf:type owl:FunctionalProperty ;
-          rdfs:domain :OperaArtistica ;
-          rdfs:range :Autore .
+          rdfs:domain :Manga ;
+          rdfs:range :Autore ;
+          rdfs:comment "Indica quale autore ha scritto una determinata opera artistica"@it ;
+          rdfs:label "Ha autore"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haDiretto
 :haDiretto rdf:type owl:ObjectProperty ,
                     owl:InverseFunctionalProperty ;
            rdfs:domain :Regista ;
-           rdfs:range :Anime .
+           rdfs:range :Anime ;
+           rdfs:comment "Indica quale aime ha diretto un certo regista"@it ;
+           rdfs:label "Ha diretto"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haDoppiato
 :haDoppiato rdf:type owl:ObjectProperty ;
             owl:inverseOf :èDoppiatoDa ;
             rdfs:domain :VoiceActorOrActress ;
-            rdfs:range :Anime .
+            rdfs:range :Anime ;
+            rdfs:comment "Indica quali anime ha doppiato un/una doppiatore/doppiatrice"@it ;
+            rdfs:label "Ha doppiato"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haLavoratoCon
@@ -151,7 +171,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                rdfs:range :Staff ;
                owl:propertyChainAxiom ( :haDiretto
                                         :èDoppiatoDa
-                                      ) .
+                                      ) ;
+               rdfs:comment "Indica con quali dipendenti ha lavorato un certo dipendente. Differisce da \"Collega di\" perché non lavorano in una stessa casa editrice, ma hanno solo collaborato"@it ;
+               rdfs:label "Ha lavorato con"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haPrequel
@@ -162,12 +184,19 @@ xsd:gYear rdf:type rdfs:Datatype .
            rdfs:range :OperaArtistica ;
            owl:propertyChainAxiom ( :haPrequel
                                     :haPrequel
-                                  ) .
+                                  ) ;
+           rdfs:comment "Indica quale opera precede l'opera in soggetto"@it ;
+           rdfs:label "Ha prequel"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haPrimoArcoNarrativo
 :haPrimoArcoNarrativo rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> .
+                      rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> ;
+                      rdf:type owl:InverseFunctionalProperty ;
+                      rdfs:domain :MangaSerie ;
+                      rdfs:range :ArcoNarrativo ;
+                      rdfs:comment "Indica qual è il primo arco narrativo di un certo manga"@it ;
+                      rdfs:label "Ha primo arco narrativo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haProdotto
@@ -175,14 +204,18 @@ xsd:gYear rdf:type rdfs:Datatype .
             owl:inverseOf :prodottoDa ;
             rdf:type owl:InverseFunctionalProperty ;
             rdfs:domain :StudioAnimazione ;
-            rdfs:range :Anime .
+            rdfs:range :Anime ;
+            rdfs:comment "Indica quale studio di animazione ha prodotto un certo anime"@it ;
+            rdfs:label "Ha prodotto"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haScritto
 :haScritto rdf:type owl:ObjectProperty ,
                     owl:InverseFunctionalProperty ;
            rdfs:domain :Autore ;
-           rdfs:range :Manga .
+           rdfs:range :Manga ;
+           rdfs:comment "Indica quali manga ha scritto un certo autore"@it ;
+           rdfs:label "Ha scritto"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haSequel
@@ -192,39 +225,54 @@ xsd:gYear rdf:type rdfs:Datatype .
           rdfs:range :OperaArtistica ;
           owl:propertyChainAxiom ( :haSequel
                                    :haSequel
-                                 ) .
+                                 ) ;
+          rdfs:comment "Indica il sequel di una certa opera artistica"@it ;
+          rdfs:label "Ha sequel"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haTarget
 :haTarget rdf:type owl:ObjectProperty ,
                    owl:FunctionalProperty ;
           rdfs:domain :OperaNipponica ;
-          rdfs:range :Target .
+          rdfs:range :Target ;
+          rdfs:comment "Indica il target di una certa opera artistica"@it ;
+          rdfs:label "Ha target"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/haUltimoArcoNrattaivo
 :haUltimoArcoNrattaivo rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem> .
+                       rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem> ;
+                       rdf:type owl:InverseFunctionalProperty ;
+                       rdfs:domain :MangaCompleto ;
+                       rdfs:range :ArcoNarrativo ;
+                       rdfs:comment "Indica qual è l'ultimo arco narrativo di un certo manga (solo se completo)"@it ;
+                       rdfs:label "Ha ultimo arco narrativo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/prodottoDa
 :prodottoDa rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain :Anime ;
-            rdfs:range :StudioAnimazione .
+            rdfs:range :StudioAnimazione ;
+            rdfs:comment "Indica da quale studio di animazione è stato prodotto un anime"@it ;
+            rdfs:label "Prodotto da"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/pubblicatoDa
 :pubblicatoDa rdf:type owl:ObjectProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain :Manga ;
-              rdfs:range :Rivista .
+              rdfs:range :Rivista ;
+              rdfs:comment "Indica il manga su che rivista è stato pubblicato"@it ;
+              rdfs:label "Pubblicato da"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/èDoppiatoDa
 :èDoppiatoDa rdf:type owl:ObjectProperty ;
              rdfs:domain :Anime ;
-             rdfs:range :VoiceActorOrActress .
+             rdfs:range :VoiceActorOrActress ;
+             rdfs:comment "Indica da quali doppiatori/doppiatrici è stato doppiato un anime"@it ;
+             rdfs:label "E' doppiato da"@it .
 
 
 #################################################################
@@ -235,40 +283,53 @@ xsd:gYear rdf:type rdfs:Datatype .
 :inProduzione rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain :OperaNipponica ;
-              rdfs:range xsd:boolean .
+              rdfs:range xsd:boolean ;
+              rdfs:comment "Indica se un'opera nipponica è in produzione (true) o è terminata (false)"@it ;
+              rdfs:label "In produzione"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/numeroEpisodi
 :numeroEpisodi rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
                rdfs:domain :AnimeSerie ;
-               rdfs:range xsd:integer .
+               rdfs:range xsd:integer ;
+               rdfs:comment "Indica con un intero il numero di episodi di una serie anime"@it ;
+               rdfs:label "Numero di episodi"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/numeroVolumi
 :numeroVolumi rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain :Manga ;
-              rdfs:range xsd:integer .
+              rdfs:range xsd:integer ;
+              rdfs:comment "Indica il numero di volumi di un manga"@it ;
+              rdfs:label "Numero volumi"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/prezzoVolumeEuro
 :prezzoVolumeEuro rdf:type owl:DatatypeProperty ,
                            owl:FunctionalProperty ;
                   rdfs:domain :Manga ;
-                  rdfs:range xsd:decimal .
+                  rdfs:range xsd:decimal ;
+                  rdfs:comment "Prezzo di un volume di un manga in euro"@it ;
+                  rdfs:label "Prezzo volume in euro"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/titoloAlternativo
 :titoloAlternativo rdf:type owl:DatatypeProperty ;
                    rdfs:domain :OperaNipponica ;
-                   rdfs:range xsd:string .
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Titolo alternativo di un'opera nipponica. Accade spesso che il titolo venga accorciato con un titolo più breve"@it ;
+                   rdfs:label "Titolo alternativo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/èStagionale
 :èStagionale rdf:type owl:DatatypeProperty ,
                       owl:FunctionalProperty ;
-             rdfs:range xsd:boolean .
+             rdfs:domain :AnimeSerie ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Indica se un anime è stagionale o long running"@it ;
+             rdfs:label "E' stagionale"@it .
 
 
 #################################################################
@@ -279,6 +340,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 :Anime rdf:type owl:Class ;
        rdfs:subClassOf :OperaNipponica ;
        owl:disjointWith :Manga ;
+       rdfs:comment "Prodotto di animazione giapponese spesso tratto da manga o videogames"@it ;
+       rdfs:label "Anime"@it ;
        <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/VideoObject" ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "http://www.wikidata.org/entity/Q1107" .
 
@@ -286,6 +349,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeFilm
 :AnimeFilm rdf:type owl:Class ;
            rdfs:subClassOf :Anime ;
+           rdfs:comment "Film di animazione giapponese"@it ;
+           rdfs:label "Film anime"@it ;
            <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/Movie" ;
            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q20650540" .
 
@@ -293,6 +358,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/AnimeSerie
 :AnimeSerie rdf:type owl:Class ;
             rdfs:subClassOf :Anime ;
+            rdfs:comment "Serie di episodi di animazione giapponese"@it ;
+            rdfs:label "Serie anime"@it ;
             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q117467261" .
 
 
@@ -317,7 +384,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                    ]
                                                  )
                                    ] ;
-               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
+               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
+               rdfs:comment "Serie di capitoli all'interno di una serie manga che descrivono lo svolgersi di eventi inerenti una \"sottostoria\""@it ;
+               rdfs:label "Arco narrativo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Autore
@@ -332,6 +401,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                               rdf:type owl:Class
                             ] ;
         rdfs:subClassOf :Persona ;
+        rdfs:comment "Persona che scrive un'opera letteraria, come i manga"@it ;
+        rdfs:label "Autore"@it ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/author" ,
                                                          "https://www.wikidata.org/wiki/Q482980" .
 
@@ -339,6 +410,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/CasaEditrice
 :CasaEditrice rdf:type owl:Class ;
               rdfs:subClassOf :Organizzazione ;
+              rdfs:comment "Organizzazione che si occupa della pubblicazione di opere letterarie"@it ;
+              rdfs:label "Casa editrice"@it ;
               <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/publisher" ;
               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2085381" .
 
@@ -354,6 +427,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                                    rdf:type owl:Class
                                  ] ;
              rdfs:subClassOf :AnimeSerie ;
+             rdfs:comment "Serie anime non divisa per stagioni ma con continua pubblicazione di episodi in maniera regolare"@it ;
+             rdfs:label "Long running"@en ;
              <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Q63952888" .
 
 
@@ -368,6 +443,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                              rdf:type owl:Class
                            ] ;
        rdfs:subClassOf :OperaNipponica ;
+       rdfs:comment "Opera scritta di origine nipponica composta da disegni e testo. E' l'equivalente del fumetto italiano. Si legge al contrario"@it ;
+       rdfs:label "Manga"@it ;
        <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/ComicSeries" ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8274" .
 
@@ -391,7 +468,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf :MangaSerie .
+               rdfs:subClassOf :MangaSerie ;
+               rdfs:comment "Serie manga di cui è stata conclusa la narrazione"@it ;
+               rdfs:label "Manga Completo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaInCorso
@@ -413,7 +492,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-              rdfs:subClassOf :MangaSerie .
+              rdfs:subClassOf :MangaSerie ;
+              rdfs:comment "Serie manga di cui la pubblicazione è ancora in corso e non è terminata"@it ;
+              rdfs:label "Manga in corso"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/MangaOneShot
@@ -431,6 +512,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                                     rdf:type owl:Class
                                   ] ;
               rdfs:subClassOf :Manga ;
+              rdfs:comment "Fumetto giapponese composto da un solo volume con storia autoconclusiva"@it ;
+              rdfs:label "Manga one shot"@en ;
               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q21202185" .
 
 
@@ -477,17 +560,23 @@ xsd:gYear rdf:type rdfs:Datatype .
                                 ] ;
             rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ,
                             :Manga ;
+            rdfs:comment "Manga composto da più volumi"@it ;
+            rdfs:label "Serie Manga"@it ;
             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q21198342" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OVA
 :OVA rdf:type owl:Class ;
      rdfs:subClassOf :AnimeFilm ;
+     rdfs:comment "Episodi o film che si discostano dalla serie originale ma con stessi personaggi"@it ;
+     rdfs:label "Original name video (OVA)"@it ;
      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q220898" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/OperaArtistica
 :OperaArtistica rdf:type owl:Class ;
+                rdfs:comment "Prodotto creato da un artista"@it ;
+                rdfs:label "Opera artistica"@it ;
                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/CreativeWork" ,
                                                                  "https://www.wikidata.org/wiki/Q386724" .
 
@@ -502,17 +591,23 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                          ) ;
                                       rdf:type owl:Class
                                     ] ;
-                rdfs:subClassOf :OperaArtistica .
+                rdfs:subClassOf :OperaArtistica ;
+                rdfs:comment "Produzione da parte di un artista giapponese"@it ;
+                rdfs:label "Opera nipponica"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Organizzazione
 :Organizzazione rdf:type owl:Class ;
+                rdfs:comment "Un'organizzazione come una scuola o una società"@it ;
+                rdfs:label "Organizzazione"@it ;
                 <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q43229" ;
                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/Organization" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Persona
 :Persona rdf:type owl:Class ;
+         rdfs:comment "Persona/individuo"@it ;
+         rdfs:label "Persona"@it ;
          <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/Person" ,
                                                           "https://www.wikidata.org/wiki/Q5" .
 
@@ -529,12 +624,16 @@ xsd:gYear rdf:type rdfs:Datatype .
                                rdf:type owl:Class
                              ] ;
          rdfs:subClassOf :Staff ;
+         rdfs:comment "Direttore della regia di un prodotto quali film, anime etc."@it ;
+         rdfs:label "Regista"@it ;
          <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q3455803" ;
          <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/director" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rivista
 :Rivista rdf:type owl:Class ;
+         rdfs:comment "Giornale sul quale vengono pubblicate notizie. Nel caso di riviste giapponesi contengono anche uscite di capitoli di manga"@it ;
+         rdfs:label "Rivista"@it ;
          <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/Periodical" ;
          <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q15296520" .
 
@@ -542,6 +641,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Staff
 :Staff rdf:type owl:Class ;
        rdfs:subClassOf :Persona ;
+       rdfs:comment "Persona che lavora per un'organizzazione"@it ;
+       rdfs:label "Dipendente"@it ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/employee" ,
                                                         "https://www.wikidata.org/wiki/Q105764136" .
 
@@ -557,12 +658,16 @@ xsd:gYear rdf:type rdfs:Datatype .
                                   rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf :AnimeSerie ;
+            rdfs:comment "Serie anime pubblicata a stagioni. Generalmente un episodio a settimana e ogni stagione intervallata da molti mesi di pausa. Un anime stagionale potrebbe non venire rinnovato e quindi lasciare la storia a metà"@it ;
+            rdfs:label "Anime stagionale"@it ;
             <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Q63952888" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/StudioAnimazione
 :StudioAnimazione rdf:type owl:Class ;
                   rdfs:subClassOf :Organizzazione ;
+                  rdfs:comment "Organizzazione che si occupa della produzione e pubblicazione di opere animate"@it ;
+                  rdfs:label "Studio di animazione"@it ;
                   <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/productionCompany" ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1107679" .
 
@@ -577,6 +682,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                                           :Shonen
                                         )
                             ] ;
+        rdfs:comment "Pubblico a cui è indirizzata un'opera giapponese"@it ;
+        rdfs:label "Target"@en ;
         <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/Audience" ,
                                                          "https://www.wikidata.org/wiki/Q2604680" .
 
@@ -593,6 +700,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                                            rdf:type owl:Class
                                          ] ;
                      rdfs:subClassOf :Staff ;
+                     rdfs:comment "Persona che utilizza la sua voce a fini lavorativi per parlare al posto di personaggi di finzione"@it ;
+                     rdfs:label "Doppiatore / doppiatrice"@it ;
                      <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/actor" ;
                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2405480" .
 
@@ -603,11 +712,15 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Arena_Celeste
 :Arena_Celeste rdf:type owl:NamedIndividual ;
-               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :York_Shin_City .
+               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :York_Shin_City ;
+               rdfs:comment "Arco narrativo di HxH che tratta le vicende di Gon e Killua nella scalata all'arena celeste"@it ;
+               rdfs:label "Arena celeste"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Assassinio_del_portatore_della_spada
-:Assassinio_del_portatore_della_spada rdf:type owl:NamedIndividual .
+:Assassinio_del_portatore_della_spada rdf:type owl:NamedIndividual ;
+                                      rdfs:comment "Arco narrativo che tratta l'assassinio del portatore della spada"@it ;
+                                      rdfs:label "Assassinio del portatore della spada"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Death_Parade_Anime
@@ -616,36 +729,50 @@ xsd:gYear rdf:type rdfs:Datatype .
                     :inProduzione "false"^^xsd:boolean ;
                     :numeroEpisodi 12 ;
                     :èStagionale "true"^^xsd:boolean ;
+                    rdfs:comment "Anime che tratta varie storie ambientate in purgatorio in cui vengono messe alla prova persone per decidere se mandarle all'inferno o in paradiso"@it ;
+                    rdfs:label "Anime di Death Parade"@it ;
                     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11320614" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Elezione_Nuovo_Predisente
-:Elezione_Nuovo_Predisente rdf:type owl:NamedIndividual .
+:Elezione_Nuovo_Predisente rdf:type owl:NamedIndividual ;
+                           rdfs:comment "Ultimo arco narrativo dell'opera HxH dove viene eletto il nuovo presidente dell'associazione degli hunter"@it ;
+                           rdfs:label "Elezione nuovo presidente"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Esame_Degli_Hunter
 :Esame_Degli_Hunter rdf:type owl:NamedIndividual ;
-                    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Zoldyck_e_il_recupero_di_Killua .
+                    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Zoldyck_e_il_recupero_di_Killua ;
+                    rdfs:comment "Primo arco narrativo del manga di HxH dove Gon si cimenta nel test per diventare hunter seguendo le orme del padre"@it ;
+                    rdfs:label "Esame degli hunter"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Formichimere
 :Formichimere rdf:type owl:NamedIndividual ;
-              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Elezione_Nuovo_Predisente .
+              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Elezione_Nuovo_Predisente ;
+              rdfs:comment "Arco di HxH che tratta l'avvento delle formichimere e lo scontro con gli hunter"@it ;
+              rdfs:label "Formichimere"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Futabasha
 :Futabasha rdf:type owl:NamedIndividual ;
+           rdfs:comment "Casa editrice giapponese con sede a Shinjuku, Tokyo"@it ;
+           rdfs:label "Futabasha"@it ;
            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q2579061" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Greed_Island
 :Greed_Island rdf:type owl:NamedIndividual ;
-              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Formichimere .
+              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Formichimere ;
+              rdfs:comment "Arco narrativo nel quale Gon e Killua entrano nel gioco Greed Island, creato dal padre di Gon"@it ;
+              rdfs:label "Greed island"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Hiroshi_Kojina
 :Hiroshi_Kojina rdf:type owl:NamedIndividual ;
                 :haDiretto :HunterXHunterAnime ;
+                rdfs:comment "Regista che lavora alla Madhouse e direttore della seconda trasposizione di HxH"@it ;
+                rdfs:label "Hiroshi Kojina"@it ;
                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11589697" .
 
 
@@ -658,6 +785,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                   :inProduzione "false"^^xsd:boolean ;
                   :numeroVolumi 1 ;
                   :titoloAlternativo "Il cane che guarda le stelle" ;
+                  rdfs:comment "Manga one shot de \"il cane che guarda le stelle\""@it ;
+                  rdfs:label "Hoshi Mamoru Inu"@ja ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q16951255" .
 
 
@@ -667,7 +796,9 @@ xsd:gYear rdf:type rdfs:Datatype .
                     :pubblicatoDa :Weekly_Manga_Action ;
                     :inProduzione "false"^^xsd:boolean ;
                     :numeroVolumi 1 ;
-                    :titoloAlternativo "Il cane che guarda le stelle 2" .
+                    :titoloAlternativo "Il cane che guarda le stelle 2" ;
+                    rdfs:comment "Sequel del manga one shot \"il cane che guarda le stelle\""@it ;
+                    rdfs:label "Hoshi Mamoru Inu 2"@ja .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/HunterXHunter
@@ -688,6 +819,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                :numeroVolumi 37 ;
                :prezzoVolumeEuro 5.5 ;
                :titoloAlternativo "HxH" ;
+               rdfs:comment "Manga di hunter x hunter,manga scritto e disegnato da Yoshihiro Togashi"@it ;
+               rdfs:label "Hunter x Hunter"@it ;
                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q696071" .
 
 
@@ -697,11 +830,15 @@ xsd:gYear rdf:type rdfs:Datatype .
                     :inProduzione "false"^^xsd:boolean ;
                     :numeroEpisodi 148 ;
                     :èStagionale "true"^^xsd:boolean ;
+                    rdfs:comment "serie televisiva anime del 2011"@it ;
+                    rdfs:label "Hunter x Hunter (Anime)"@it ;
                     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q70209136" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Josei
 :Josei rdf:type owl:NamedIndividual ;
+       rdfs:comment "manga indirizzato a un pubblico di donne adulte"@it ;
+       rdfs:label "Josei"@it ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q503106" .
 
 
@@ -713,53 +850,74 @@ xsd:gYear rdf:type rdfs:Datatype .
              :haTarget :Shonen ;
              :pubblicatoDa :Shonen_Jump ;
              :inProduzione "true"^^xsd:boolean ;
-             :numeroVolumi 5 .
+             :numeroVolumi 5.5 ,
+                           5 ;
+             rdfs:comment "manga scritto e disegnato da Takeru Hokazono"@it ;
+             rdfs:label "Kagurabachi"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Kodomo
 :Kodomo rdf:type owl:NamedIndividual ;
+        rdfs:comment "manga indirizzato a un pubblico di bambini"@it ;
+        rdfs:label "Kodomo"@it ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q478804" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Madhouse
 :Madhouse rdf:type owl:NamedIndividual ;
+          rdfs:comment "studio di animazione giapponese"@it ;
+          rdfs:label "Madhouse"@it ;
           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q650867" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Megumi_Han
 :Megumi_Han rdf:type owl:NamedIndividual ;
             :haDoppiato :HunterXHunterAnime ;
+            rdfs:comment "doppiatrice giapponese"@it ;
+            rdfs:label "Megumi Han"@it ;
             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8966502" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Rakuzaichi
 :Rakuzaichi rdf:type owl:NamedIndividual ;
-            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Assassinio_del_portatore_della_spada .
+            <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Assassinio_del_portatore_della_spada ;
+            rdfs:comment "Arco che si concentra sugli avvenimenti dell'asta Rakuzaichi"@it ;
+            rdfs:label "Rakuzaichi"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Seinen
 :Seinen rdf:type owl:NamedIndividual ;
+        rdfs:comment "manga indirizzato a un pubblico di uomini adulti"@it ;
+        rdfs:label "Seinen"@it ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q237338" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shojo
 :Shojo rdf:type owl:NamedIndividual ;
+       rdfs:comment "manga indirizzato a un pubblico femminile di ragazze"@it ;
+       rdfs:label "Shojo"@it ;
        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q242492" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen
 :Shonen rdf:type owl:NamedIndividual ;
+        rdfs:comment "manga indirizzato a un pubblico maschile di ragazzi"@it ;
+        rdfs:label "Shonen"@it ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q231302" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shonen_Jump
 :Shonen_Jump rdf:type owl:NamedIndividual ;
              :appartieneA :Shueisha ;
+             rdfs:comment "rivista settimanale giapponese di manga"@it ;
+             rdfs:label "Shonen jump"@it ;
              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q220015" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Shueisha
 :Shueisha rdf:type owl:NamedIndividual ;
+          rdfs:comment "casa editrice giapponese"@it ;
+          rdfs:label "Shueisha"@it ;
           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q844822" .
 
 
@@ -767,51 +925,69 @@ xsd:gYear rdf:type rdfs:Datatype .
 :Takashi_Murakami rdf:type owl:NamedIndividual ;
                   :haScritto :Hoshi_Mamoru_Inu ,
                              :Hoshi_Mamoru_Inu_2 ;
+                  rdfs:comment "Scrittore giapponese"@it ;
+                  rdfs:label "Takashi Murakami"@it ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11522652" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Takeru_Hokazono
 :Takeru_Hokazono rdf:type owl:NamedIndividual ;
                  :haScritto :Kagurabachi ;
+                 rdfs:comment "Autore giapponese"@it ;
+                 rdfs:label "Takeru Hokazono"@it ;
                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q126006258" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Tomoaki_Maeno
 :Tomoaki_Maeno rdf:type owl:NamedIndividual ;
                :haDoppiato :Death_Parade_Anime ;
+               rdfs:comment "Doppiatrice giapponese"@it ;
+               rdfs:label "Tomoaki Maeno"@it ;
                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1206674" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Versus_Shojo
 :Versus_Shojo rdf:type owl:NamedIndividual ;
-              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Rakuzaichi .
+              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Rakuzaichi ;
+              rdfs:comment "Arco narrativo del combattimento contro shojo"@it ;
+              rdfs:label "Versus Shojo"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Weekly_Manga_Action
 :Weekly_Manga_Action rdf:type owl:NamedIndividual ;
                      :appartieneA :Futabasha ;
+                     rdfs:comment "Rivista giapponese settimanale"@it ;
+                     rdfs:label "Weekly Manga Action"@it ;
                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q922549" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/York_Shin_City
 :York_Shin_City rdf:type owl:NamedIndividual ;
-                <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Greed_Island .
+                <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Greed_Island ;
+                rdfs:comment "Arco narrativo che tratta gli eventi accaduti alla città York Shin"@it ;
+                rdfs:label "York Shin City"@it .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yoshihiro_Togashi
 :Yoshihiro_Togashi rdf:type owl:NamedIndividual ;
+                   rdfs:comment "Scritto giapponese"@it ;
+                   rdfs:label "Yoshihiro Togashi"@it ;
                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q550311" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Yuzuru_Tachikawa
 :Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
                   :haDiretto :Death_Parade_Anime ;
+                  rdfs:comment "Regista giapponese"@it ;
+                  rdfs:label "Yuzuru Tachikawa"@it ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q17350112" .
 
 
 ###  http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/Zoldyck_e_il_recupero_di_Killua
 :Zoldyck_e_il_recupero_di_Killua rdf:type owl:NamedIndividual ;
-                                 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Arena_Celeste .
+                                 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Arena_Celeste ;
+                                 rdfs:comment "Arco narrativo che tratta della tenuta degli Zoldyck e il recupero del figlio Killua"@it ;
+                                 rdfs:label "Zoldyck e il recupero di Killua"@it .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
