@@ -1,0 +1,1742 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16">
+    <Prefix name="" IRI="http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
+    <Import>http://www.ontologydesignpatterns.org/cp/owl/list.owl</Import>
+    <Import>http://www.w3.org/2004/02/skos/core</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Frattarola Marco</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Ghione Alessio</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal>2025-01-20</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="en">An ontology describing various aspects of Japanese media, including anime, manga, and related concepts.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="it">Un&apos;ontologia che descrive vari aspetti dei media giapponesi, inclusi anime, manga e concetti correlati</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal xml:lang="en">Japanese Media Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+        <Literal>jm</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
+        <Literal>http://www.semanticweb.org/japanese-media/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal>Japanese media</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="/Anime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/AnimeFilm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/AnimeSerie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ArcoNarrativo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Autore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/CasaEditrice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/LongRunning"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Manga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MangaCompleto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MangaInCorso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MangaOneShot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MangaSerie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/OVA"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/OperaArtistica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/OperaNipponica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Organizzazione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Regista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Rivista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Staff"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Stagionale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/StudioAnimazione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Target"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/VoiceActorOrActress"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/appartieneA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/collegaDi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/detieneDiritti"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/dipendenteDi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/direttoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haAdattamentoAnime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haAutore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haDiretto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haDoppiato"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haLavoratoCon"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haPrequel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haPrimoArcoNarrativo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haProdotto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haScritto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haSequel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haTarget"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/haUltimoArcoNrattaivo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/prodottoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/èDoppiatoDa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/inProduzione"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/numeroEpisodi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/numeroVolumi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/prezzoVolumeEuro"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/titoloAlternativo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/èStagionale"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Arena_Celeste"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Assassinio_del_portatore_della_spada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Elezione_Nuovo_Predisente"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Esame_Degli_Hunter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Formichimere"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Futabasha"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Greed_Island"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Hiroshi_Kojina"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/HunterXHunter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Josei"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Kagurabachi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Kodomo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Madhouse"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Megumi_Han"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Rakuzaichi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Seinen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Shojo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Shonen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Shonen_Jump"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Shueisha"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Takashi_Murakami"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Takeru_Hokazono"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Tomoaki_Maeno"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Versus_Shojo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Weekly_Manga_Action"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/York_Shin_City"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Yoshihiro_Togashi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Yuzuru_Tachikawa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Zoldyck_e_il_recupero_di_Killua"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:gYear"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="/ArcoNarrativo"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows"/>
+                    <Class IRI="/ArcoNarrativo"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf"/>
+                    <Class IRI="/MangaSerie"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Autore"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Persona"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="/haScritto"/>
+                <Class IRI="/Manga"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/LongRunning"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/AnimeSerie"/>
+            <DataHasValue>
+                <DataProperty IRI="/èStagionale"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Manga"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/OperaNipponica"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/pubblicatoDa"/>
+                <Class IRI="/Rivista"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/MangaCompleto"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/MangaSerie"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="/numeroVolumi"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:integer"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="/inProduzione"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/MangaInCorso"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/MangaSerie"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="/numeroVolumi"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:integer"/>
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="/inProduzione"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/MangaOneShot"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Manga"/>
+            <DataHasValue>
+                <DataProperty IRI="/inProduzione"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataHasValue>
+            <DataHasValue>
+                <DataProperty IRI="/numeroVolumi"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/MangaSerie"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Manga"/>
+            <ObjectUnionOf>
+                <ObjectIntersectionOf>
+                    <DataSomeValuesFrom>
+                        <DataProperty IRI="/numeroVolumi"/>
+                        <DatatypeRestriction>
+                            <Datatype abbreviatedIRI="xsd:integer"/>
+                            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+                            </FacetRestriction>
+                        </DatatypeRestriction>
+                    </DataSomeValuesFrom>
+                    <DataHasValue>
+                        <DataProperty IRI="/inProduzione"/>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+                    </DataHasValue>
+                </ObjectIntersectionOf>
+                <ObjectIntersectionOf>
+                    <DataSomeValuesFrom>
+                        <DataProperty IRI="/numeroVolumi"/>
+                        <DatatypeRestriction>
+                            <Datatype abbreviatedIRI="xsd:integer"/>
+                            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+                            </FacetRestriction>
+                        </DatatypeRestriction>
+                    </DataSomeValuesFrom>
+                    <DataHasValue>
+                        <DataProperty IRI="/inProduzione"/>
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+                    </DataHasValue>
+                </ObjectIntersectionOf>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/OperaNipponica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/OperaArtistica"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/haTarget"/>
+                <Class IRI="/Target"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Regista"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Staff"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="/haDiretto"/>
+                <Class IRI="/Anime"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Stagionale"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/AnimeSerie"/>
+            <DataHasValue>
+                <DataProperty IRI="/èStagionale"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Target"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="/Josei"/>
+            <NamedIndividual IRI="/Kodomo"/>
+            <NamedIndividual IRI="/Seinen"/>
+            <NamedIndividual IRI="/Shojo"/>
+            <NamedIndividual IRI="/Shonen"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/VoiceActorOrActress"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Staff"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="/haDoppiato"/>
+                <Class IRI="/Anime"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="/Anime"/>
+        <Class IRI="/OperaNipponica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/AnimeFilm"/>
+        <Class IRI="/Anime"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/AnimeSerie"/>
+        <Class IRI="/Anime"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/ArcoNarrativo"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Autore"/>
+        <Class IRI="/Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/CasaEditrice"/>
+        <Class IRI="/Organizzazione"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/LongRunning"/>
+        <Class IRI="/AnimeSerie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Manga"/>
+        <Class IRI="/OperaNipponica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MangaCompleto"/>
+        <Class IRI="/MangaSerie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MangaInCorso"/>
+        <Class IRI="/MangaSerie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MangaOneShot"/>
+        <Class IRI="/Manga"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MangaSerie"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MangaSerie"/>
+        <Class IRI="/Manga"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/OVA"/>
+        <Class IRI="/AnimeFilm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/OperaNipponica"/>
+        <Class IRI="/OperaArtistica"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Regista"/>
+        <Class IRI="/Staff"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Staff"/>
+        <Class IRI="/Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Stagionale"/>
+        <Class IRI="/AnimeSerie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/StudioAnimazione"/>
+        <Class IRI="/Organizzazione"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/VoiceActorOrActress"/>
+        <Class IRI="/Staff"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="/Anime"/>
+        <Class IRI="/Manga"/>
+    </DisjointClasses>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Arena_Celeste"/>
+        <NamedIndividual IRI="/York_Shin_City"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/prodottoDa"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+        <NamedIndividual IRI="/Madhouse"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Esame_Degli_Hunter"/>
+        <NamedIndividual IRI="/Zoldyck_e_il_recupero_di_Killua"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Formichimere"/>
+        <NamedIndividual IRI="/Elezione_Nuovo_Predisente"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Greed_Island"/>
+        <NamedIndividual IRI="/Formichimere"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haDiretto"/>
+        <NamedIndividual IRI="/Hiroshi_Kojina"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haSequel"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haTarget"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <NamedIndividual IRI="/Seinen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <NamedIndividual IRI="/Weekly_Manga_Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haTarget"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+        <NamedIndividual IRI="/Seinen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+        <NamedIndividual IRI="/Weekly_Manga_Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Arena_Celeste"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Esame_Degli_Hunter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Formichimere"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Greed_Island"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/York_Shin_City"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Zoldyck_e_il_recupero_di_Killua"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haAdattamentoAnime"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haAutore"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Yoshihiro_Togashi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haPrimoArcoNarrativo"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Esame_Degli_Hunter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haTarget"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Shonen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haUltimoArcoNrattaivo"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Elezione_Nuovo_Predisente"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <NamedIndividual IRI="/Shonen_Jump"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/prodottoDa"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+        <NamedIndividual IRI="/Madhouse"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <NamedIndividual IRI="/Assassinio_del_portatore_della_spada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <NamedIndividual IRI="/Rakuzaichi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haPrimoArcoNarrativo"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <NamedIndividual IRI="/Versus_Shojo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haTarget"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <NamedIndividual IRI="/Shonen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <NamedIndividual IRI="/Shonen_Jump"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haDoppiato"/>
+        <NamedIndividual IRI="/Megumi_Han"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Rakuzaichi"/>
+        <NamedIndividual IRI="/Assassinio_del_portatore_della_spada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/appartieneA"/>
+        <NamedIndividual IRI="/Shonen_Jump"/>
+        <NamedIndividual IRI="/Shueisha"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haScritto"/>
+        <NamedIndividual IRI="/Takashi_Murakami"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haScritto"/>
+        <NamedIndividual IRI="/Takashi_Murakami"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haScritto"/>
+        <NamedIndividual IRI="/Takeru_Hokazono"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haDoppiato"/>
+        <NamedIndividual IRI="/Tomoaki_Maeno"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Versus_Shojo"/>
+        <NamedIndividual IRI="/Rakuzaichi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/appartieneA"/>
+        <NamedIndividual IRI="/Weekly_Manga_Action"/>
+        <NamedIndividual IRI="/Futabasha"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/York_Shin_City"/>
+        <NamedIndividual IRI="/Greed_Island"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/haDiretto"/>
+        <NamedIndividual IRI="/Yuzuru_Tachikawa"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes"/>
+        <NamedIndividual IRI="/Zoldyck_e_il_recupero_di_Killua"/>
+        <NamedIndividual IRI="/Arena_Celeste"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroEpisodi"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">12</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/èStagionale"/>
+        <NamedIndividual IRI="/Death_Parade_Anime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroVolumi"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/titoloAlternativo"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu"/>
+        <Literal>Il cane che guarda le stelle</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroVolumi"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/titoloAlternativo"/>
+        <NamedIndividual IRI="/Hoshi_Mamoru_Inu_2"/>
+        <Literal>Il cane che guarda le stelle 2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroVolumi"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">37</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/prezzoVolumeEuro"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/titoloAlternativo"/>
+        <NamedIndividual IRI="/HunterXHunter"/>
+        <Literal>HxH</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroEpisodi"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">148</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/èStagionale"/>
+        <NamedIndividual IRI="/HunterXHunterAnime"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/inProduzione"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/numeroVolumi"/>
+        <NamedIndividual IRI="/Kagurabachi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">5</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/haPrimoArcoNarrativo"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/haUltimoArcoNrattaivo"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/direttoDa"/>
+        <ObjectProperty IRI="/haDiretto"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/haAutore"/>
+        <ObjectProperty IRI="/haScritto"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/haDoppiato"/>
+        <ObjectProperty IRI="/èDoppiatoDa"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/haPrequel"/>
+        <ObjectProperty IRI="/haSequel"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/haProdotto"/>
+        <ObjectProperty IRI="/prodottoDa"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/appartieneA"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/direttoDa"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/haAutore"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/haTarget"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/prodottoDa"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="/haDiretto"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="/haProdotto"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="/haScritto"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="/collegaDi"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="/haLavoratoCon"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="/collegaDi"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="/haPrequel"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="/haSequel"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/appartieneA"/>
+        <Class IRI="/Rivista"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/collegaDi"/>
+        <Class IRI="/Staff"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/detieneDiritti"/>
+        <Class IRI="/CasaEditrice"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/dipendenteDi"/>
+        <Class IRI="/Staff"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/direttoDa"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haAdattamentoAnime"/>
+        <Class IRI="/Manga"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haAutore"/>
+        <Class IRI="/OperaArtistica"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haDiretto"/>
+        <Class IRI="/Regista"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haDoppiato"/>
+        <Class IRI="/VoiceActorOrActress"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haLavoratoCon"/>
+        <Class IRI="/Staff"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haPrequel"/>
+        <Class IRI="/OperaArtistica"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haProdotto"/>
+        <Class IRI="/StudioAnimazione"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haScritto"/>
+        <Class IRI="/Autore"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haSequel"/>
+        <Class IRI="/OperaArtistica"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/haTarget"/>
+        <Class IRI="/OperaNipponica"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/prodottoDa"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <Class IRI="/Manga"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/èDoppiatoDa"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/appartieneA"/>
+        <Class IRI="/CasaEditrice"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/collegaDi"/>
+        <Class IRI="/Staff"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/detieneDiritti"/>
+        <Class IRI="/Manga"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/dipendenteDi"/>
+        <Class IRI="/StudioAnimazione"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/direttoDa"/>
+        <Class IRI="/Regista"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haAdattamentoAnime"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haAutore"/>
+        <Class IRI="/Autore"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haDiretto"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haDoppiato"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haLavoratoCon"/>
+        <Class IRI="/Staff"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haPrequel"/>
+        <Class IRI="/OperaArtistica"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haProdotto"/>
+        <Class IRI="/Anime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haScritto"/>
+        <Class IRI="/Manga"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haSequel"/>
+        <Class IRI="/OperaArtistica"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/haTarget"/>
+        <Class IRI="/Target"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/prodottoDa"/>
+        <Class IRI="/StudioAnimazione"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/pubblicatoDa"/>
+        <Class IRI="/Rivista"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/èDoppiatoDa"/>
+        <Class IRI="/VoiceActorOrActress"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="/haDiretto"/>
+            <ObjectProperty IRI="/prodottoDa"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="/dipendenteDi"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="/haDiretto"/>
+            <ObjectProperty IRI="/èDoppiatoDa"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="/haLavoratoCon"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="/haPrequel"/>
+            <ObjectProperty IRI="/haPrequel"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="/haPrequel"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="/haSequel"/>
+            <ObjectProperty IRI="/haSequel"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="/haSequel"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="/pubblicatoDa"/>
+            <ObjectProperty IRI="/appartieneA"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="/detieneDiritti"/>
+    </SubObjectPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/inProduzione"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/numeroEpisodi"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/numeroVolumi"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/prezzoVolumeEuro"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/èStagionale"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="/inProduzione"/>
+        <Class IRI="/OperaNipponica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/numeroEpisodi"/>
+        <Class IRI="/AnimeSerie"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/numeroVolumi"/>
+        <Class IRI="/Manga"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/prezzoVolumeEuro"/>
+        <Class IRI="/Manga"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/titoloAlternativo"/>
+        <Class IRI="/OperaNipponica"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="/inProduzione"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/numeroEpisodi"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/numeroVolumi"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/prezzoVolumeEuro"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/titoloAlternativo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/èStagionale"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Anime</IRI>
+        <Literal xml:lang="it">Prodotto di animazione giapponese spesso tratto da manga o videogames</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Anime</IRI>
+        <Literal xml:lang="it">Anime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/Anime</IRI>
+        <Literal>https://schema.org/VideoObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Anime</IRI>
+        <Literal>http://www.wikidata.org/entity/Q1107</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/AnimeFilm</IRI>
+        <Literal xml:lang="it">Film di animazione giapponese</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/AnimeFilm</IRI>
+        <Literal xml:lang="it">Film anime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/AnimeFilm</IRI>
+        <Literal>https://schema.org/Movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/AnimeFilm</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q20650540</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/AnimeSerie</IRI>
+        <Literal xml:lang="it">Serie di episodi di animazione giapponese</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/AnimeSerie</IRI>
+        <Literal xml:lang="it">Serie anime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/AnimeSerie</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q117467261</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/ArcoNarrativo</IRI>
+        <Literal xml:lang="it">Serie di capitoli all&apos;interno di una serie manga che descrivono lo svolgersi di eventi inerenti una &quot;sottostoria&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ArcoNarrativo</IRI>
+        <Literal xml:lang="it">Arco narrativo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Autore</IRI>
+        <Literal xml:lang="it">Persona che scrive un&apos;opera letteraria, come i manga</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Autore</IRI>
+        <Literal xml:lang="it">Autore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Autore</IRI>
+        <Literal>https://schema.org/author</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Autore</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q482980</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/CasaEditrice</IRI>
+        <Literal xml:lang="it">Organizzazione che si occupa della pubblicazione di opere letterarie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/CasaEditrice</IRI>
+        <Literal xml:lang="it">Casa editrice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/CasaEditrice</IRI>
+        <Literal>https://schema.org/publisher</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/CasaEditrice</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q2085381</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Death_Parade_Anime</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q11320614</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Futabasha</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q2579061</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Hiroshi_Kojina</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q11589697</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Hoshi_Mamoru_Inu</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q16951255</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/HunterXHunter</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q696071</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/HunterXHunterAnime</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q70209136</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Josei</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q503106</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Kodomo</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q478804</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/LongRunning</IRI>
+        <Literal xml:lang="it">Serie anime non divisa per stagioni ma con continua pubblicazione di episodi in maniera regolare</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/LongRunning</IRI>
+        <Literal xml:lang="en">Long running</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/LongRunning</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q63952888</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Madhouse</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q650867</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Manga</IRI>
+        <Literal xml:lang="it">Opera scritta di origine nipponica composta da disegni e testo. E&apos; l&apos;equivalente del fumetto italiano. Si legge al contrario</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Manga</IRI>
+        <Literal xml:lang="it">Manga</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Manga</IRI>
+        <Literal>https://schema.org/ComicSeries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Manga</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q8274</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/MangaCompleto</IRI>
+        <Literal xml:lang="it">Serie manga di cui è stata conclusa la narrazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/MangaCompleto</IRI>
+        <Literal xml:lang="it">Manga Completo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/MangaInCorso</IRI>
+        <Literal xml:lang="it">Serie manga di cui la pubblicazione è ancora in corso e non è terminata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/MangaInCorso</IRI>
+        <Literal xml:lang="it">Manga in corso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/MangaOneShot</IRI>
+        <Literal xml:lang="it">Fumetto giapponese composto da un solo volume con storia autoconclusiva</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/MangaOneShot</IRI>
+        <Literal xml:lang="en">Manga one shot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/MangaOneShot</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q21202185</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/MangaSerie</IRI>
+        <Literal xml:lang="it">Manga composto da più volumi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/MangaSerie</IRI>
+        <Literal xml:lang="it">Serie Manga</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/MangaSerie</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q21198342</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Megumi_Han</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q8966502</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/OVA</IRI>
+        <Literal xml:lang="it">Episodi o film che si discostano dalla serie originale ma con stessi personaggi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/OVA</IRI>
+        <Literal xml:lang="it">Original name video (OVA)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/OVA</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q220898</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/OperaArtistica</IRI>
+        <Literal xml:lang="it">Prodotto creato da un artista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/OperaArtistica</IRI>
+        <Literal xml:lang="it">Opera artistica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/OperaArtistica</IRI>
+        <Literal>https://schema.org/CreativeWork</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/OperaArtistica</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q386724</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/OperaNipponica</IRI>
+        <Literal xml:lang="it">Produzione da parte di un artista giapponese</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/OperaNipponica</IRI>
+        <Literal xml:lang="it">Opera nipponica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Organizzazione</IRI>
+        <Literal xml:lang="it">Un&apos;organizzazione come una scuola o una società</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Organizzazione</IRI>
+        <Literal xml:lang="it">Organizzazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Organizzazione</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q43229</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Organizzazione</IRI>
+        <Literal>https://schema.org/Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Persona</IRI>
+        <Literal xml:lang="it">Persona/individuo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Persona</IRI>
+        <Literal xml:lang="it">Persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Persona</IRI>
+        <Literal>https://schema.org/Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Persona</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q5</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Regista</IRI>
+        <Literal xml:lang="it">Direttore della regia di un prodotto quali film, anime etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Regista</IRI>
+        <Literal xml:lang="it">Regista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Regista</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q3455803</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Regista</IRI>
+        <Literal>https://schema.org/director</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Rivista</IRI>
+        <Literal xml:lang="it">Giornale sul quale vengono pubblicate notizie. Nel caso di riviste giapponesi contengono anche uscite di capitoli di manga</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Rivista</IRI>
+        <Literal xml:lang="it">Rivista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/Rivista</IRI>
+        <Literal>https://schema.org/Periodical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Rivista</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q15296520</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Seinen</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q237338</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Shojo</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q242492</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Shonen</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q231302</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Shonen_Jump</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q220015</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Shueisha</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q844822</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Staff</IRI>
+        <Literal xml:lang="it">Persona che lavora per un&apos;organizzazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Staff</IRI>
+        <Literal xml:lang="it">Dipendente</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Staff</IRI>
+        <Literal>https://schema.org/employee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Staff</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q105764136</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Stagionale</IRI>
+        <Literal xml:lang="it">Serie anime pubblicata a stagioni. Generalmente un episodio a settimana e ogni stagione intervallata da molti mesi di pausa. Un anime stagionale potrebbe non venire rinnovato e quindi lasciare la storia a metà</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Stagionale</IRI>
+        <Literal xml:lang="it">Anime stagionale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/Stagionale</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q63952888</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/StudioAnimazione</IRI>
+        <Literal xml:lang="it">Organizzazione che si occupa della produzione e pubblicazione di opere animate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/StudioAnimazione</IRI>
+        <Literal xml:lang="it">Studio di animazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/StudioAnimazione</IRI>
+        <Literal>https://schema.org/productionCompany</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/StudioAnimazione</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q1107679</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Takashi_Murakami</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q11522652</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Takeru_Hokazono</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q126006258</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Target</IRI>
+        <Literal xml:lang="it">Pubblico a cui è indirizzata un&apos;opera giapponese</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Target</IRI>
+        <Literal xml:lang="en">Target</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Target</IRI>
+        <Literal>https://schema.org/Audience</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <IRI>/Target</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q2604680</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Tomoaki_Maeno</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q1206674</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/VoiceActorOrActress</IRI>
+        <Literal xml:lang="it">Persona che utilizza la sua voce a fini lavorativi per parlare al posto di personaggi di finzione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/VoiceActorOrActress</IRI>
+        <Literal xml:lang="it">Doppiatore / doppiatrice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <IRI>/VoiceActorOrActress</IRI>
+        <Literal>https://schema.org/actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/VoiceActorOrActress</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q2405480</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Weekly_Manga_Action</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q922549</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Yoshihiro_Togashi</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q550311</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <IRI>/Yuzuru_Tachikawa</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q17350112</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/appartieneA</IRI>
+        <Literal xml:lang="it">Appartiene a</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
