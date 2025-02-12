@@ -10,8 +10,7 @@
 @base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
 
 <http://www.semanticweb.org/japanese-media/> rdf:type owl:Ontology ;
-                                              owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ,
-                                                          <http://www.w3.org/2004/02/skos/core> ;
+                                              owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ;
                                               dc:creator "Frattarola Marco" ,
                                                          "Ghione Alessio" ;
                                               dc:date "2025-01-20" ;
@@ -87,6 +86,17 @@ jm:appartieneA rdf:type owl:ObjectProperty ,
                rdfs:label "Appartiene a"@it .
 
 
+###  http://www.semanticweb.org/japanese-media/arcoNarrativoDi
+jm:arcoNarrativoDi rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
+                   owl:inverseOf jm:haArcoNarrativo ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain jm:ArcoNarrativo ;
+                   rdfs:range jm:MangaSerie ;
+                   rdfs:comment "Indica a quale manga appartiene un arco narrativo"@it ;
+                   rdfs:label "Arco narrativo di"@it .
+
+
 ###  http://www.semanticweb.org/japanese-media/collegaDi
 jm:collegaDi rdf:type owl:ObjectProperty ,
                       owl:SymmetricProperty ,
@@ -135,6 +145,16 @@ jm:haAdattamentoAnime rdf:type owl:ObjectProperty ;
                       rdfs:range jm:Anime ;
                       rdfs:comment "Dato un manga indica quale anime è il suo adattamento"@it ;
                       rdfs:label "Ha adattamento anime"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/haArcoNarrativo
+jm:haArcoNarrativo rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ;
+                   rdf:type owl:InverseFunctionalProperty ;
+                   rdfs:domain jm:MangaSerie ;
+                   rdfs:range jm:ArcoNarrativo ;
+                   rdfs:comment "indica quale archi narrativi ha un manga"@it ;
+                   rdfs:label "Ha arco narrativo"@it .
 
 
 ###  http://www.semanticweb.org/japanese-media/haAutore
@@ -804,13 +824,13 @@ jm:Hoshi_Mamoru_Inu_2 rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/HunterXHunter
 jm:HunterXHunter rdf:type owl:NamedIndividual ;
-                 <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> jm:Arena_Celeste ,
-                                                                                jm:Esame_Degli_Hunter ,
-                                                                                jm:Formichimere ,
-                                                                                jm:Greed_Island ,
-                                                                                jm:York_Shin_City ,
-                                                                                jm:Zoldyck_e_il_recupero_di_Killua ;
                  jm:haAdattamentoAnime jm:HunterXHunterAnime ;
+                 jm:haArcoNarrativo jm:Arena_Celeste ,
+                                    jm:Esame_Degli_Hunter ,
+                                    jm:Formichimere ,
+                                    jm:Greed_Island ,
+                                    jm:York_Shin_City ,
+                                    jm:Zoldyck_e_il_recupero_di_Killua ;
                  jm:haAutore jm:Yoshihiro_Togashi ;
                  jm:haPrimoArcoNarrativo jm:Esame_Degli_Hunter ;
                  jm:haTarget jm:Shonen ;
@@ -845,8 +865,8 @@ jm:Josei rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Kagurabachi
 jm:Kagurabachi rdf:type owl:NamedIndividual ;
-               <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> jm:Assassinio_del_portatore_della_spada ,
-                                                                              jm:Rakuzaichi ;
+               jm:haArcoNarrativo jm:Assassinio_del_portatore_della_spada ,
+                                  jm:Rakuzaichi ;
                jm:haPrimoArcoNarrativo jm:Versus_Shojo ;
                jm:haTarget jm:Shonen ;
                jm:pubblicatoDa jm:Shonen_Jump ;
