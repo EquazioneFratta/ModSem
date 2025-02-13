@@ -812,7 +812,7 @@ jm:CloverWorks rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017
 jm:Crunchyroll_anime_of_the_year_2017 rdf:type owl:NamedIndividual ;
-                                      owl:differentFrom jm:Crunchyroll_anime_of_the_year_2022 ;
+                                      <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> jm:Crunchyroll_anime_of_the_year_2022 ;
                                       rdfs:comment "Premio annuale dato al miglior anime da Crunchyroll annata 2017"@it ;
                                       rdfs:label "Crunchyroll anime of the year 2017"@en ;
                                       <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/award" ,
@@ -821,6 +821,7 @@ jm:Crunchyroll_anime_of_the_year_2017 rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022
 jm:Crunchyroll_anime_of_the_year_2022 rdf:type owl:NamedIndividual ;
+                                      <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> jm:Crunchyroll_anime_of_the_year_2017 ;
                                       rdfs:comment "Premio annuale dato al miglior anime da Crunchyroll annata 2022"@it ;
                                       rdfs:label "Crunchyroll anime of the year 2022"@en ;
                                       <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/award" ,
