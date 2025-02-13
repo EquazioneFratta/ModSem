@@ -10,7 +10,8 @@
 @base <http://www.semanticweb.org/marco/ontologies/2025/0/untitled-ontology-16/> .
 
 <http://www.semanticweb.org/japanese-media/> rdf:type owl:Ontology ;
-                                              owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ;
+                                              owl:imports <http://www.ontologydesignpatterns.org/cp/owl/list.owl> ,
+                                                          <http://www.ontologydesignpatterns.org/cp/owl/participation.owl> ;
                                               dc:creator "Frattarola Marco" ,
                                                          "Ghione Alessio" ;
                                               dc:date "2025-01-20" ;
@@ -252,8 +253,9 @@ jm:haSequel rdf:type owl:ObjectProperty ,
 
 
 ###  http://www.semanticweb.org/japanese-media/haTarget
-jm:haTarget rdf:type owl:ObjectProperty ,
-                     owl:FunctionalProperty ;
+jm:haTarget rdf:type owl:ObjectProperty ;
+            owl:inverseOf jm:èTargetDi ;
+            rdf:type owl:FunctionalProperty ;
             rdfs:domain jm:OperaNipponica ;
             rdfs:range jm:Target ;
             rdfs:comment "Indica il target di una certa opera artistica"@it ;
@@ -268,6 +270,17 @@ jm:haUltimoArcoNrattaivo rdf:type owl:ObjectProperty ;
                          rdfs:range jm:ArcoNarrativo ;
                          rdfs:comment "Indica qual è l'ultimo arco narrativo di un certo manga (solo se completo)"@it ;
                          rdfs:label "Ha ultimo arco narrativo"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/haVincitore
+jm:haVincitore rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant> ;
+               owl:inverseOf jm:èVincitoreDi ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> ;
+               rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> ;
+               rdfs:comment "Dato un evento, indica chi ha vinto tale evento"@it ;
+               rdfs:label "Ha vincitore"@it .
 
 
 ###  http://www.semanticweb.org/japanese-media/prodottoDa
@@ -294,6 +307,25 @@ jm:èDoppiatoDa rdf:type owl:ObjectProperty ;
                rdfs:range jm:VoiceActorOrActress ;
                rdfs:comment "Indica da quali doppiatori/doppiatrici è stato doppiato un anime"@it ;
                rdfs:label "E' doppiato da"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/èTargetDi
+jm:èTargetDi rdf:type owl:ObjectProperty ,
+                      owl:InverseFunctionalProperty ;
+             rdfs:domain jm:Target ;
+             rdfs:range jm:OperaNipponica ;
+             rdfs:comment "Indica di quali opere è target un target"@it ;
+             rdfs:label "E' target di"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/èVincitoreDi
+jm:èVincitoreDi rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> ;
+                rdf:type owl:InverseFunctionalProperty ;
+                rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> ;
+                rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> ;
+                rdfs:comment "Indica iil vincitore di un evento"@it ;
+                rdfs:label "E' vincitore di"@it .
 
 
 #################################################################
@@ -365,6 +397,15 @@ jm:Anime rdf:type owl:Class ;
          rdfs:label "Anime"@it ;
          <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/VideoObject" ;
          <http://www.w3.org/2004/02/skos/core#exactMatch> "http://www.wikidata.org/entity/Q1107" .
+
+
+###  http://www.semanticweb.org/japanese-media/AnimeAward
+jm:AnimeAward rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> ;
+              rdfs:comment "Premio annuale per migliori anime"@it ;
+              rdfs:label "Anime award"@it ;
+              <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/award" ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q105725170" .
 
 
 ###  http://www.semanticweb.org/japanese-media/AnimeFilm
@@ -596,6 +637,7 @@ jm:OVA rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/japanese-media/OperaArtistica
 jm:OperaArtistica rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> ;
                   rdfs:comment "Prodotto creato da un artista"@it ;
                   rdfs:label "Opera artistica"@it ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/CreativeWork" ,
@@ -731,6 +773,14 @@ jm:VoiceActorOrActress rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/japanese-media/Aoi_Yuuki
+jm:Aoi_Yuuki rdf:type owl:NamedIndividual ;
+             jm:haDoppiato jm:Cyberpunk_Edgerunners ;
+             rdfs:comment "Doppiatrice giapponese" ;
+             rdfs:label "Aoi Yuuki"@it ;
+             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1347031" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Arena_Celeste
 jm:Arena_Celeste rdf:type owl:NamedIndividual ;
                  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> jm:York_Shin_City ;
@@ -742,6 +792,53 @@ jm:Arena_Celeste rdf:type owl:NamedIndividual ;
 jm:Assassinio_del_portatore_della_spada rdf:type owl:NamedIndividual ;
                                         rdfs:comment "Arco narrativo che tratta l'assassinio del portatore della spada"@it ;
                                         rdfs:label "Assassinio del portatore della spada"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki
+jm:Atsumi_Tanezaki rdf:type owl:NamedIndividual ;
+                   jm:haDoppiato jm:SpyXFamily ;
+                   rdfs:comment "Doppiatrice giapponese"@it ;
+                   rdfs:label "Atsumi Tanezaki"@it ;
+                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q3183413" .
+
+
+###  http://www.semanticweb.org/japanese-media/CloverWorks
+jm:CloverWorks rdf:type owl:NamedIndividual ;
+               jm:haProdotto jm:SpyXFamily ;
+               rdfs:comment "Studio animazione giapponese"@it ;
+               rdfs:label "CloverWorks"@it ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q52700115" .
+
+
+###  http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017
+jm:Crunchyroll_anime_of_the_year_2017 rdf:type owl:NamedIndividual ;
+                                      owl:differentFrom jm:Crunchyroll_anime_of_the_year_2022 ;
+                                      rdfs:comment "Premio annuale dato al miglior anime da Crunchyroll annata 2017"@it ;
+                                      rdfs:label "Crunchyroll anime of the year 2017"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/award" ,
+                                                                                       "https://www.wikidata.org/wiki/Q28408321" .
+
+
+###  http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022
+jm:Crunchyroll_anime_of_the_year_2022 rdf:type owl:NamedIndividual ;
+                                      rdfs:comment "Premio annuale dato al miglior anime da Crunchyroll annata 2022"@it ;
+                                      rdfs:label "Crunchyroll anime of the year 2022"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#broadMatch> "https://schema.org/award" ,
+                                                                                       "https://www.wikidata.org/wiki/Q28408321" .
+
+
+###  http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners
+jm:Cyberpunk_Edgerunners rdf:type owl:NamedIndividual ;
+                         jm:haTarget jm:Shonen ;
+                         jm:prodottoDa jm:Trigger ;
+                         jm:èVincitoreDi jm:Crunchyroll_anime_of_the_year_2022 ;
+                         jm:inProduzione "false"^^xsd:boolean ;
+                         jm:numeroEpisodi 10 ;
+                         jm:titoloAlternativo "Cyberpunk" ;
+                         jm:èStagionale "true"^^xsd:boolean ;
+                         rdfs:comment "Anime di cyberpunk"@it ;
+                         rdfs:label "Cyberpunk: Edgerunners"@it ;
+                         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q96677963" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Death_Parade_Anime
@@ -795,6 +892,14 @@ jm:Hiroshi_Kojina rdf:type owl:NamedIndividual ;
                   rdfs:comment "Regista che lavora alla Madhouse e direttore della seconda trasposizione di HxH"@it ;
                   rdfs:label "Hiroshi Kojina"@it ;
                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11589697" .
+
+
+###  http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi
+jm:Hiroyuki_Imaishi rdf:type owl:NamedIndividual ;
+                    jm:haDiretto jm:Cyberpunk_Edgerunners ;
+                    rdfs:comment "Regista giapponese"@it ;
+                    rdfs:label "Hiroyuki Imaishi" ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q3023829" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu
@@ -877,6 +982,38 @@ jm:Kagurabachi rdf:type owl:NamedIndividual ;
                rdfs:label "Kagurabachi"@it .
 
 
+###  http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi
+jm:Kazuhiro_Furuhashi rdf:type owl:NamedIndividual ;
+                      jm:haDiretto jm:SpyXFamily ;
+                      rdfs:comment "Regista giapponese"@it ;
+                      rdfs:label "Kazuhiro Furuhashi"@it ;
+                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q377730" .
+
+
+###  http://www.semanticweb.org/japanese-media/Kengo_Kawanishi
+jm:Kengo_Kawanishi rdf:type owl:NamedIndividual ;
+                   jm:haDoppiato jm:March_Comes_in_Like_a_Lion ;
+                   rdfs:comment "Doppiatore giapponese"@it ;
+                   rdfs:label "Kengo Kawanishi"@it ;
+                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11554087" .
+
+
+###  http://www.semanticweb.org/japanese-media/Kenjirou_Okada
+jm:Kenjirou_Okada rdf:type owl:NamedIndividual ;
+                  jm:haDiretto jm:March_Comes_in_Like_a_Lion ;
+                  rdfs:comment "Regista giapponese"@it ;
+                  rdfs:label "Kenjirou Okada"@it ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q104236965" .
+
+
+###  http://www.semanticweb.org/japanese-media/Kinema_Citrus
+jm:Kinema_Citrus rdf:type owl:NamedIndividual ;
+                 jm:haProdotto jm:Made_in_abyss ;
+                 rdfs:comment "Studio animazione giapponese"@it ;
+                 rdfs:label "Kinema Citrus"@it ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q6410686" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Kodomo
 jm:Kodomo rdf:type owl:NamedIndividual ;
           rdfs:comment "manga indirizzato a un pubblico di bambini"@it ;
@@ -884,11 +1021,73 @@ jm:Kodomo rdf:type owl:NamedIndividual ;
           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q478804" .
 
 
+###  http://www.semanticweb.org/japanese-media/Kojima_Masayuki
+jm:Kojima_Masayuki rdf:type owl:NamedIndividual ;
+                   jm:haDiretto jm:Made_in_abyss ;
+                   rdfs:comment "Regista giapponese"@it ;
+                   rdfs:label "Kojima Masayuki"@it ;
+                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q219332" .
+
+
+###  http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous
+jm:Land_of_the_Lustrous rdf:type owl:NamedIndividual ;
+                        <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> jm:Crunchyroll_anime_of_the_year_2017 ;
+                        jm:haTarget jm:Seinen ;
+                        jm:inProduzione "false"^^xsd:boolean ;
+                        jm:numeroEpisodi 13 ;
+                        jm:èStagionale "true"^^xsd:boolean ;
+                        rdfs:comment "Anime giapponese"@it ;
+                        rdfs:label "Houseki no Kuni"@ja ,
+                                   "Land of the Lustrous"@it ;
+                        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q53877791" .
+
+
+###  http://www.semanticweb.org/japanese-media/MAPPA
+jm:MAPPA rdf:type owl:NamedIndividual ;
+         jm:haProdotto jm:Shingeki_no_Kyojin:_The_Final_Season ;
+         rdfs:comment "Studio di animazione giapponese"@it ;
+         rdfs:label "MAPPA"@it ;
+         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11231001" .
+
+
+###  http://www.semanticweb.org/japanese-media/Made_in_abyss
+jm:Made_in_abyss rdf:type owl:NamedIndividual ;
+                 jm:haTarget jm:Seinen ;
+                 jm:èVincitoreDi jm:Crunchyroll_anime_of_the_year_2017 ;
+                 jm:inProduzione "true"^^xsd:boolean ;
+                 jm:numeroEpisodi 13 ;
+                 jm:èStagionale "true"^^xsd:boolean ;
+                 rdfs:comment "Anime giapponese"@it ;
+                 rdfs:label "Made in abyss"@it ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q61853333" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Madhouse
 jm:Madhouse rdf:type owl:NamedIndividual ;
             rdfs:comment "studio di animazione giapponese"@it ;
             rdfs:label "Madhouse"@it ;
             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q650867" .
+
+
+###  http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion
+jm:March_Comes_in_Like_a_Lion rdf:type owl:NamedIndividual ;
+                              <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> jm:Crunchyroll_anime_of_the_year_2017 ;
+                              jm:haTarget jm:Seinen ;
+                              jm:inProduzione "false"^^xsd:boolean ;
+                              jm:numeroEpisodi 22 ;
+                              jm:titoloAlternativo "3-gatsu" ;
+                              jm:èStagionale "true"^^xsd:boolean ;
+                              rdfs:comment "Anime giapponese"@it ;
+                              rdfs:label "March Comes in Like a Lion"@it ,
+                                         "Sangatsu no Lion"@ja .
+
+
+###  http://www.semanticweb.org/japanese-media/Mariya_Ise
+jm:Mariya_Ise rdf:type owl:NamedIndividual ;
+              jm:haDoppiato jm:Made_in_abyss ;
+              rdfs:comment "Doppiatrice giapponese"@it ;
+              rdfs:label "Mariya Ise"@it ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1333938" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Megumi_Han
@@ -899,6 +1098,21 @@ jm:Megumi_Han rdf:type owl:NamedIndividual ;
               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q8966502" .
 
 
+###  http://www.semanticweb.org/japanese-media/Minami_Hinata
+jm:Minami_Hinata rdf:type owl:NamedIndividual ;
+                 jm:haDoppiato jm:Ranking_of_Kings ;
+                 rdfs:comment "Doppiatrice giapponese"@it ;
+                 rdfs:label "Minami Hinata"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/Orange
+jm:Orange rdf:type owl:NamedIndividual ;
+          jm:haProdotto jm:Land_of_the_Lustrous ;
+          rdfs:comment "Studio animazione giapponese"@it ;
+          rdfs:label "Orange"@it ;
+          <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q11292922" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Rakuzaichi
 jm:Rakuzaichi rdf:type owl:NamedIndividual ;
               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> jm:Assassinio_del_portatore_della_spada ;
@@ -906,11 +1120,32 @@ jm:Rakuzaichi rdf:type owl:NamedIndividual ;
               rdfs:label "Rakuzaichi"@it .
 
 
+###  http://www.semanticweb.org/japanese-media/Ranking_of_Kings
+jm:Ranking_of_Kings rdf:type owl:NamedIndividual ;
+                    <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> jm:Crunchyroll_anime_of_the_year_2022 ;
+                    jm:haTarget jm:Shonen ;
+                    jm:inProduzione "false"^^xsd:boolean ;
+                    jm:numeroEpisodi 23 ;
+                    jm:èStagionale "true"^^xsd:boolean ;
+                    rdfs:comment "Anime giapponese"@it ;
+                    rdfs:label "Ranking of Kings"@it ,
+                               "Ōsama Ranking"@ja ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q101230845" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Seinen
 jm:Seinen rdf:type owl:NamedIndividual ;
           rdfs:comment "manga indirizzato a un pubblico di uomini adulti"@it ;
           rdfs:label "Seinen"@it ;
           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q237338" .
+
+
+###  http://www.semanticweb.org/japanese-media/Shaft
+jm:Shaft rdf:type owl:NamedIndividual ;
+         jm:haProdotto jm:March_Comes_in_Like_a_Lion ;
+         rdfs:comment "Studio di animazione giapponese"@it ;
+         rdfs:label "Shaft"@it ;
+         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1204821" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Shojo
@@ -942,6 +1177,26 @@ jm:Shueisha rdf:type owl:NamedIndividual ;
             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q844822" .
 
 
+###  http://www.semanticweb.org/japanese-media/SpyXFamily
+jm:SpyXFamily rdf:type owl:NamedIndividual ;
+              <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> jm:Crunchyroll_anime_of_the_year_2022 ;
+              jm:haTarget jm:Shonen ;
+              jm:inProduzione "true"^^xsd:boolean ;
+              jm:numeroEpisodi 12 ;
+              jm:èStagionale "true"^^xsd:boolean ;
+              rdfs:comment "Anime di genere commedia con tema spie e investigazioni"@it ;
+              rdfs:label "Spy X Family"@it ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q109333365" .
+
+
+###  http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku
+jm:Takahiko_Kyougoku rdf:type owl:NamedIndividual ;
+                     jm:haDiretto jm:Land_of_the_Lustrous ;
+                     rdfs:comment "Regista giapponese"@it ;
+                     rdfs:label "Takahiko Kyougoku"@it ;
+                     <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q17129674" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Takashi_Murakami
 jm:Takashi_Murakami rdf:type owl:NamedIndividual ;
                     jm:haScritto jm:Hoshi_Mamoru_Inu ,
@@ -967,6 +1222,21 @@ jm:Tomoaki_Maeno rdf:type owl:NamedIndividual ;
                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1206674" .
 
 
+###  http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa
+jm:Tomoyo_Kurosawa rdf:type owl:NamedIndividual ;
+                   jm:haDoppiato jm:Land_of_the_Lustrous ;
+                   rdfs:comment "Attrice e doppiatrice giapponese"@it ;
+                   rdfs:label "Tomoyo Kurosawa"@it ;
+                   <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1955926" .
+
+
+###  http://www.semanticweb.org/japanese-media/Trigger
+jm:Trigger rdf:type owl:NamedIndividual ;
+           rdfs:comment "Studio animazione giapponese"@it ;
+           rdfs:label "Trigger"@it ;
+           <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q10813424" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Versus_Shojo
 jm:Versus_Shojo rdf:type owl:NamedIndividual ;
                 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> jm:Rakuzaichi ;
@@ -980,6 +1250,14 @@ jm:Weekly_Manga_Action rdf:type owl:NamedIndividual ;
                        rdfs:comment "Rivista giapponese settimanale"@it ;
                        rdfs:label "Weekly Manga Action"@it ;
                        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q922549" .
+
+
+###  http://www.semanticweb.org/japanese-media/Wit_Studio
+jm:Wit_Studio rdf:type owl:NamedIndividual ;
+              jm:haProdotto jm:Ranking_of_Kings ;
+              rdfs:comment "Studio di animazione giapponese"@it ;
+              rdfs:label "Wit Studio"@it ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q14508383" .
 
 
 ###  http://www.semanticweb.org/japanese-media/York_Shin_City
@@ -996,6 +1274,29 @@ jm:Yoshihiro_Togashi rdf:type owl:NamedIndividual ;
                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q550311" .
 
 
+###  http://www.semanticweb.org/japanese-media/Yousuke_Hatta
+jm:Yousuke_Hatta rdf:type owl:NamedIndividual ;
+                 jm:haDiretto jm:Ranking_of_Kings ;
+                 rdfs:comment "Regista giapponese"@it ;
+                 rdfs:label "Yousuke Hatta"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi
+jm:Yuichiro_Hayashi rdf:type owl:NamedIndividual ;
+                    jm:haDiretto jm:Shingeki_no_Kyojin:_The_Final_Season ;
+                    rdfs:comment "Regista giapponese"@it ;
+                    rdfs:label "Yuichiro Hayashi"@it ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q106447941" .
+
+
+###  http://www.semanticweb.org/japanese-media/Yuuki_Kaji
+jm:Yuuki_Kaji rdf:type owl:NamedIndividual ;
+              jm:haDoppiato jm:Shingeki_no_Kyojin:_The_Final_Season ;
+              rdfs:comment "Doppiatore giapponese"@it ;
+              rdfs:label "Yuuki Kaji"@it ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1369257" .
+
+
 ###  http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa
 jm:Yuzuru_Tachikawa rdf:type owl:NamedIndividual ;
                     jm:haDiretto jm:Death_Parade_Anime ;
@@ -1009,6 +1310,19 @@ jm:Zoldyck_e_il_recupero_di_Killua rdf:type owl:NamedIndividual ;
                                    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> jm:Arena_Celeste ;
                                    rdfs:comment "Arco narrativo che tratta della tenuta degli Zoldyck e il recupero del figlio Killua"@it ;
                                    rdfs:label "Zoldyck e il recupero di Killua"@it .
+
+
+###  http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season
+jm:Shingeki_no_Kyojin:_The_Final_Season rdf:type owl:NamedIndividual ;
+                                        <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> jm:Crunchyroll_anime_of_the_year_2022 ;
+                                        jm:haTarget jm:Shonen ;
+                                        jm:inProduzione "false"^^xsd:boolean ;
+                                        jm:numeroEpisodi 16 ;
+                                        jm:èStagionale "true"^^xsd:boolean ;
+                                        rdfs:comment "Stagione conclusiva dell'anime l'attacco dei giganti"@it ;
+                                        rdfs:label "L'attacco dei giganti: stagione finale"@it ,
+                                                   "Shingeki no Kyojin: The Final Season"@ja ;
+                                        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q100332172" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -12,6 +12,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:sequence="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:japanese-media="http://www.semanticweb.org/japanese-media/"
      xmlns:collectionentity="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
@@ -35,6 +36,8 @@
         <cpannotationschema:coversRequirements>What it the next/previous item in the list?</cpannotationschema:coversRequirements>
         <cpannotationschema:coversRequirements>What resource does this item refer to?</cpannotationschema:coversRequirements>
         <cpannotationschema:coversRequirements>What resource does this list item contain?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements>Which objects do participate in this event? Which events do this object participate in?</cpannotationschema:coversRequirements>
+        <cpannotationschema:extractedFrom>http://ontologydesignpatterns.org/ont/dul/DUL.owl</cpannotationschema:extractedFrom>
         <cpannotationschema:extractedFrom>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</cpannotationschema:extractedFrom>
         <cpannotationschema:extractedFrom>http://swan.mindinformatics.org/ontologies/1.2/collections.owl</cpannotationschema:extractedFrom>
         <cpannotationschema:hasAuthor>Aldo Gangemi</cpannotationschema:hasAuthor>
@@ -45,24 +48,34 @@
         <cpannotationschema:hasComponent>http://www.ontologydesignpatterns.org/cp/owl/sequence.owl</cpannotationschema:hasComponent>
         <cpannotationschema:hasConsequences>Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern).</cpannotationschema:hasConsequences>
         <cpannotationschema:hasConsequences>We can represent and reason over transitive or intransitive sequences of any kind. However, since coreference cannot be expressed in OWL, it is not possible to represent and reason over loops and other sequences involving coreference.</cpannotationschema:hasConsequences>
+        <cpannotationschema:hasConsequences>It is possible to model whatever relation between objects and events. Using cardinality restrictions appropriately allows to limit the number of participants, e.g. &apos;life of&apos; is a specialization of this pattern that requires a functional object property (cardinality 1. . .1).
+This is a non-temporal version of the particpation relation. If we need a time-indexed relation, use http://ontologydesignpatterns.owl/cp/owl/timeindexedparticipation.owl</cpannotationschema:hasConsequences>
         <cpannotationschema:hasIntent>To represent domain (not set theory) membership.</cpannotationschema:hasIntent>
         <cpannotationschema:hasIntent>To represent sequence schemas. It defines the notion of transitive and intransitive precedence and their inverses. 
 It can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc.</cpannotationschema:hasIntent>
         <cpannotationschema:hasIntent>To model bags of items (elements). The Bag is characterized by a collection that can have multiple copies of each object. </cpannotationschema:hasIntent>
         <cpannotationschema:hasIntent>To represent ordered collections, i.e. lists.</cpannotationschema:hasIntent>
+        <cpannotationschema:hasIntent>To represent participation of an object in an event.</cpannotationschema:hasIntent>
         <cpannotationschema:isSpecializationOf>http://www.ontologydesignpatterns.org/cp/owl/sequence.owl</cpannotationschema:isSpecializationOf>
         <cpannotationschema:reengineeredFrom>http://swan.mindinformatics.org/ontologies/1.2/collections.owl</cpannotationschema:reengineeredFrom>
+        <cpannotationschema:relatedCPs>Time indexed participation</cpannotationschema:relatedCPs>
         <cpannotationschema:relatedCPs>TimeIndexedMembership</cpannotationschema:relatedCPs>
+        <cpannotationschema:relatedCPs>Co-participation allows to model the relation between two objects that 
+par ticipate in a same event (implicitly); n-ary participation allows to model par ticipation over different dimensions e.g., temporal, spatial, etc., as well as explicitly relate more than one object to the same event; object role, n-ary classiﬁcation are examples of CPs that can be composed with this CP.</cpannotationschema:relatedCPs>
         <cpannotationschema:relatedCPs>http://www.ontologydesignpatterns.org/cp/owl/bag.owl</cpannotationschema:relatedCPs>
         <cpannotationschema:relatedCPs>http://www.ontologydesignpatterns.org/cp/owl/list.owl</cpannotationschema:relatedCPs>
         <cpannotationschema:relatedCPs>http://www.ontologydesignpatterns.org/cp/owl/set.owl</cpannotationschema:relatedCPs>
         <cpannotationschema:scenarios>My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari.</cpannotationschema:scenarios>
+        <cpannotationschema:scenarios>Aldo Gangemi participated in the premiere of La Dolce Vita.</cpannotationschema:scenarios>
+        <rdfs:comment>The basic participation pattern, without temporal indexing. 
+It clones equivalent elements from DOLCE-UltraLite.</rdfs:comment>
         <rdfs:comment>The collection entity pattern. 
 It is extracted from DOLCE-UltraLite by partial clone of elements.</rdfs:comment>
         <rdfs:comment>The Bag is characterized by a collection that can have multiple copies of each object. This is performed through the Item entity. The Item is linking exaclty one resource through the relationship itemContent.</rdfs:comment>
         <rdfs:label>collection entity</rdfs:label>
         <rdfs:label>membership</rdfs:label>
         <rdfs:label>ordering</rdfs:label>
+        <rdfs:label>participation</rdfs:label>
         <rdfs:label>precedence</rdfs:label>
         <rdfs:label>sequence</rdfs:label>
         <rdfs:label>Japanese media</rdfs:label>
@@ -70,6 +83,10 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.</rdfs:comment
 - Revised and annotated for ODP submission by Aldo Gangemi
 1.0
 - Created by Valentina Presutti and Sara Bernardini</owl:versionInfo>
+        <owl:versionInfo>1.1
+- Improved annotation
+1.0 
+- Created by Aldo Gangemi and Valentina Presutti</owl:versionInfo>
         <owl:versionInfo>1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
         <owl:versionInfo>Created by Aldo Gangemi and Valentina Presutti</owl:versionInfo>
         <owl:versionInfo>Created with TopBraid Composer</owl:versionInfo>
@@ -372,6 +389,29 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.</rdfs:comment
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <rdfs:label xml:lang="en">has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <rdfs:label xml:lang="en">is participant in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows -->
 
     <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows">
@@ -670,6 +710,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/haTarget -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/haTarget">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/èTargetDi"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
@@ -688,6 +729,20 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <rdfs:comment xml:lang="it">Indica qual è l&apos;ultimo arco narrativo di un certo manga (solo se completo)</rdfs:comment>
         <rdfs:label xml:lang="it">Ha ultimo arco narrativo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/haVincitore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/haVincitore">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/èVincitoreDi"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdfs:comment xml:lang="it">Dato un evento, indica chi ha vinto tale evento</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha vincitore</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -723,6 +778,31 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
         <rdfs:comment xml:lang="it">Indica da quali doppiatori/doppiatrici è stato doppiato un anime</rdfs:comment>
         <rdfs:label xml:lang="it">E&apos; doppiato da</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/èTargetDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/èTargetDi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdfs:comment xml:lang="it">Indica di quali opere è target un target</rdfs:comment>
+        <rdfs:label xml:lang="it">E&apos; target di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/èVincitoreDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/èVincitoreDi">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdfs:comment xml:lang="it">Indica iil vincitore di un evento</rdfs:comment>
+        <rdfs:label xml:lang="it">E&apos; vincitore di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -902,10 +982,58 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeFilm"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/LongRunning"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaCompleto"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaInCorso"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaSerie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OVA"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <rdfs:comment>Any physical, social, or mental process, event, or state.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
+        <rdfs:comment>Any physical, social, or mental object, or substance</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <rdfs:label xml:lang="en">Object</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Anime -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/japanese-media/Anime">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaCompleto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaInCorso"/>
@@ -915,6 +1043,30 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:label xml:lang="it">Anime</rdfs:label>
         <skos:broadMatch>https://schema.org/VideoObject</skos:broadMatch>
         <skos:exactMatch>http://www.wikidata.org/entity/Q1107</skos:exactMatch>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/AnimeAward -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/japanese-media/AnimeAward">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeFilm"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/LongRunning"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaCompleto"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaInCorso"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/MangaSerie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OVA"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <rdfs:comment xml:lang="it">Premio annuale per migliori anime</rdfs:comment>
+        <rdfs:label xml:lang="it">Anime award</rdfs:label>
+        <skos:broadMatch>https://schema.org/award</skos:broadMatch>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q105725170</skos:exactMatch>
     </owl:Class>
     
 
@@ -1263,6 +1415,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/OperaArtistica -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/japanese-media/OperaArtistica">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdfs:comment xml:lang="it">Prodotto creato da un artista</rdfs:comment>
         <rdfs:label xml:lang="it">Opera artistica</rdfs:label>
         <skos:exactMatch>https://schema.org/CreativeWork</skos:exactMatch>
@@ -1452,6 +1605,21 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Aoi_Yuuki -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Aoi_Yuuki">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
+        <rdfs:comment>Doppiatrice giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Aoi Yuuki</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q1347031</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Arena_Celeste -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Arena_Celeste">
@@ -1490,9 +1658,98 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
+        <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Atsumi Tanezaki</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q3183413</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/CloverWorks -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/CloverWorks">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">CloverWorks</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q52700115</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <owl:differentFrom rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <rdfs:comment xml:lang="it">Premio annuale dato al miglior anime da Crunchyroll annata 2017</rdfs:comment>
+        <rdfs:label xml:lang="en">Crunchyroll anime of the year 2017</rdfs:label>
+        <skos:broadMatch>https://schema.org/award</skos:broadMatch>
+        <skos:broadMatch>https://www.wikidata.org/wiki/Q28408321</skos:broadMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <rdfs:comment xml:lang="it">Premio annuale dato al miglior anime da Crunchyroll annata 2022</rdfs:comment>
+        <rdfs:label xml:lang="en">Crunchyroll anime of the year 2022</rdfs:label>
+        <skos:broadMatch>https://schema.org/award</skos:broadMatch>
+        <skos:broadMatch>https://www.wikidata.org/wiki/Q28408321</skos:broadMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
+        <èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroEpisodi>
+        <titoloAlternativo>Cyberpunk</titoloAlternativo>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime di cyberpunk</rdfs:comment>
+        <rdfs:label xml:lang="it">Cyberpunk: Edgerunners</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q96677963</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Death_Parade_Anime -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Death_Parade_Anime">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
@@ -1526,7 +1783,6 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <sequence:follows rdf:resource="http://www.semanticweb.org/japanese-media/Greed_Island"/>
         <sequence:follows rdf:resource="http://www.semanticweb.org/japanese-media/York_Shin_City"/>
         <sequence:follows rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <rdfs:comment xml:lang="it">Ultimo arco narrativo dell&apos;opera HxH dove viene eletto il nuovo presidente dell&apos;associazione degli hunter</rdfs:comment>
         <rdfs:label xml:lang="it">Elezione nuovo presidente</rdfs:label>
     </owl:NamedIndividual>
@@ -1625,9 +1881,26 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label>Hiroyuki Imaishi</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q3023829</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
@@ -1651,6 +1924,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
@@ -1675,6 +1949,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaCompleto"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaSerie"/>
@@ -1699,7 +1974,6 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <haAdattamentoAnime rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Arena_Celeste"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Formichimere"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Greed_Island"/>
@@ -1724,6 +1998,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/HunterXHunterAnime -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/HunterXHunterAnime">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
@@ -1759,6 +2034,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag"/>
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaInCorso"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaSerie"/>
@@ -1774,7 +2050,6 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
         <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
         <haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takeru_Hokazono"/>
         <haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
         <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
@@ -1788,6 +2063,66 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Kazuhiro Furuhashi</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q377730</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Kengo_Kawanishi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
+        <rdfs:comment xml:lang="it">Doppiatore giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Kengo Kawanishi</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q11554087</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Kenjirou_Okada -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kenjirou_Okada">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Kenjirou Okada</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q104236965</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Kinema_Citrus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kinema_Citrus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Kinema Citrus</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q6410686</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Kodomo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kodomo">
@@ -1795,6 +2130,85 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">manga indirizzato a un pubblico di bambini</rdfs:comment>
         <rdfs:label xml:lang="it">Kodomo</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q478804</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Kojima_Masayuki -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kojima_Masayuki">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Kojima Masayuki</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q219332</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroEpisodi>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
+        <rdfs:label xml:lang="ja">Houseki no Kuni</rdfs:label>
+        <rdfs:label xml:lang="it">Land of the Lustrous</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q53877791</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/MAPPA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/MAPPA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">MAPPA</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q11231001</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Made_in_abyss -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Made_in_abyss">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroEpisodi>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Made in abyss</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q61853333</skos:exactMatch>
     </owl:NamedIndividual>
     
 
@@ -1813,6 +2227,46 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</numeroEpisodi>
+        <titoloAlternativo>3-gatsu</titoloAlternativo>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">March Comes in Like a Lion</rdfs:label>
+        <rdfs:label xml:lang="ja">Sangatsu no Lion</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Mariya_Ise -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Mariya_Ise">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
+        <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Mariya Ise</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q1333938</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Megumi_Han -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Megumi_Han">
@@ -1824,6 +2278,33 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Megumi Han</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q8966502</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Minami_Hinata -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Minami_Hinata">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
+        <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Minami Hinata</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Orange -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Orange">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Orange</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q11292922</skos:exactMatch>
     </owl:NamedIndividual>
     
 
@@ -1845,13 +2326,56 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Ranking_of_Kings -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Ranking_of_Kings">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</numeroEpisodi>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Ranking of Kings</rdfs:label>
+        <rdfs:label xml:lang="ja">Ōsama Ranking</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q101230845</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Seinen -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Seinen">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
         <rdfs:comment xml:lang="it">manga indirizzato a un pubblico di uomini adulti</rdfs:comment>
         <rdfs:label xml:lang="it">Seinen</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q237338</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Shaft -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shaft">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Shaft</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q1204821</skos:exactMatch>
     </owl:NamedIndividual>
     
 
@@ -1871,6 +2395,12 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shonen">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
         <rdfs:comment xml:lang="it">manga indirizzato a un pubblico maschile di ragazzi</rdfs:comment>
         <rdfs:label xml:lang="it">Shonen</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q231302</skos:exactMatch>
@@ -1898,6 +2428,46 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">casa editrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Shueisha</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q844822</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/SpyXFamily -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/SpyXFamily">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroEpisodi>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Anime di genere commedia con tema spie e investigazioni</rdfs:comment>
+        <rdfs:label xml:lang="it">Spy X Family</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q109333365</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Takahiko Kyougoku</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q17129674</skos:exactMatch>
     </owl:NamedIndividual>
     
 
@@ -1944,6 +2514,34 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
+        <rdfs:comment xml:lang="it">Attrice e doppiatrice giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Tomoyo Kurosawa</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q1955926</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Trigger -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Trigger">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Trigger</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q10813424</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Versus_Shojo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Versus_Shojo">
@@ -1955,7 +2553,6 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <list:firstItemOf rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
         <rdfs:comment xml:lang="it">Arco narrativo del combattimento contro shojo</rdfs:comment>
         <rdfs:label xml:lang="it">Versus Shojo</rdfs:label>
     </owl:NamedIndividual>
@@ -1970,6 +2567,19 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">Rivista giapponese settimanale</rdfs:comment>
         <rdfs:label xml:lang="it">Weekly Manga Action</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q922549</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Wit_Studio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Wit_Studio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Wit Studio</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q14508383</skos:exactMatch>
     </owl:NamedIndividual>
     
 
@@ -2008,6 +2618,52 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
+    <!-- http://www.semanticweb.org/japanese-media/Yousuke_Hatta -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Yousuke_Hatta">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Yousuke Hatta</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
+        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
+        <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Yuichiro Hayashi</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q106447941</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Yuuki_Kaji -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Yuuki_Kaji">
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
+        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
+        <rdfs:comment xml:lang="it">Doppiatore giapponese</rdfs:comment>
+        <rdfs:label xml:lang="it">Yuuki Kaji</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q1369257</skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa">
@@ -2041,6 +2697,31 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <rdfs:comment xml:lang="it">Arco narrativo che tratta della tenuta degli Zoldyck e il recupero del figlio Killua</rdfs:comment>
         <rdfs:label xml:lang="it">Zoldyck e il recupero di Killua</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeSerie"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
+        <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
+        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
+        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
+        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
+        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</numeroEpisodi>
+        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <rdfs:comment xml:lang="it">Stagione conclusiva dell&apos;anime l&apos;attacco dei giganti</rdfs:comment>
+        <rdfs:label xml:lang="it">L&apos;attacco dei giganti: stagione finale</rdfs:label>
+        <rdfs:label xml:lang="ja">Shingeki no Kyojin: The Final Season</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q100332172</skos:exactMatch>
     </owl:NamedIndividual>
     
 
