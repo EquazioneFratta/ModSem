@@ -78,15 +78,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/japanese-media/appartieneA
-jm:appartieneA rdf:type owl:ObjectProperty ,
-                        owl:FunctionalProperty ;
-               rdfs:domain jm:Rivista ;
-               rdfs:range jm:CasaEditrice ;
-               rdfs:comment "Indica la rivista a quale casa editrice appartiene"@it ;
-               rdfs:label "Appartiene a"@it .
-
-
 ###  http://www.semanticweb.org/japanese-media/arcoNarrativoDi
 jm:arcoNarrativoDi rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
@@ -105,18 +96,20 @@ jm:collegaDi rdf:type owl:ObjectProperty ,
              rdfs:domain jm:Staff ;
              rdfs:range jm:Staff ;
              rdfs:comment "Crea un collegamento che lega due colleghi"@it ;
-             rdfs:label "Collega di"@it .
+             rdfs:label "Collega di"@it ;
+             <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Property:P1327" .
 
 
 ###  http://www.semanticweb.org/japanese-media/detieneDiritti
 jm:detieneDiritti rdf:type owl:ObjectProperty ;
                   rdfs:domain jm:CasaEditrice ;
                   rdfs:range jm:Manga ;
-                  owl:propertyChainAxiom ( jm:pubblicatoDa
-                                           jm:appartieneA
+                  owl:propertyChainAxiom ( jm:pubblicatoIn
+                                           jm:pubblicataDa
                                          ) ;
                   rdfs:comment "Indica quale casa editrice detiene i diritti di pubblicazione di un certo manga"@it ;
-                  rdfs:label "Detiene diritti"@it .
+                  rdfs:label "Detiene diritti"@it ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P3931" .
 
 
 ###  http://www.semanticweb.org/japanese-media/dipendenteDi
@@ -127,7 +120,8 @@ jm:dipendenteDi rdf:type owl:ObjectProperty ;
                                          jm:prodottoDa
                                        ) ;
                 rdfs:comment "Indica di quale studio di animazione è dipendente un dipendente"@it ;
-                rdfs:label "Dipendente di"@it .
+                rdfs:label "Dipendente di"@it ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P108" .
 
 
 ###  http://www.semanticweb.org/japanese-media/direttoDa
@@ -137,7 +131,8 @@ jm:direttoDa rdf:type owl:ObjectProperty ;
              rdfs:domain jm:Anime ;
              rdfs:range jm:Regista ;
              rdfs:comment "Indica il regista di un determinato anime"@it ;
-             rdfs:label "Diretto da"@it .
+             rdfs:label "Diretto da"@it ;
+             <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P57" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haAdattamentoAnime
@@ -145,7 +140,8 @@ jm:haAdattamentoAnime rdf:type owl:ObjectProperty ;
                       rdfs:domain jm:Manga ;
                       rdfs:range jm:Anime ;
                       rdfs:comment "Dato un manga indica quale anime è il suo adattamento"@it ;
-                      rdfs:label "Ha adattamento anime"@it .
+                      rdfs:label "Ha adattamento anime"@it ;
+                      <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P4969" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haArcoNarrativo
@@ -165,7 +161,8 @@ jm:haAutore rdf:type owl:ObjectProperty ;
             rdfs:domain jm:Manga ;
             rdfs:range jm:Autore ;
             rdfs:comment "Indica quale autore ha scritto una determinata opera artistica"@it ;
-            rdfs:label "Ha autore"@it .
+            rdfs:label "Ha autore"@it ;
+            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P50" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haDiretto
@@ -174,7 +171,8 @@ jm:haDiretto rdf:type owl:ObjectProperty ,
              rdfs:domain jm:Regista ;
              rdfs:range jm:Anime ;
              rdfs:comment "Indica quale aime ha diretto un certo regista"@it ;
-             rdfs:label "Ha diretto"@it .
+             rdfs:label "Ha diretto"@it ;
+             <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q65971570" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haDoppiato
@@ -183,7 +181,8 @@ jm:haDoppiato rdf:type owl:ObjectProperty ;
               rdfs:domain jm:VoiceActorOrActress ;
               rdfs:range jm:Anime ;
               rdfs:comment "Indica quali anime ha doppiato un/una doppiatore/doppiatrice"@it ;
-              rdfs:label "Ha doppiato"@it .
+              rdfs:label "Ha doppiato"@it ;
+              <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q66318454" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haLavoratoCon
@@ -195,7 +194,8 @@ jm:haLavoratoCon rdf:type owl:ObjectProperty ,
                                           jm:èDoppiatoDa
                                         ) ;
                  rdfs:comment "Indica con quali dipendenti ha lavorato un certo dipendente. Differisce da \"Collega di\" perché non lavorano in una stessa casa editrice, ma hanno solo collaborato"@it ;
-                 rdfs:label "Ha lavorato con"@it .
+                 rdfs:label "Ha lavorato con"@it ;
+                 <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Property:P1327" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haPrequel
@@ -208,7 +208,8 @@ jm:haPrequel rdf:type owl:ObjectProperty ;
                                       jm:haPrequel
                                     ) ;
              rdfs:comment "Indica quale opera precede l'opera in soggetto"@it ;
-             rdfs:label "Ha prequel"@it .
+             rdfs:label "Ha prequel"@it ;
+             <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Property:P5940" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haPrimoArcoNarrativo
@@ -228,7 +229,8 @@ jm:haProdotto rdf:type owl:ObjectProperty ;
               rdfs:domain jm:StudioAnimazione ;
               rdfs:range jm:Anime ;
               rdfs:comment "Indica quale studio di animazione ha prodotto un certo anime"@it ;
-              rdfs:label "Ha prodotto"@it .
+              rdfs:label "Ha prodotto"@it ;
+              <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Q65994327" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haScritto
@@ -236,6 +238,7 @@ jm:haScritto rdf:type owl:ObjectProperty ,
                       owl:InverseFunctionalProperty ;
              rdfs:domain jm:Autore ;
              rdfs:range jm:Manga ;
+             <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> "https://www.wikidata.org/wiki/Q65970010" ;
              rdfs:comment "Indica quali manga ha scritto un certo autore"@it ;
              rdfs:label "Ha scritto"@it .
 
@@ -249,7 +252,8 @@ jm:haSequel rdf:type owl:ObjectProperty ,
                                      jm:haSequel
                                    ) ;
             rdfs:comment "Indica il sequel di una certa opera artistica"@it ;
-            rdfs:label "Ha sequel"@it .
+            rdfs:label "Ha sequel"@it ;
+            <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Property:P5940" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haTarget
@@ -259,7 +263,9 @@ jm:haTarget rdf:type owl:ObjectProperty ;
             rdfs:domain jm:OperaNipponica ;
             rdfs:range jm:Target ;
             rdfs:comment "Indica il target di una certa opera artistica"@it ;
-            rdfs:label "Ha target"@it .
+            rdfs:label "Ha target"@it ;
+            <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/audience" ,
+                                                             "https://www.wikidata.org/wiki/Property:P2360" .
 
 
 ###  http://www.semanticweb.org/japanese-media/haUltimoArcoNrattaivo
@@ -280,7 +286,8 @@ jm:haVincitore rdf:type owl:ObjectProperty ;
                rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> ;
                rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> ;
                rdfs:comment "Dato un evento, indica chi ha vinto tale evento"@it ;
-               rdfs:label "Ha vincitore"@it .
+               rdfs:label "Ha vincitore"@it ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P1346" .
 
 
 ###  http://www.semanticweb.org/japanese-media/prodottoDa
@@ -289,16 +296,29 @@ jm:prodottoDa rdf:type owl:ObjectProperty ,
               rdfs:domain jm:Anime ;
               rdfs:range jm:StudioAnimazione ;
               rdfs:comment "Indica da quale studio di animazione è stato prodotto un anime"@it ;
-              rdfs:label "Prodotto da"@it .
+              rdfs:label "Prodotto da"@it ;
+              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://schema.org/productionCompany" ,
+                                                               "https://www.wikidata.org/wiki/Property:P272" .
 
 
-###  http://www.semanticweb.org/japanese-media/pubblicatoDa
-jm:pubblicatoDa rdf:type owl:ObjectProperty ,
+###  http://www.semanticweb.org/japanese-media/pubblicataDa
+jm:pubblicataDa rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain jm:Rivista ;
+                rdfs:range jm:CasaEditrice ;
+                rdfs:comment "Indica la rivista a quale casa editrice appartiene"@it ;
+                rdfs:label "Pubblicata da"@it ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P123" .
+
+
+###  http://www.semanticweb.org/japanese-media/pubblicatoIn
+jm:pubblicatoIn rdf:type owl:ObjectProperty ,
                          owl:FunctionalProperty ;
                 rdfs:domain jm:Manga ;
                 rdfs:range jm:Rivista ;
                 rdfs:comment "Indica il manga su che rivista è stato pubblicato"@it ;
-                rdfs:label "Pubblicato da"@it .
+                rdfs:label "Pubblicato in"@it ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P1433" .
 
 
 ###  http://www.semanticweb.org/japanese-media/èDoppiatoDa
@@ -306,7 +326,8 @@ jm:èDoppiatoDa rdf:type owl:ObjectProperty ;
                rdfs:domain jm:Anime ;
                rdfs:range jm:VoiceActorOrActress ;
                rdfs:comment "Indica da quali doppiatori/doppiatrici è stato doppiato un anime"@it ;
-               rdfs:label "E' doppiato da"@it .
+               rdfs:label "E' doppiato da"@it ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Property:P725" .
 
 
 ###  http://www.semanticweb.org/japanese-media/èTargetDi
@@ -315,7 +336,8 @@ jm:èTargetDi rdf:type owl:ObjectProperty ,
              rdfs:domain jm:Target ;
              rdfs:range jm:OperaNipponica ;
              rdfs:comment "Indica di quali opere è target un target"@it ;
-             rdfs:label "E' target di"@it .
+             rdfs:label "E' target di"@it ;
+             <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Q87987569" .
 
 
 ###  http://www.semanticweb.org/japanese-media/èVincitoreDi
@@ -325,7 +347,8 @@ jm:èVincitoreDi rdf:type owl:ObjectProperty ;
                 rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> ;
                 rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> ;
                 rdfs:comment "Indica iil vincitore di un evento"@it ;
-                rdfs:label "E' vincitore di"@it .
+                rdfs:label "E' vincitore di"@it ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q106361078" .
 
 
 #################################################################
@@ -498,7 +521,7 @@ jm:LongRunning rdf:type owl:Class ;
 jm:Manga rdf:type owl:Class ;
          owl:equivalentClass [ owl:intersectionOf ( jm:OperaNipponica
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty jm:pubblicatoDa ;
+                                                      owl:onProperty jm:pubblicatoIn ;
                                                       owl:someValuesFrom jm:Rivista
                                                     ]
                                                   ) ;
@@ -908,7 +931,7 @@ jm:Hoshi_Mamoru_Inu rdf:type owl:NamedIndividual ;
                     owl:differentFrom jm:Hoshi_Mamoru_Inu_2 ;
                     jm:haSequel jm:Hoshi_Mamoru_Inu_2 ;
                     jm:haTarget jm:Seinen ;
-                    jm:pubblicatoDa jm:Weekly_Manga_Action ;
+                    jm:pubblicatoIn jm:Weekly_Manga_Action ;
                     jm:inProduzione "false"^^xsd:boolean ;
                     jm:numeroVolumi 1 ;
                     jm:titoloAlternativo "Il cane che guarda le stelle" ;
@@ -920,7 +943,7 @@ jm:Hoshi_Mamoru_Inu rdf:type owl:NamedIndividual ;
 ###  http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2
 jm:Hoshi_Mamoru_Inu_2 rdf:type owl:NamedIndividual ;
                       jm:haTarget jm:Seinen ;
-                      jm:pubblicatoDa jm:Weekly_Manga_Action ;
+                      jm:pubblicatoIn jm:Weekly_Manga_Action ;
                       jm:inProduzione "false"^^xsd:boolean ;
                       jm:numeroVolumi 1 ;
                       jm:titoloAlternativo "Il cane che guarda le stelle 2" ;
@@ -941,7 +964,7 @@ jm:HunterXHunter rdf:type owl:NamedIndividual ;
                  jm:haPrimoArcoNarrativo jm:Esame_Degli_Hunter ;
                  jm:haTarget jm:Shonen ;
                  jm:haUltimoArcoNrattaivo jm:Elezione_Nuovo_Predisente ;
-                 jm:pubblicatoDa jm:Shonen_Jump ;
+                 jm:pubblicatoIn jm:Shonen_Jump ;
                  jm:inProduzione "false"^^xsd:boolean ;
                  jm:numeroVolumi 37 ;
                  jm:prezzoVolumeEuro 5.5 ;
@@ -975,7 +998,7 @@ jm:Kagurabachi rdf:type owl:NamedIndividual ;
                                   jm:Rakuzaichi ;
                jm:haPrimoArcoNarrativo jm:Versus_Shojo ;
                jm:haTarget jm:Shonen ;
-               jm:pubblicatoDa jm:Shonen_Jump ;
+               jm:pubblicatoIn jm:Shonen_Jump ;
                jm:inProduzione "true"^^xsd:boolean ;
                jm:numeroVolumi 5 ;
                jm:prezzoVolumeEuro 5.5 ;
@@ -1165,7 +1188,7 @@ jm:Shonen rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Shonen_Jump
 jm:Shonen_Jump rdf:type owl:NamedIndividual ;
-               jm:appartieneA jm:Shueisha ;
+               jm:pubblicataDa jm:Shueisha ;
                rdfs:comment "rivista settimanale giapponese di manga"@it ;
                rdfs:label "Shonen jump"@it ;
                <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q220015" .
@@ -1247,7 +1270,7 @@ jm:Versus_Shojo rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Weekly_Manga_Action
 jm:Weekly_Manga_Action rdf:type owl:NamedIndividual ;
-                       jm:appartieneA jm:Futabasha ;
+                       jm:pubblicataDa jm:Futabasha ;
                        rdfs:comment "Rivista giapponese settimanale"@it ;
                        rdfs:label "Weekly Manga Action"@it ;
                        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q922549" .
