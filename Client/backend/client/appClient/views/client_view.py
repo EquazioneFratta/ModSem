@@ -1,11 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from string import Template
 from django.views.decorators.csrf import csrf_exempt
+from SPARQLWrapper import SPARQLWrapper
+from string import Template
 import json
 
 PREDEFINED_QUERIES = {
-    1: { #recupera qunati archi narrativi ha ogni serie dell’ontologia 
+    1: {#recupera qunati archi narrativi ha ogni serie dell’ontologia 
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             PREFIX odp: <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#>
@@ -18,7 +19,7 @@ PREDEFINED_QUERIES = {
         """,
         'required_params': ['']
     },
-    2: { #tutti i target di tutte le serie
+    2: {#tutti i target di tutte le serie
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             SELECT ?x ?target 
@@ -28,10 +29,10 @@ PREDEFINED_QUERIES = {
         """,
         'required_params': ['']
     },
-    3: { #il dato anime ha target shonen
+    3: {#il dato anime ha target shonen
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            ASK {jm:{anime} jm:haTarget jm:Shonen}
+            ASK {jm:$animeTitle jm:haTarget jm:Shonen}
         """,
         'required_params': ['animeTitle']
     },
@@ -40,21 +41,21 @@ PREDEFINED_QUERIES = {
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             SELECT ?autore
             WHERE { 
-                jm:{manga} jm:haAutore ?autore .
+                jm:$mangaTitle jm:haAutore ?autore .
             }
         """,
         'required_params': ['mangaTitle']
     },
-    5: {# quali archi contiene un dato manga
+    5: {#quali archi contiene un dato manga
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
             SELECT ?arco
             WHERE { 
-                jm:{manga} jm:haArcoNarrativo ?arco
+                jm:$mangaTitle jm:haArcoNarrativo ?arco
             }
         """,
-        'required_params': ['manga']
+        'required_params': ['mangaTitle']
     },
     6: {#qual e’ il manga shonen con meno archi narrativi
         'query': """
@@ -112,33 +113,21 @@ r1 = {
     "status": "success",
     "total_results": 2
 }
-r2 = {
-    "results": [],
-    "status": "success",
-    "total_results": 0
-}
-SPARQL_ENDPOINT = ""
 
-@csrf_exempt # Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
+SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
+
+@csrf_exempt #Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
 def query_sparql(request):
   try:
     data = json.loads(request.body) 
     id = data.get('id')
     parameters = data.get('parameters')
     
-    # Recupera la query predefinita
-    # query_template = PREDEFINED_QUERIES[id]['query']
+    #Recupera la query predefinita
+    query_template = Template(REDEFINED_QUERIES[id]['query'])
     required_params = PREDEFINED_QUERIES[id]['required_params']
-    print(required_params)
-    query_template = Template("""
-      PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?autore
-            WHERE { 
-                jm:$mangaTitle jm:haAutore ?autore .
-            }
-    """)
 
-    # Verifica i parametri richiesti
+    #Verifica che i parametri richiesti siano stati inseriti
     for param in required_params:
         if param not in parameters or not parameters[param]:
             return JsonResponse({
@@ -146,20 +135,17 @@ def query_sparql(request):
                 'status': 'error'
             }, status=400)
 
-    # Formatta la query con i parametri
-    # formatted_query = query_template.format(**parameters)
+    #Formatta la query con i parametri inseriti dall'utente
     formatted_query = query_template.substitute(parameters)
 
-    print(formatted_query)
+    sparql = SPARQLWrapper(SPARQL_ENDPOINT)
 
-    # Configurazione endpoint SPARQL
-    # sparql = SPARQLWrapper("http://your-sparql-endpoint.com/sparql")
-    # sparql.setQuery(formatted_query)
-    # sparql.setReturnFormat(JSON)
+    sparql.setQuery(formatted_query)
+    sparql.setReturnFormat("json")
+
+    #Esegue la query
+    results = sparql.query().convert()   
     
-    # Esecuzione query
-    # results = sparql.query().convert()
-
     # Trasformazione risultati in formato più gestibile
     # parsed_results = []
     # for result in results['results']['bindings']:
