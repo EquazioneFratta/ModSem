@@ -9,12 +9,16 @@ import {
   Autocomplete,
   CircularProgress
 } from "@mui/material";
-import { Query } from "./QueryInterface"
-import ResultsTable from "./ResultsTable"
+import { Query } from "../QueryInterface"
+import ResultsTable from "../ResultsTable"
 
 const BACKEND_URL = "http://127.0.0.1:8000/";
 
-function SparqlClient() {
+interface publicEndPointProps {
+  queryList: Query[];
+}
+
+function PublicEndPoint({ queryList }: publicEndPointProps) {
   const [selectedQuery, setSelectedQuery] = useState<Query>(); //Query che si vuole eseuguire scelta da un insieme predefinito
   const [paramValues, setParamValues] = useState<string[]>([]); // Valori dei parametri della query, array di stringhe
 
@@ -23,21 +27,6 @@ function SparqlClient() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  const queryList: Query[] = [
-    {
-      id: 1,
-      label: "Persone",
-      paramLabel: ["studio", "animatore"],
-      // paramValue: ["studio_param", "animatore_param"]  // Valori univoci per identificare i parametri
-    },
-    {
-      id: 2,
-      label: "Libri",
-      paramLabel: ["serializzazione"],
-      // paramValue: ["serie_param", "serializzazione_param"]  // Valori univoci per identificare i parametri
-    }
-  ];
 
   const handleQueryChange = (_event: any, newQuery: Query | null) => {
     setSelectedQuery(newQuery || undefined);
@@ -63,9 +52,9 @@ function SparqlClient() {
       // Trasforma l'array in un oggetto vuoto chiave-valore di tipo `Record<string, string>` 
       // (ossia un oggetto in cui ogni chiave è una stringa e ogni valore è una stringa)
       //acc: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
-      const parameterMap = selectedQuery.paramLabel.reduce((acc, paramLabel, i) => {
+      const parameterMap = selectedQuery.paramValue.reduce((acc, paramValue, i) => {
         // Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
-        acc[paramLabel] = paramValues[i];
+        acc[paramValue] = paramValues[i];
         return acc;
       }, {} as Record<string, string>); // Definisce il tipo dell'oggetto vuoto iniziale
 
@@ -73,7 +62,7 @@ function SparqlClient() {
         id: selectedQuery.id,
         parameters: parameterMap,
       };
-      
+
       try {
         const response = await fetch(
           BACKEND_URL + "sparql/",
@@ -119,14 +108,14 @@ function SparqlClient() {
         }}
       >
         <Typography variant="h4" align="center">
-          Sparql Client
+          Query su EndPoint pubblico
         </Typography>
 
         <Box sx={{ display: "flex", gap: 2 }}>
           <FormControl sx={{ flex: 1 }}>
             <Autocomplete
               disablePortal
-              id="queryAutocomplete"
+              id="publicEndPointQueryAutocomplete"
               options={queryList}
               value={selectedQuery || null}
               onChange={handleQueryChange}
@@ -185,4 +174,4 @@ function SparqlClient() {
   );
 }
 
-export default SparqlClient;
+export default PublicEndPoint;
