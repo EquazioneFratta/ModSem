@@ -507,14 +507,12 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/detieneDiritti -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/detieneDiritti">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/sottoLicenzaDi"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/japanese-media/pubblicatoIn"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/japanese-media/pubblicataDa"/>
-        </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="it">Indica quale casa editrice detiene i diritti di pubblicazione di un certo manga</rdfs:comment>
-        <rdfs:label xml:lang="it">Detiene diritti</rdfs:label>
+        <rdfs:label xml:lang="it">Detiene diritti di</rdfs:label>
+        <skos:exactMatch>https://schema.org/copyrightHolder</skos:exactMatch>
         <skos:exactMatch>https://www.wikidata.org/wiki/Property:P3931</skos:exactMatch>
     </owl:ObjectProperty>
     
@@ -523,6 +521,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/dipendenteDi -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/dipendenteDi">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/haDipendente"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -531,6 +530,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="it">Indica di quale studio di animazione è dipendente un dipendente</rdfs:comment>
         <rdfs:label xml:lang="it">Dipendente di</rdfs:label>
+        <skos:exactMatch>https://schema.org/worksFor</skos:exactMatch>
         <skos:exactMatch>https://www.wikidata.org/wiki/Property:P108</skos:exactMatch>
     </owl:ObjectProperty>
     
@@ -553,6 +553,8 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <!-- http://www.semanticweb.org/japanese-media/haAdattamentoAnime -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/haAdattamentoAnime">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/èAdattamentodi"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
         <rdfs:comment xml:lang="it">Dato un manga indica quale anime è il suo adattamento</rdfs:comment>
@@ -585,6 +587,18 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">Indica quale autore ha scritto una determinata opera artistica</rdfs:comment>
         <rdfs:label xml:lang="it">Ha autore</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Property:P50</skos:exactMatch>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/haDipendente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/haDipendente">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
+        <rdfs:comment xml:lang="it">Indica quali sono i dipendenti di uno &apos;Studio di animazione&apos;</rdfs:comment>
+        <rdfs:label xml:lang="it">Ha dipendente</rdfs:label>
+        <skos:closeMatch>https://www.wikidata.org/wiki/Q65964542</skos:closeMatch>
     </owl:ObjectProperty>
     
 
@@ -742,7 +756,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/èVincitoreDi"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object"/>
         <rdfs:comment xml:lang="it">Dato un evento, indica chi ha vinto tale evento</rdfs:comment>
         <rdfs:label xml:lang="it">Ha vincitore</rdfs:label>
@@ -765,15 +779,16 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     
 
 
-    <!-- http://www.semanticweb.org/japanese-media/pubblicataDa -->
+    <!-- http://www.semanticweb.org/japanese-media/pubblica -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/pubblicataDa">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/pubblica">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/pubblicatoIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
-        <rdfs:comment xml:lang="it">Indica la rivista a quale casa editrice appartiene</rdfs:comment>
-        <rdfs:label xml:lang="it">Pubblicata da</rdfs:label>
-        <skos:exactMatch>https://www.wikidata.org/wiki/Property:P123</skos:exactMatch>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
+        <rdfs:comment xml:lang="it">Indica quali manga pubblica una rivista</rdfs:comment>
+        <rdfs:label xml:lang="it">Pubblica</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q66759300</skos:exactMatch>
     </owl:ObjectProperty>
     
 
@@ -787,6 +802,62 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:comment xml:lang="it">Indica il manga su che rivista è stato pubblicato</rdfs:comment>
         <rdfs:label xml:lang="it">Pubblicato in</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Property:P1433</skos:exactMatch>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/sottoLicenzaDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/sottoLicenzaDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/japanese-media/pubblicatoIn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/japanese-media/stampataDa"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">indica a quale casa editrice il manga ha dato licenza</rdfs:comment>
+        <rdfs:label xml:lang="it">Sotto licenza di</rdfs:label>
+        <skos:closeMatch>https://www.wikidata.org/wiki/Q70232435</skos:closeMatch>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/stampa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/stampa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/japanese-media/stampataDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
+        <rdfs:comment xml:lang="it">Indica una casa editrice quale riviste pubblica</rdfs:comment>
+        <rdfs:label xml:lang="it">Stampa</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Q80458177</skos:exactMatch>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/stampataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/stampataDa">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
+        <rdfs:comment xml:lang="it">Indica la rivista a quale casa editrice appartiene</rdfs:comment>
+        <rdfs:label xml:lang="it">Stampata da</rdfs:label>
+        <skos:exactMatch>https://schema.org/publisher</skos:exactMatch>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Property:P123</skos:exactMatch>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/japanese-media/èAdattamentodi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/japanese-media/èAdattamentodi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/japanese-media/Anime"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/japanese-media/Manga"/>
+        <rdfs:comment xml:lang="it">Indica un anime di quale manga è adattamento</rdfs:comment>
+        <rdfs:label xml:lang="it">E&apos; adattamento di</rdfs:label>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Property:P144</skos:exactMatch>
     </owl:ObjectProperty>
     
 
@@ -860,6 +931,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment xml:lang="it">Indica se un&apos;opera nipponica è in produzione (true) o è terminata (false)</rdfs:comment>
         <rdfs:label xml:lang="it">In produzione</rdfs:label>
+        <skos:closeMatch>https://www.wikidata.org/wiki/Q105764567</skos:closeMatch>
     </owl:DatatypeProperty>
     
 
@@ -872,6 +944,8 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:comment xml:lang="it">Indica con un intero il numero di episodi di una serie anime</rdfs:comment>
         <rdfs:label xml:lang="it">Numero di episodi</rdfs:label>
+        <skos:exactMatch>https://schema.org/numberOfEpisodes</skos:exactMatch>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Property:P1113</skos:exactMatch>
     </owl:DatatypeProperty>
     
 
@@ -884,6 +958,8 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:comment xml:lang="it">Indica il numero di volumi di un manga</rdfs:comment>
         <rdfs:label xml:lang="it">Numero volumi</rdfs:label>
+        <skos:exactMatch>https://schema.org/volumeNumber</skos:exactMatch>
+        <skos:exactMatch>https://www.wikidata.org/wiki/Property:P478</skos:exactMatch>
     </owl:DatatypeProperty>
     
 
@@ -896,6 +972,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment xml:lang="it">Prezzo di un volume di un manga in euro</rdfs:comment>
         <rdfs:label xml:lang="it">Prezzo volume in euro</rdfs:label>
+        <skos:closeMatch>https://www.wikidata.org/wiki/Property:P2284</skos:closeMatch>
     </owl:DatatypeProperty>
     
 
@@ -907,6 +984,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="it">Titolo alternativo di un&apos;opera nipponica. Accade spesso che il titolo venga accorciato con un titolo più breve</rdfs:comment>
         <rdfs:label xml:lang="it">Titolo alternativo</rdfs:label>
+        <skos:closeMatch>https://www.wikidata.org/wiki/Q4736562</skos:closeMatch>
     </owl:DatatypeProperty>
     
 
@@ -1701,6 +1779,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/CloverWorks">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">CloverWorks</rdfs:label>
@@ -1713,6 +1792,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
@@ -1730,6 +1810,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
@@ -1861,6 +1942,9 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Futabasha">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:stampa rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
         <rdfs:comment xml:lang="it">Casa editrice giapponese con sede a Shinjuku, Tokyo</rdfs:comment>
         <rdfs:label xml:lang="it">Futabasha</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q2579061</skos:exactMatch>
@@ -1930,11 +2014,11 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <owl:differentFrom rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
         <japanese-media:haSequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
         <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
         <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
         <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</japanese-media:numeroVolumi>
         <japanese-media:titoloAlternativo>Il cane che guarda le stelle</japanese-media:titoloAlternativo>
@@ -1953,11 +2037,11 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
-        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
         <japanese-media:haPrequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
         <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
         <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
         <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</japanese-media:numeroVolumi>
         <japanese-media:titoloAlternativo>Il cane che guarda le stelle 2</japanese-media:titoloAlternativo>
@@ -1995,7 +2079,6 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <collectionentity:hasMember rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
         <list:hasFirstItem rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
         <list:hasLastItem rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
-        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <japanese-media:haAdattamentoAnime rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
         <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Arena_Celeste"/>
         <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
@@ -2008,6 +2091,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
         <japanese-media:haUltimoArcoNrattaivo rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
         <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
         <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</japanese-media:numeroVolumi>
         <japanese-media:prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</japanese-media:prezzoVolumeEuro>
@@ -2030,6 +2114,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
         <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
+        <japanese-media:èAdattamentodi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
         <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
         <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</japanese-media:numeroEpisodi>
@@ -2071,13 +2156,13 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <collectionentity:hasMember rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
         <collectionentity:hasMember rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
         <list:hasFirstItem rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
-        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
         <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
         <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takeru_Hokazono"/>
         <japanese-media:haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
         <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
         <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:inProduzione>
         <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</japanese-media:numeroVolumi>
         <japanese-media:prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</japanese-media:prezzoVolumeEuro>
@@ -2139,6 +2224,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kinema_Citrus">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kinema Citrus</rdfs:label>
@@ -2204,6 +2290,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/MAPPA">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">MAPPA</rdfs:label>
@@ -2242,6 +2329,8 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Madhouse">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
         <rdfs:comment xml:lang="it">studio di animazione giapponese</rdfs:comment>
@@ -2325,6 +2414,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Orange">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Orange</rdfs:label>
@@ -2396,6 +2486,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shaft">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Shaft</rdfs:label>
@@ -2436,7 +2527,9 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shonen_Jump">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
-        <japanese-media:pubblicataDa rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <rdfs:comment xml:lang="it">rivista settimanale giapponese di manga</rdfs:comment>
         <rdfs:label xml:lang="it">Shonen jump</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q220015</skos:exactMatch>
@@ -2449,6 +2542,9 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shueisha">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:stampa rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
         <rdfs:comment xml:lang="it">casa editrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Shueisha</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q844822</skos:exactMatch>
@@ -2558,6 +2654,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Trigger">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Trigger</rdfs:label>
@@ -2587,7 +2684,9 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
-        <japanese-media:pubblicataDa rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <rdfs:comment xml:lang="it">Rivista giapponese settimanale</rdfs:comment>
         <rdfs:label xml:lang="it">Weekly Manga Action</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q922549</skos:exactMatch>
@@ -2600,6 +2699,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Wit_Studio">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
         <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Wit Studio</rdfs:label>
