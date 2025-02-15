@@ -124,7 +124,7 @@ def query_sparql(request):
     parameters = data.get('parameters')
     
     #Recupera la query predefinita
-    query_template = Template(REDEFINED_QUERIES[id]['query'])
+    query_template = Template(PREDEFINED_QUERIES[id]['query'])
     required_params = PREDEFINED_QUERIES[id]['required_params']
 
     #Verifica che i parametri richiesti siano stati inseriti
@@ -143,17 +143,23 @@ def query_sparql(request):
     sparql.setQuery(formatted_query)
     sparql.setReturnFormat("json")
 
-    #Esegue la query
-    results = sparql.query().convert()   
+    #Esegue la query  
+    # results = sparql.query().convert()
+
+    results = {'head': {'vars': ['autore']}, 'results': {'bindings': [{'autore': {'type': 'uri','value': 'http://www.semanticweb.org/japanese-media/Yoshihiro_Togashi'}}]}}
     
     # Trasformazione risultati in formato più gestibile
     # parsed_results = []
-    # for result in results['results']['bindings']:
-    #     parsed_result = {}
-    #     for key, value in result.items():
-    #         parsed_result[key] = value['value']
-    #     parsed_results.append(parsed_result)
-
+    parsed_results = {}
+    for result in results['results']['bindings']:
+        for key, value in result.items():
+            # Estrai l'URI dell'autore
+            print("key: ", key)
+            print("value: ", value['value'])
+            parsedValue = value['value'].split("/")[-1].replace("_", " ")  # divide la stringa value["value"] in una lista usando "/" come divisore e prende l'ultimo elemento con [-1]
+            parsed_results[key] = parsedValue
+    print(parsed_results)
+    
     # return JsonResponse({
     #     'results': parsed_results,
     #     'status': 'success',
@@ -162,7 +168,7 @@ def query_sparql(request):
 
     # return JsonResponse({"results": f"Query ricevuta"}, status=200)
     # return JsonResponse({"results": }, status=200)
-    return JsonResponse(r2)
+    return JsonResponse(r1)
 
   except Exception as e:
     return JsonResponse({"error": f"Internal Server Error: {e}"}, status=500)
