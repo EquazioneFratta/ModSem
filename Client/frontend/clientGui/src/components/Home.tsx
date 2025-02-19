@@ -12,12 +12,13 @@ import { Query } from "./QueryInterface";
 
 const Home: React.FC = () => {
 
+  //Elenco delle query, 
   const queryList: Query[] = [
     {
-      id: 1,
+      id: 1, //Ogni ID identifica la query corrispondente nel back-end
       label: "Persone",
       paramLabel: ["studio", "animatore"],
-      paramValue: ["studio_param", "animatore_param"]  // Valori univoci per identificare i parametri
+      paramValue: ["studio_param", "animatore_param"]  //Valori univoci per identificare i parametri
     },
     {
       id: 2,
@@ -75,7 +76,7 @@ const Home: React.FC = () => {
     }
   ];
 
-
+  // Tiene tracca e aggionra il contenuto della pagina in base alla sezione desiderata dall'utente
   const [renderedItem, setRenderedItem] = useState(localStorage.getItem('render'));
 
   function handleSetRenderedItem(value: string) {
@@ -84,6 +85,7 @@ const Home: React.FC = () => {
   }
 
   localStorage.setItem("render", "gui");
+
   const renderContent = () => {
     switch (renderedItem) {
       case "anime":
@@ -100,8 +102,8 @@ const Home: React.FC = () => {
             <Typography variant="h3">
               titolo
             </Typography>
-            
-            <Typography variant="h5" sx={{mt:"5vh"}}>
+
+            <Typography variant="h5" sx={{ mt: "5vh" }}>
               Query sugli Anime
             </Typography>
             <ul>
@@ -147,6 +149,7 @@ const Home: React.FC = () => {
           gap: 3
         }}
       >
+        {/* Header contenente i pulsanti che portano alle varie sezioni del sito */}
         <Box
           sx={{
             position: "fixed",
@@ -246,6 +249,7 @@ const Home: React.FC = () => {
           </Box>
         </Box>
 
+        {/* Cotntenuto della sezione scelta */}
         <Box sx={{ display: "flex", gap: 2, mt: "12vh" }}>
           {renderContent()}
         </Box>
@@ -255,10 +259,3 @@ const Home: React.FC = () => {
 }
 
 export default Home;
-
-
-// useEffect(() => {
-//   handleStorageChange();
-//   window.addEventListener('storage', handleStorageChange);
-//   return () => { window.removeEventListener('storage', handleStorageChange) };
-// }, []);

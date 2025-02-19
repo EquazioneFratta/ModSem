@@ -5,6 +5,9 @@ from SPARQLWrapper import SPARQLWrapper
 from string import Template
 import json
 
+#URL dell'endpoint GraphDB su cui saranno eseguite le query sparql
+SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
+
 PREDEFINED_QUERIES = {
     1: {#recupera qunati archi narrativi ha ogni serie dell’ontologia 
         'query': """
@@ -99,44 +102,19 @@ PREDEFINED_QUERIES = {
     }
 }
 
-r1 = {
-    "results": [
-        {
-            "name": "Mario Rossi",
-            "studio": "Studio Ghibli"
-        },
-        {
-            "name": "Luigi Bianchi", 
-            "studio": "Pixar Animation"
-        }
-    ],
-}
-
-r2= {  'results': [
-        {
-            'arco': 'Assassinio del portatore della spada',
-            'autore': 'kon'
-        },
-        {
-            'arco': 'Rakuzaichi' 
-        },
-        {
-            'arco': 'Versus Shojo'
-        },
-]}
-
-SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
-
 #Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
 @csrf_exempt 
 
 def query_sparql(request):
   try:
+    #Riceve la query inviata dal front-end
     data = json.loads(request.body) 
+    #Identifica unicamente la query richiesta dall'utente nel front-end
     id = data.get('id')
+    #Parametri inviati dal front-end, necessari per fare una query parametrica
     parameters = data.get('parameters')
     
-    #Recupera la query predefinita
+    #Recupera la query predefinita e i suoi parametri
     query_template = Template(PREDEFINED_QUERIES[id]['query'])
     required_params = PREDEFINED_QUERIES[id]['required_params']
 
@@ -156,16 +134,11 @@ def query_sparql(request):
     sparql.setQuery(formatted_query)
     sparql.setReturnFormat("json")
 
-    #Esegue la query  
+    #Esegue la query e salva la risposta nella variabile "results"
     results = sparql.query().convert()
 
-    # Trasformazione risultati in formato più gestibile
+    #Trasforma "results", rendendolo piu' semplice da gestire
     parsed_results = []
-    # results = [{'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada'}},
-    #  {'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Rakuzaichi'}}, 
-    #  {'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Versus_Shojo'}},
-    # #  {'autore': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/kon'}}
-    #  ]
 
     for result in results:
         for key, value in result.items():
@@ -175,8 +148,6 @@ def query_sparql(request):
     print(parsed_results)
     
     return JsonResponse({'results': parsed_results,})
-
-    # return JsonResponse(r2)
 
   except Exception as e:
     return JsonResponse({"error": f"Internal Server Error: {e}"}, status=500)

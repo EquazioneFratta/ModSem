@@ -20,8 +20,8 @@ interface JMQueryProps {
 }
 
 function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
-  const [selectedQuery, setSelectedQuery] = useState<Query>(); //Query che si vuole eseuguire scelta da un insieme predefinito
-  const [paramValues, setParamValues] = useState<string[]>([]); // Valori dei parametri della query, array di stringhe
+  const [selectedQuery, setSelectedQuery] = useState<Query>(); //Indica la query che si vuole eseuguire scelta da un insieme predefinito
+  const [paramValues, setParamValues] = useState<string[]>([]); //Valori dei parametri della query, array di stringhe
 
   const [results, setResults] = useState(); //Risultato della query, array di oggetti [{},{}]
 
@@ -29,7 +29,7 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-
+  //Funzioni che tengono traccia del cambiamento dei campi query e parametri 
   const handleQueryChange = (_event: any, newQuery: Query | null) => {
     setSelectedQuery(newQuery || undefined);
     if (newQuery) {
@@ -50,20 +50,18 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
     setError(false);
     setErrorMessage("");
     if (selectedQuery) {
-      // Trasforma l'array in un oggetto vuoto chiave-valore di tipo `Record<string, string>` 
-      // (ossia un oggetto in cui ogni chiave è una stringa e ogni valore è una stringa)
-      //acc: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
-      const parameterMap = selectedQuery.paramValue.reduce((acc, paramValue, i) => {
-        // Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
-        acc[paramValue] = paramValues[i];
-        return acc;
-      }, {} as Record<string, string>); // Definisce il tipo dell'oggetto vuoto iniziale
+      // Trasforma l'array in un oggetto vuoto di tipo `Record<string, string>` 
+      // oggetto dizionario in cui ogni chiave è una stringa e ogni valore è una stringa
+      //queryParameters: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
+      const parameterMap = selectedQuery.paramValue.reduce((queryParameters, paramValue, i) => {
+        queryParameters[paramValue] = paramValues[i]; //Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
+        return queryParameters;
+      }, {} as Record<string, string>); //Definisce il tipo dell'oggetto vuoto iniziale
 
       const jsonData = {
         id: selectedQuery.id,
         parameters: parameterMap,
       };
-      console.log(jsonData)
       
       try {
         const response = await fetch(
@@ -115,6 +113,7 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
 
         <Box sx={{ display: "flex", gap: 2 }}>
           <FormControl sx={{ flex: 1 }}>
+            {/* Gestisce la selezione della query */}
             <Autocomplete
               disablePortal
               id="queryAutocomplete"
@@ -127,7 +126,8 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
               )}
             />
           </FormControl>
-
+          
+          {/* Gestisce la selezione dei parametri sulla base della query scelta */}
           {selectedQuery && selectedQuery.paramLabel.map((label, index) => (
             <TextField
               key={`${selectedQuery.label}-${selectedQuery.paramLabel[index]}`}
@@ -150,7 +150,6 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
           >
             Esegui Query
           </Button>
-
         </Box>
 
         <Box>

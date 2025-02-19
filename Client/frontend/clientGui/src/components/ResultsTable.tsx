@@ -20,7 +20,7 @@ function capitalize(str: string) {
 }
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
-  // Se la query non produce risultati, mostra un messaggio
+  //Se la query non produce risultati, mostra un messaggio
   if (!results || results.length === 0) {
     return (
       <Box sx={{ textAlign: 'center', mt: 4 }}>

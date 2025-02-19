@@ -19,8 +19,8 @@ interface publicEndPointProps {
 }
 
 function PublicEndPoint({ queryList }: publicEndPointProps) {
-  const [selectedQuery, setSelectedQuery] = useState<Query>(); //Query che si vuole eseuguire scelta da un insieme predefinito
-  const [paramValues, setParamValues] = useState<string[]>([]); // Valori dei parametri della query, array di stringhe
+  const [selectedQuery, setSelectedQuery] = useState<Query>(); //Indica la uery che si vuole eseuguire scelta da un insieme predefinito
+  const [paramValues, setParamValues] = useState<string[]>([]); //Valori dei parametri della query, array di stringhe
 
   const [results, setResults] = useState(); //Risultato della query, array di oggetti [{},{}]
 
@@ -28,6 +28,7 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  //Funzioni che tengono traccia del cambiamento dei campi query e parametri 
   const handleQueryChange = (_event: any, newQuery: Query | null) => {
     setSelectedQuery(newQuery || undefined);
     if (newQuery) {
@@ -47,16 +48,15 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
     setIsLoading(true);
     setError(false);
     setErrorMessage("");
-    //TODO: in caso poi si dovesse riaggiungere paramValue, sosituire sutte i paramLabel qui sotto
     if (selectedQuery) {
       // Trasforma l'array in un oggetto vuoto chiave-valore di tipo `Record<string, string>` 
       // (ossia un oggetto in cui ogni chiave è una stringa e ogni valore è una stringa)
-      //acc: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
-      const parameterMap = selectedQuery.paramValue.reduce((acc, paramValue, i) => {
+      //queryParameters: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
+      const parameterMap = selectedQuery.paramValue.reduce((queryParameters, paramValue, i) => {
         // Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
-        acc[paramValue] = paramValues[i];
-        return acc;
-      }, {} as Record<string, string>); // Definisce il tipo dell'oggetto vuoto iniziale
+        queryParameters[paramValue] = paramValues[i];
+        return queryParameters;
+      }, {} as Record<string, string>); //Definisce il tipo dell'oggetto vuoto iniziale
 
       const jsonData = {
         id: selectedQuery.id,
@@ -113,13 +113,13 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
 
         <Box sx={{ display: "flex", gap: 2 }}>
           <FormControl sx={{ flex: 1 }}>
+            {/* Gestisce la selezione della query */}
             <Autocomplete
               disablePortal
               id="publicEndPointQueryAutocomplete"
               options={queryList}
               value={selectedQuery || null}
               onChange={handleQueryChange}
-              // getOptionLabel={(option) => option.label}
               isOptionEqualToValue={(option, value) => option.label === value.label}
               renderInput={(params) => (
                 <TextField {...params} label="Query" />
@@ -127,6 +127,7 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
             />
           </FormControl>
 
+          {/* Gestisce la selezione dei parametri sulla base della query scelta */}
           {selectedQuery && selectedQuery.paramLabel.map((label, index) => (
             <TextField
               key={`${selectedQuery.label}-${selectedQuery.paramLabel[index]}`}
@@ -149,7 +150,6 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
           >
             Esegui Query
           </Button>
-
         </Box>
 
         <Box>
