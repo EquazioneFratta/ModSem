@@ -110,13 +110,26 @@ r1 = {
             "studio": "Pixar Animation"
         }
     ],
-    "status": "success",
-    "total_results": 2
 }
+
+r2= {  'results': [
+        {
+            'arco': 'Assassinio del portatore della spada',
+            'autore': 'kon'
+        },
+        {
+            'arco': 'Rakuzaichi' 
+        },
+        {
+            'arco': 'Versus Shojo'
+        },
+]}
 
 SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
 
-@csrf_exempt #Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
+#Disabilita la protezione CSRF(Cross-Site Request Forgery) per questa funzione 
+@csrf_exempt 
+
 def query_sparql(request):
   try:
     data = json.loads(request.body) 
@@ -144,31 +157,26 @@ def query_sparql(request):
     sparql.setReturnFormat("json")
 
     #Esegue la query  
-    # results = sparql.query().convert()
+    results = sparql.query().convert()
 
-    results = {'head': {'vars': ['autore']}, 'results': {'bindings': [{'autore': {'type': 'uri','value': 'http://www.semanticweb.org/japanese-media/Yoshihiro_Togashi'}}]}}
-    
     # Trasformazione risultati in formato più gestibile
-    # parsed_results = []
-    parsed_results = {}
-    for result in results['results']['bindings']:
+    parsed_results = []
+    # results = [{'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada'}},
+    #  {'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Rakuzaichi'}}, 
+    #  {'arco': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/Versus_Shojo'}},
+    # #  {'autore': {'type': 'uri', 'value': 'http://www.semanticweb.org/japanese-media/kon'}}
+    #  ]
+
+    for result in results:
         for key, value in result.items():
-            # Estrai l'URI dell'autore
-            print("key: ", key)
-            print("value: ", value['value'])
-            parsedValue = value['value'].split("/")[-1].replace("_", " ")  # divide la stringa value["value"] in una lista usando "/" come divisore e prende l'ultimo elemento con [-1]
-            parsed_results[key] = parsedValue
+            parsedValue = value['value'].split("/")[-1].replace("_", " ")  
+            parsed_results.append({key : parsedValue})
+
     print(parsed_results)
     
-    # return JsonResponse({
-    #     'results': parsed_results,
-    #     'status': 'success',
-    #     'total_results': len(parsed_results)
-    # })
+    return JsonResponse({'results': parsed_results,})
 
-    # return JsonResponse({"results": f"Query ricevuta"}, status=200)
-    # return JsonResponse({"results": }, status=200)
-    return JsonResponse(r1)
+    # return JsonResponse(r2)
 
   except Exception as e:
     return JsonResponse({"error": f"Internal Server Error: {e}"}, status=500)

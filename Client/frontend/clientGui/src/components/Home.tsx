@@ -3,6 +3,7 @@ import {
   Container,
   Box,
   Button,
+  Typography,
 } from "@mui/material";
 import JMQuery from "./QueryTabs/JMQuery";
 import PublicEndPoint from "./QueryTabs/PublicEndPoint";
@@ -22,55 +23,55 @@ const Home: React.FC = () => {
       id: 2,
       label: "Libri",
       paramLabel: ["serializzazione"],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 3,
       label: "Anime ha target shonen",
       paramLabel: ["Titolo Anime"],
-      paramValue: ["animeTitle"]  
+      paramValue: ["animeTitle"]
     },
     {
       id: 4,
       label: "Chi è l'autore del manga",
       paramLabel: ["Titolo manga"],
-      paramValue: ["mangaTitle"]  
+      paramValue: ["mangaTitle"]
     },
     {
       id: 5,
       label: "Quali archi contiene il manga",
       paramLabel: ["manga"],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 6,
       label: "Qual è il manga shonen con meno archi narrativi",
       paramLabel: [""],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 7,
       label: "",
       paramLabel: [""],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 8,
       label: "",
       paramLabel: [""],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 9,
       label: "",
       paramLabel: [""],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     },
     {
       id: 10,
       label: "",
       paramLabel: [""],
-      paramValue: ["", ""]  
+      paramValue: ["", ""]
     }
   ];
 
@@ -94,7 +95,45 @@ const Home: React.FC = () => {
       case "publicEndPoint":
         return <PublicEndPoint queryList={queryList} />
       default:
-        return (<Box></Box>)
+        return (
+          <Box>
+            <Typography variant="h3">
+              titolo
+            </Typography>
+            
+            <Typography variant="h5" sx={{mt:"5vh"}}>
+              Query sugli Anime
+            </Typography>
+            <ul>
+              <li></li>
+              <li></li>
+            </ul>
+
+            <Typography variant="h5">
+              Query sui Manga
+            </Typography>
+            <ul>
+              <li></li>
+              <li></li>
+            </ul>
+
+            <Typography variant="h5">
+              Query sulle persone
+            </Typography>
+            <ul>
+              <li></li>
+              <li></li>
+            </ul>
+
+            <Typography variant="h5">
+              Query su EndPoint pubblico
+            </Typography>
+            <ul>
+              <li></li>
+              <li></li>
+            </ul>
+          </Box>
+        )
     }
   };
 
@@ -208,9 +247,7 @@ const Home: React.FC = () => {
         </Box>
 
         <Box sx={{ display: "flex", gap: 2, mt: "12vh" }}>
-          {/* <Box sx={{ display: 'flex', flexDirection: 'column', height: '90vh', overflow: 'auto' }}> */}
           {renderContent()}
-          {/* </Box> */}
         </Box>
       </Box>
     </Container >

@@ -15,6 +15,10 @@ interface ResultsTableProps {
   results: Array<Record<string, string>>;
 }
 
+function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
   // Se la query non produce risultati, mostra un messaggio
   if (!results || results.length === 0) {
@@ -26,13 +30,12 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
       </Box>
     );
   }
-
   // Estrai le chiavi della prima riga per creare le colonne
   const columns = Object.keys(results[0]);
 
   return (
     <TableContainer component={Paper} sx={{ mt: 3 }}>
-      <Table>
+      <Table key={"tableResults"}>
         <TableHead>
           <TableRow>
             {columns.map((column) => (
@@ -43,7 +46,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
                   backgroundColor: (theme) => theme.palette.grey[50]
                 }}
               >
-                {column}
+                {capitalize(column)}
               </TableCell>
             ))}
           </TableRow>
@@ -59,6 +62,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
                   {row[column]}
                 </TableCell>
               ))}
+              {row[0]}
             </TableRow>
           ))}
         </TableBody>

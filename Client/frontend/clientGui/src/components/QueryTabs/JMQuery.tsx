@@ -49,7 +49,6 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
     setIsLoading(true);
     setError(false);
     setErrorMessage("");
-    //TODO: in caso poi si dovesse riaggiungere paramValue, sosituire sutte i paramLabel qui sotto
     if (selectedQuery) {
       // Trasforma l'array in un oggetto vuoto chiave-valore di tipo `Record<string, string>` 
       // (ossia un oggetto in cui ogni chiave è una stringa e ogni valore è una stringa)
@@ -122,10 +121,9 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
               options={queryList}
               value={selectedQuery || null}
               onChange={handleQueryChange}
-              // getOptionLabel={(option) => option.label}
               isOptionEqualToValue={(option, value) => option.label === value.label}
               renderInput={(params) => (
-                <TextField {...params} label="Query" />
+                <TextField {...params} label="Query" key={"queryTextField"} />
               )}
             />
           </FormControl>
