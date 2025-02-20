@@ -5,33 +5,35 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import { Query } from "./QueryInterface";
 import JMQuery from "./QueryTabs/JMQuery";
 import PublicEndPoint from "./QueryTabs/PublicEndPoint";
 
-import { Query } from "./QueryInterface";
-
 const Home: React.FC = () => {
 
-  //Elenco delle query, 
-  const queryList: Query[] = [
+  //Elenco delle query
+  const animeQueryList: Query[] = [
     {
-      id: 1, //Ogni ID identifica la query corrispondente nel back-end
-      label: "Persone",
-      paramLabel: ["studio", "animatore"],
-      paramValue: ["studio_param", "animatore_param"]  //Valori univoci per identificare i parametri
-    },
-    {
-      id: 2,
-      label: "Libri",
-      paramLabel: ["serializzazione"],
-      paramValue: ["", ""]
+      id: 1,
+      label: "Qual'è il target di un anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
     },
     {
       id: 3,
-      label: "Anime ha target shonen",
-      paramLabel: ["Titolo Anime"],
+      label: "Quale studio ha animato",
+      paramLabel: ["Titolo anime"],
       paramValue: ["animeTitle"]
     },
+    {
+      id: 2,
+      label: "",
+      paramLabel: [""],
+      paramValue: [""]
+    },
+  ]
+
+  const mangaQueryList: Query[] = [
     {
       id: 4,
       label: "Chi è l'autore del manga",
@@ -40,42 +42,59 @@ const Home: React.FC = () => {
     },
     {
       id: 5,
-      label: "Quali archi contiene il manga",
-      paramLabel: ["manga"],
-      paramValue: ["", ""]
+      label: "Quali archi narrativi contiene il manga",
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
     },
     {
       id: 6,
-      label: "Qual è il manga shonen con meno archi narrativi",
+      label: "Quali manga hanno anche un adattamento anime", //non so se va bene 
       paramLabel: [""],
-      paramValue: ["", ""]
+      paramValue: [""]
     },
+  ]
+
+  const personQueryList: Query[] = [
     {
       id: 7,
-      label: "",
-      paramLabel: [""],
-      paramValue: ["", ""]
+      label: "Chi sono i doppiatori dell'anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
     },
     {
       id: 8,
-      label: "",
-      paramLabel: [""],
-      paramValue: ["", ""]
+      label: "Chi ha lavorato con lo studio",
+      paramLabel: ["Studio d'animazione"],
+      paramValue: ["studio"]
     },
     {
       id: 9,
       label: "",
       paramLabel: [""],
-      paramValue: ["", ""]
+      paramValue: [""]
     },
+  ]
+
+  const publicEndPointQuery: Query[] = [
     {
       id: 10,
-      label: "",
+      label: "boh",
       paramLabel: [""],
-      paramValue: ["", ""]
-    }
-  ];
-
+      paramValue: [""]
+    },
+    {
+      id: 11,
+      label: "boh",
+      paramLabel: [""],
+      paramValue: [""]
+    },
+    {
+      id: 12,
+      label: "boh",
+      paramLabel: [""],
+      paramValue: [""]
+    },
+  ]
   // Tiene tracca e aggionra il contenuto della pagina in base alla sezione desiderata dall'utente
   const [renderedItem, setRenderedItem] = useState(localStorage.getItem('render'));
 
@@ -89,13 +108,13 @@ const Home: React.FC = () => {
   const renderContent = () => {
     switch (renderedItem) {
       case "anime":
-        return <JMQuery queryList={queryList} sectionLabel="Query sugli Anime" />;
+        return <JMQuery queryList={animeQueryList} sectionLabel="Query sugli Anime" />;
       case "manga":
-        return <JMQuery queryList={queryList} sectionLabel="Query sui Manga" />;
+        return <JMQuery queryList={mangaQueryList} sectionLabel="Query sui Manga" />;
       case "persone":
-        return <JMQuery queryList={queryList} sectionLabel="Query sulle persone" />;
+        return <JMQuery queryList={personQueryList} sectionLabel="Query sulle persone" />;
       case "publicEndPoint":
-        return <PublicEndPoint queryList={queryList} />
+        return <PublicEndPoint queryList={publicEndPointQuery} />
       default:
         return (
           <Box>
