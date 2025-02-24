@@ -10,45 +10,134 @@ import JMQuery from "./QueryTabs/JMQuery";
 import PublicEndPoint from "./QueryTabs/PublicEndPoint";
 
 const Home: React.FC = () => {
-
   //Elenco delle query
   const animeQueryList: Query[] = [
     {
       id: 1,
-      label: "Qual'è il target di un anime",
-      paramLabel: ["Titolo anime"],
-      paramValue: ["animeTitle"]
-    },
-    {
-      id: 3,
       label: "Quale studio ha animato",
       paramLabel: ["Titolo anime"],
       paramValue: ["animeTitle"]
     },
     {
       id: 2,
-      label: "",
+      label: "Qual'è il target di",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
+    },
+    {
+      id: 3,
+      label: "Quali anime hanno target",
+      paramLabel: ["Target"],
+      paramValue: ["target"]
+    },
+    {
+      id: 4,
+      label: "Quali anime ha prodotto lo studio",
+      paramLabel: ["Studio d'animazione"],
+      paramValue: ["studio"]
+    },
+    {
+      id: 5,
+      label: "Chi ha diretto l'anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
+    },
+    {
+      id: 6,
+      label: "Chi ha doppiato l'anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
+    },
+    {
+      id: 7,
+      label: "Quali anime hanno partecipato all' award", //stampa partecipanti e vincitore
+      paramLabel: ["award"],
+      paramValue: ["award"]
+    },
+    {
+      id: 8,
+      label: "Quali anime sono stagionali",
       paramLabel: [""],
       paramValue: [""]
+    },
+    {
+      id: 9,
+      label: "È in produzione l'anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
+    },
+    {
+      id: 10,
+      label: "Quanti episodi ha l'anime",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
     },
   ]
 
   const mangaQueryList: Query[] = [
     {
-      id: 4,
+      id: 11, //v
       label: "Chi è l'autore del manga",
       paramLabel: ["Titolo manga"],
       paramValue: ["mangaTitle"]
     },
     {
-      id: 5,
-      label: "Quali archi narrativi contiene il manga",
+      id: 12,
+      label: "Quanti volumi ha il manga", 
       paramLabel: ["Titolo manga"],
       paramValue: ["mangaTitle"]
     },
     {
-      id: 6,
-      label: "Quali manga hanno anche un adattamento anime", //non so se va bene 
+      id: 13,
+      label: "Chi detiene i diritti di",
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
+    },
+    {
+      id: 14,
+      label: "Quali manga sono sotto licenza di",
+      paramLabel: ["Casa editrice"],
+      paramValue: ["casaEditrice"]
+    },
+    {
+      id: 15,
+      label: "Su quale rivista è pubblicato il manga",
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
+    },
+    {
+      id: 16,
+      label: "Quali manga ha pubblicato la rivista",
+      paramLabel: ["Rivista"],
+      paramValue: ["rivista"]
+    },
+    {
+      id: 17,
+      label: "Quali manga sono in produzione",
+      paramLabel: [""],
+      paramValue: [""]
+    },
+    {
+      id: 18,
+      label: "Qual è il target del manga",
+      paramLabel: ["Ttitolo manga"],
+      paramValue: ["mangaTitle"]
+    },
+    {
+      id: 19, 
+      label: "Quali archi narrativi ha il mamga", // tre colonne, la seconda da "true" sul primo arco narrativo, la terza "true" sull'utlimo 
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
+    },
+    {
+      id: 20,
+      label: "Esiste un adattamento anime di",
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
+    },
+    {
+      id: 21,
+      label: "Quali manga hanno anche un adattamento anime", 
       paramLabel: [""],
       paramValue: [""]
     },
@@ -56,43 +145,67 @@ const Home: React.FC = () => {
 
   const personQueryList: Query[] = [
     {
-      id: 7,
-      label: "Chi sono i doppiatori dell'anime",
-      paramLabel: ["Titolo anime"],
-      paramValue: ["animeTitle"]
+      id: 22,
+      label: "Chi sono i colleghi di",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
     },
     {
-      id: 8,
-      label: "Chi ha lavorato con lo studio",
+      id: 23,
+      label: "Di quale studio d'animazione è dipendente",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
+    },
+    {
+      id: 23,
+      label: "Chi sono i dipendenti di",
       paramLabel: ["Studio d'animazione"],
       paramValue: ["studio"]
     },
     {
-      id: 9,
-      label: "",
-      paramLabel: [""],
-      paramValue: [""]
+      id: 23,
+      label: "Cosa ha diretto",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
+    },
+    {
+      id: 24,
+      label: "Cosa ha doppiato",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
+    },
+    {
+      id: 25,
+      label: "Con chi ha lavorato",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
+    },
+    {
+      id: 26,
+      label: "Cosa ha scritto",
+      paramLabel: ["Nome persona"],
+      paramValue: ["persona"]
     },
   ]
 
   const publicEndPointQuery: Query[] = [
     {
-      id: 10,
-      label: "boh",
-      paramLabel: [""],
-      paramValue: [""]
+      id: 27,
+      label: "Chi sono i doppiatori in",
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"]
     },
     {
-      id: 11,
-      label: "boh",
-      paramLabel: [""],
-      paramValue: [""]
+      id: 28,
+      label: "Quali comics pubblica ",
+      paramLabel: ["Casa editrice"],
+      paramValue: ["casaEditrice"]
     },
     {
-      id: 12,
-      label: "boh",
-      paramLabel: [""],
-      paramValue: [""]
+      id: 29,
+      label: "Quali sono i generi di",
+      paramLabel: ["Titolo manga"],
+      paramValue: ["mangaTitle"]
     },
   ]
   // Tiene tracca e aggionra il contenuto della pagina in base alla sezione desiderata dall'utente

@@ -9,37 +9,56 @@ import json
 SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
 
 PREDEFINED_QUERIES = {
-    1: {#recupera qunati archi narrativi ha ogni serie dell’ontologia 
+    1: {# Quale studio ha animato un dato anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            PREFIX odp: <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#>
-            SELECT ?manga (COUNT(?arco) AS ?numeroArchi)
-            WHERE {
-                ?manga jm:haArcoNarrativo ?arco;
-            }
-            GROUP BY ?manga
-            ORDER BY ?manga
-        """,
-        'required_params': ['']
-    },
-    2: {#tutti i target di tutte le serie
-        'query': """
-            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?x ?target 
-            WHERE {
-                ?x jm:haTarget ?target
-            }
-        """,
-        'required_params': ['']
-    },
-    3: {#il dato anime ha target shonen
-        'query': """
-            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            ASK {jm:$animeTitle jm:haTarget jm:Shonen}
         """,
         'required_params': ['animeTitle']
     },
-    4: {#chi e’ l’autore di un dato manga
+    2: {# Qual è il target di un dato anime
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['animeTitle']
+    },
+    3: {# Quali anime hanno un dato target
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['target']
+    },
+    4: {# Quali anime ha prodotto un dato studio d'animazione
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['studio']
+    },
+    5: {# Chi ha diretto un dato anime
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['animeTitle']
+    },
+    6: {# Chi ha doppiato un dato anime
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['animeTitle']
+    },
+    7: {# Quali anime hanno partecipato ad un dato award
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['award']
+    },
+    8: {# Quali anime sono stagionali
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['']
+    },
+    9: {# È in produzione un dato anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             SELECT ?autore
@@ -47,9 +66,16 @@ PREDEFINED_QUERIES = {
                 jm:$mangaTitle jm:haAutore ?autore .
             }
         """,
-        'required_params': ['mangaTitle']
+        'required_params': ['animeTitle']
     },
-    5: {#quali archi contiene un dato manga
+    10: {# Quanti episodi ha un dato anime 
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['animeTitle']
+    },
+    19: {#quali archi narrativi contiene un dato manga
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
@@ -60,41 +86,32 @@ PREDEFINED_QUERIES = {
         """,
         'required_params': ['mangaTitle']
     },
-    6: {#qual e’ il manga shonen con meno archi narrativi
+    20: {#
         'query': """
-        PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
-        SELECT ?manga (COUNT(?arco) AS ?numeroArchi)
-        WHERE {
-            ?manga a jm:MangaSerie ;
-                jm:haTarget jm:Shonen ;
-                jm:haArcoNarrativo ?arco .
-        }
-        GROUP BY ?manga
-        ORDER BY ASC(?numeroArchi)
-        LIMIT 1
         """,
         'required_params': ['']
     },
-    7: {# 
+    21: {# 
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
         'required_params': ['']
     },
-    8: {# 
+    22: {# 
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
         'required_params': ['']
     },
-    9: {# 
+    23: {# 
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
         'required_params': ['']
     },
-    10: {# 
+    24: {# 
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
