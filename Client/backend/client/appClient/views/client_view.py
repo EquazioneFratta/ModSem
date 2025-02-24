@@ -9,6 +9,9 @@ import json
 SPARQL_ENDPOINT = "http://Omen-Di-Fratta:7200/repositories/ProgettoMODSEM"
 
 PREDEFINED_QUERIES = {
+    
+    #  --- Query anime --- #
+    
     1: {# Quale studio ha animato un dato anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -75,7 +78,69 @@ PREDEFINED_QUERIES = {
         """,
         'required_params': ['animeTitle']
     },
-    19: {#quali archi narrativi contiene un dato manga
+    
+    #  --- Query manga --- #
+    
+    11: {# Chi è l'autore di un dato manga
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+            SELECT ?autore
+            WHERE { 
+                jm:$mangaTitle jm:haAutore ?autore .
+            }
+        """,
+        'required_params': ['mangaTitle']
+    },
+    12: {# Quanti volumi ha un dato manga
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['mangaTitle']
+    },
+    13: {# Chi detiene i diritti di un dato manga
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['mangaTitle']
+    },
+    14: {# Quali manga sono sotto licenza di una data casa editrice
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['casaEditrice']
+    },
+    15: {# Su quale rivista è pubblicato un dato manga
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['mangaTitle']
+    },
+    16: {# Quali manga ha pubblicato una data rivista
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['rivista']
+    },
+    17: {# Quali manga sono in produzione
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['']
+    },
+    18: {# Qual è il target di un dato manga
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+
+        """,
+        'required_params': ['mangaTitle']
+    },    
+    19: {# Quali archi narrativi contiene un dato manga
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
@@ -86,36 +151,84 @@ PREDEFINED_QUERIES = {
         """,
         'required_params': ['mangaTitle']
     },
-    20: {#
+    20: {# Esiste un adattamento anime di un dato manga
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
         """,
-        'required_params': ['']
+        'required_params': ['mangaTitle']
     },
-    21: {# 
+    21: {# Quali manga hanno anche un adattamento anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
         'required_params': ['']
     },
-    22: {# 
+    
+    #  --- Query persone --- #
+
+    22: {# Chi sono i colleghi di una data persona
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
-        'required_params': ['']
+        'required_params': ['persona']
     },
-    23: {# 
+    23: {# Di quale studio d'animazione è dipendente una data persona
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
-        'required_params': ['']
+        'required_params': ['persona']
     },
-    24: {# 
+    24: {# Chi sono i dipendenti di un dato studio d'animazione
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
         """,
-        'required_params': ['']
+        'required_params': ['studio']
+    },
+    25: {# Cosa ha diretto una data persona
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['persona']
+    },
+    26: {# Cosa ha doppiato una data persona
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['persona']
+    },
+    27: {# Con chi ha lavorato una data persona
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['persona']
+    },
+    28: {# Cosa ha scritto una data persona
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['persona']
+    },
+    
+    #  --- Query endpoint pubblico --- #
+
+    29: {# Chi sono i doppiatori in una dato anime
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['animeTitle']
+    },
+    30: {# Quali comics pubblica una data casa editrice
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['casaEditrice']
+    },
+    31: {# Quali sono i generi di un dato anime
+        'query': """
+            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
+        """,
+        'required_params': ['animeTitle']
     }
 }
 
