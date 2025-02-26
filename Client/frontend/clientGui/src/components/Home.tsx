@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Box, Button, Typography } from "@mui/material";
 import { Query } from "./QueryInterface";
+import nika from "../assets/nika.png"
 import JMQuery from "./QueryTabs/JMQuery";
 import PublicEndPoint from "./QueryTabs/PublicEndPoint";
 
@@ -239,102 +240,139 @@ const Home: React.FC = () => {
         return <PublicEndPoint queryList={publicEndPointQuery} />;
       default:
         return (
-          // <Container maxWidth="lg">
-          <Box display={"flex"} flexDirection={"column"} gap={3}>
+          <Box
+            display={"flex"}
+            flexDirection={"row"}
+            sx={{
+              width: "100%",
+              overflow: "hidden",
+            }}
+          >
+            {/* Box query list */}
             <Box
+              display={"flex"}
+              flexDirection={"column"}
               sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "20vw",
-                mt: "5vh",
+                width: "60%",
               }}
             >
-              <Box width={"50%"}>
-                <Typography variant="h5" color={"#3B82F6"}>
-                  Query sugli Anime
-                </Typography>
-                <ul>
-                  <li>Quale studio ha animato</li>
-                  <li>Qual'è il target di</li>
-                  <li>Quali anime hanno target</li>
-                  <li>Quali anime ha prodotto lo studio</li>
-                  <li>Chi ha diretto l'anime</li>
-                  <li>Chi ha doppiato l'anime</li>
-                  <li>Quali anime hanno partecipato all' award</li>
-                  <li>Quali anime sono stagionali</li>
-                  <li>È in produzione l'anime</li>
-                  <li>Quanti episodi ha l'anime</li>
-                </ul>
+              {/* anmime/manga */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "10vw",
+                  mt: "5vh",
+                }}
+              >
+                <Box width={"30%"}>
+                  <Typography variant="h5" color={"#3B82F6"}>
+                    Query sugli Anime
+                  </Typography>
+                  <ul>
+                    <li>Quale studio ha animato</li>
+                    <li>Qual'è il target di</li>
+                    <li>Quali anime hanno target</li>
+                    <li>Quali anime ha prodotto lo studio</li>
+                    <li>Chi ha diretto l'anime</li>
+                    <li>Chi ha doppiato l'anime</li>
+                    <li>Quali anime hanno partecipato all' award</li>
+                    <li>Quali anime sono stagionali</li>
+                    <li>È in produzione l'anime</li>
+                    <li>Quanti episodi ha l'anime</li>
+                  </ul>
+                </Box>
+
+                <Box width={"30%"}>
+                  <Typography variant="h5" color={"#3B82F6"}>
+                    Query sui Manga
+                  </Typography>
+                  <ul>
+                    <li>Chi è l'autore di</li>
+                    <li>Quanti volumi ha</li>
+                    <li>Chi detiene i diritti di</li>
+                    <li>Quali manga sono sotto licenza di</li>
+                    <li>Su quale rivista è pubblicato </li>
+                    <li>Quali manga ha pubblicato la rivista</li>
+                    <li>Quali manga sono in produzione</li>
+                    <li>Qual è il target di</li>
+                    <li>Quali archi narrativi ha il manga"</li>
+                    <li>Esiste un adattamento anime di</li>
+                    <li>Quali manga hanno anche un adattamento anime</li>
+                  </ul>
+                </Box>
               </Box>
 
-              <Box width={"50%"}>
-                <Typography variant="h5" color={"#3B82F6"}>
-                  Query sui Manga
-                </Typography>
-                <ul>
-                  <li>Chi è l'autore di</li>
-                  <li>Quanti volumi ha</li>
-                  <li>Chi detiene i diritti di</li>
-                  <li>Quali manga sono sotto licenza di</li>
-                  <li>Su quale rivista è pubblicato </li>
-                  <li>Quali manga ha pubblicato la rivista</li>
-                  <li>Quali manga sono in produzione</li>
-                  <li>Qual è il target di</li>
-                  <li>Quali archi narrativi ha il manga"</li>
-                  <li>Esiste un adattamento anime di</li>
-                  <li>Quali manga hanno anche un adattamento anime</li>
-                </ul>
+              {/* persone/endpoint pubblico */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "10vw",
+                  mt: "5vh",
+                }}
+              >
+                <Box width={"30%"}>
+                  <Typography variant="h5" color={"#3B82F6"}>
+                    Query sulle persone
+                  </Typography>
+                  <ul>
+                    <li>Chi sono i colleghi di</li>
+                    <li>Di quale studio d'animazione è dipendente</li>
+                    <li>Chi sono i dipendenti di</li>
+                    <li>Cosa ha diretto</li>
+                    <li>Cosa ha doppiato</li>
+                    <li>Con chi ha lavorato</li>
+                    <li>Cosa ha scritto</li>
+                  </ul>
+                </Box>
+
+                <Box width={"30%"}>
+                  <Typography variant="h5" color={"#3B82F6"}>
+                    Query su EndPoint pubblico
+                  </Typography>
+                  <ul>
+                    <li>Chi sono i doppiatori in</li>
+                    <li>Quali comics pubblica </li>
+                    <li>Quali sono i generi di</li>
+                  </ul>
+                </Box>
               </Box>
             </Box>
 
+            {/* Box immagine */}
             <Box
               sx={{
+                width: "25%",
                 display: "flex",
-                flexDirection: "row",
-                gap: "20vw",
-                mt: "5vh",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Box width={"50%"}>
-                <Typography variant="h5" color={"#3B82F6"}>
-                  Query sulle persone
-                </Typography>
-                <ul>
-                  <li>Chi sono i colleghi di</li>
-                  <li>Di quale studio d'animazione è dipendente</li>
-                  <li>Chi sono i dipendenti di</li>
-                  <li>Cosa ha diretto</li>
-                  <li>Cosa ha doppiato</li>
-                  <li>Con chi ha lavorato</li>
-                  <li>Cosa ha scritto</li>
-                </ul>
-              </Box>
-
-              <Box width={"50%"}>
-                <Typography variant="h5" color={"#3B82F6"}>
-                  Query su EndPoint pubblico
-                </Typography>
-                <ul>
-                  <li>Chi sono i doppiatori in</li>
-                  <li>Quali comics pubblica </li>
-                  <li>Quali sono i generi di</li>
-                </ul>
-              </Box>
+              <img
+                src={nika}
+                alt="Immagine"
+                style={{
+                  width: "35%",
+                  height: "auto",
+                  scale: "4",
+                }}
+              />
             </Box>
           </Box>
-          // </Container>
         );
     }
   };
 
   return (
-    <Container maxWidth="lg" sx={{ pt: 4 }}>
+    <Container maxWidth="lg" sx={{ pt: 4, margin: "0" }}>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           width: "100%",
           gap: 3,
+          ml: "10em",
         }}
       >
         {/* Header contenente i pulsanti che portano alle varie sezioni del sito */}
@@ -448,12 +486,18 @@ const Home: React.FC = () => {
             width: "100vw",
             height: "2px",
             backgroundColor: "#3B82F6",
-            zIndex: 999,
           }}
         />
 
         {/* Cotntenuto della sezione scelta */}
-        <Box sx={{ display: "flex", gap: 2, mt: "12vh" }}>
+        <Box
+          sx={{
+            position: "fixed",
+            display: "flex",
+            gap: 2,
+            mt: "12vh",
+          }}
+        >
           {renderContent()}
         </Box>
       </Box>
