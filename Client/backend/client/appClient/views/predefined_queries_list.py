@@ -10,7 +10,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?anime rdfs:label ?label .
                 ?anime jm:prodottoDa ?studio .
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }         
         """,
         'required_params': ['animeTitle']
@@ -24,7 +24,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?anime rdfs:label ?label .
                 ?anime jm:haTarget ?target .
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }        
         """,
         'required_params': ['animeTitle']
@@ -32,7 +32,7 @@ PREDEFINED_QUERIES = {
     
     3: {# Quali anime hanno un dato target
         'query': """
-           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             SELECT ?label
             WHERE { 
@@ -66,7 +66,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?anime rdfs:label ?label .
                 ?anime jm:direttoDa ?regista .
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }
         """,
         'required_params': ['animeTitle']
@@ -80,7 +80,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?anime rdfs:label ?label .
                 ?anime jm:èDoppiatoDa ?VoiceActor .
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }        """,
         'required_params': ['animeTitle']
     },
@@ -120,7 +120,7 @@ PREDEFINED_QUERIES = {
             WHERE {
                 ?anime rdfs:label ?label .
                 ?anime jm:inProduzione ?inProd . 
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }
         """,
         'required_params': ['animeTitle']
@@ -134,7 +134,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?anime rdfs:label ?label .
                 ?anime jm:numeroEpisodi ?numEp .
-                FILTER (STR(?label) = $animeTitle)
+                FILTER (STR(?label) = "$animeTitle")
             }
         """,
         'required_params': ['animeTitle']
@@ -150,7 +150,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
              ?manga rdfs:label ?label .
              ?manga jm:haAutore ?autore .
-             FILTER (STR(?label) = $mangaTitle)
+             FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -164,7 +164,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:numeroEpisodi ?numVol .
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -178,7 +178,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:sottoLicenzaDi ? casaEditrice.
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -205,7 +205,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:pubblicatoIn ?rivista .
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }            
         """,
         'required_params': ['mangaTitle']
@@ -247,7 +247,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:haTarget ?target .
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }     
         """,
         'required_params': ['mangaTitle']
@@ -262,7 +262,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:haArcoNarrativo ?arco
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -277,7 +277,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?manga rdfs:label ?label .
                 ?manga jm:haAdattamentoAnime ?anime
-                FILTER (STR(?label) = $mangaTitle)
+                FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -308,7 +308,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?persona rdfs:label ?label .
                 ?persoan jm:ccollegaDi ?altraPersona
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }       
         """,
         'required_params': ['persona']
@@ -323,7 +323,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?persona rdfs:label ?label .
                 ?persona jm:dipendenteDi ?studio
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }          
         """,
         'required_params': ['persona']
@@ -350,7 +350,7 @@ PREDEFINED_QUERIES = {
             WHERE { 
                 ?persona rdfs:label ?label .
                 ?persona jm:haDiretto ?anime
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }   
         """,
         'required_params': ['persona']
@@ -365,7 +365,7 @@ PREDEFINED_QUERIES = {
             WHERE {             
                 ?persona rdfs:label ?label .
                 ?persona jm:haDoppiato ?anime
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }   
         """,
         'required_params': ['persona']
@@ -380,7 +380,7 @@ PREDEFINED_QUERIES = {
             WHERE {             
                 ?persona rdfs:label ?label .
                 ?persona jm:haLavoratoCon ?altraPersona
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }           
         """,
         'required_params': ['persona']
@@ -395,7 +395,7 @@ PREDEFINED_QUERIES = {
             WHERE {             
                 ?persona rdfs:label ?label .
                 ?persona jm:haScritto ?manga
-                FILTER (STR(?label) = $persona)
+                FILTER (STR(?label) = "$persona")
             }        
         """,
         'required_params': ['persona']
