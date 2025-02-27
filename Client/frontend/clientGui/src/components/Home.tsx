@@ -121,7 +121,7 @@ const Home: React.FC = () => {
     },
     {
       id: 19,
-      label: "Quali archi narrativi ha il manga", // tre colonne, la seconda da "true" sul primo arco narrativo, la terza "true" sull'utlimo
+      label: "Quali archi narrativi ha il manga", // TODO: tre colonne, la seconda da "true" sul primo arco narrativo, la terza "true" sull'utlimo
       paramLabel: ["Titolo manga"],
       paramValue: ["mangaTitle"],
     },
@@ -131,53 +131,47 @@ const Home: React.FC = () => {
       paramLabel: ["Titolo manga"],
       paramValue: ["mangaTitle"],
     },
-    {
-      id: 21,
-      label: "Quali manga hanno anche un adattamento anime",
-      paramLabel: [""],
-      paramValue: [""],
-    },
   ];
 
   const personQueryList: Query[] = [
     {
-      id: 22,
+      id: 21,
       label: "Chi sono i colleghi di",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
     },
     {
-      id: 23,
+      id: 22,
       label: "Di quale studio d'animazione è dipendente",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
     },
     {
-      id: 24,
+      id: 23,
       label: "Chi sono i dipendenti di",
       paramLabel: ["Studio d'animazione"],
       paramValue: ["studio"],
     },
     {
-      id: 25,
+      id: 24,
       label: "Cosa ha diretto",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
     },
     {
-      id: 26,
+      id: 25,
       label: "Cosa ha doppiato",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
     },
     {
-      id: 27,
+      id: 26,
       label: "Con chi ha lavorato",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
     },
     {
-      id: 28,
+      id: 27,
       label: "Cosa ha scritto",
       paramLabel: ["Nome persona"],
       paramValue: ["persona"],
@@ -186,22 +180,22 @@ const Home: React.FC = () => {
 
   const publicEndPointQuery: Query[] = [
     {
-      id: 29,
+      id: 28,
       label: "Chi sono i doppiatori in",
       paramLabel: ["Titolo anime"],
       paramValue: ["animeTitle"],
     },
     {
-      id: 30,
+      id: 29,
       label: "Quali comics pubblica ",
       paramLabel: ["Casa editrice"],
       paramValue: ["casaEditrice"],
     },
     {
-      id: 31,
+      id: 30,
       label: "Quali sono i generi di",
-      paramLabel: ["Titolo manga"],
-      paramValue: ["mangaTitle"],
+      paramLabel: ["Titolo anime"],
+      paramValue: ["animeTitle"],
     },
   ];
   // Tiene tracca e aggionra il contenuto della pagina in base alla sezione desiderata dall'utente
@@ -298,7 +292,6 @@ const Home: React.FC = () => {
                     <li>Qual è il target di</li>
                     <li>Quali archi narrativi ha il manga"</li>
                     <li>Esiste un adattamento anime di</li>
-                    <li>Quali manga hanno anche un adattamento anime</li>
                   </ul>
                 </Box>
               </Box>

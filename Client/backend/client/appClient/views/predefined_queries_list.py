@@ -32,13 +32,14 @@ PREDEFINED_QUERIES = {
     
     3: {# Quali anime hanno un dato target
         'query': """
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?label
+            SELECT ?labela
             WHERE { 
-                ?anime rdfs:label ?label .
-                jm:$target jm:èTargetDi ?anime .
-                FILTER (STR(?label) = ?anime)
+    			?target jm:èTargetDi ?anime .
+   				?target rdfs:label ?labelt .
+                ?anime rdfs:label ?labela .
+                FILTER (STR(?labelt) = "$target")
             }
         """,
         'required_params': ['target']
@@ -48,11 +49,12 @@ PREDEFINED_QUERIES = {
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?label
+            SELECT ?labela
             WHERE { 
-                ?anime rdfs:label ?label .
-                jm:$studio jm:haProdotto ?anime .
-                FILTER (STR(?label) = ?anime)
+                ?anime rdfs:label ?labela .
+                ?studio jm:haProdotto ?anime .
+                ?studio rdfs:label ?labels .
+                FILTER (STR(?labels) = "$studio")
             }
         """,
         'required_params': ['studio']
@@ -89,17 +91,19 @@ PREDEFINED_QUERIES = {
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?label
+            PREFIX pr: <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#>
+            SELECT ?labela
             WHERE { 
-                ?anime rdfs:label ?label .
-                jm:$award jm:hasPartecipant ?anime .
-                FILTER (STR(?label) = ?anime)
-            }        
+                ?anime rdfs:label ?labela .
+                ?award pr:hasParticipant ?anime ;
+                    rdfs:label ?labelaw .
+            FILTER (STR(?labelaw) = "$award")
+            }      
         """,
         'required_params': ['award']
     },
     
-    8: {# Quali anime sono stagionali
+    8: {# Quali anime sono stagionali TODO: gestire i required_param vuoti
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -110,17 +114,17 @@ PREDEFINED_QUERIES = {
                 FILTER (STR(?label) = ?anime)
             }         
         """,
-        'required_params': ['']
+        'required_params': [''] 
     },
     
     9: {# È in produzione un dato anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT inProd
+            SELECT ?InProduzione
             WHERE {
-                ?anime rdfs:label ?label .
-                ?anime jm:inProduzione ?inProd . 
-                FILTER (STR(?label) = "$animeTitle")
+                ?anime jm:inProduzione ?InProduzione .
+                ?anime rdfs:label ?labela .
+                FILTER (STR(?labela) = "$animeTitle")
             }
         """,
         'required_params': ['animeTitle']
@@ -130,10 +134,10 @@ PREDEFINED_QUERIES = {
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?numEp
+            SELECT ?NumeroEpisodi
             WHERE { 
                 ?anime rdfs:label ?label .
-                ?anime jm:numeroEpisodi ?numEp .
+                ?anime jm:numeroEpisodi ?NumeroEpisodi .
                 FILTER (STR(?label) = "$animeTitle")
             }
         """,
@@ -148,9 +152,9 @@ PREDEFINED_QUERIES = {
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             SELECT ?autore
             WHERE { 
-             ?manga rdfs:label ?label .
              ?manga jm:haAutore ?autore .
-             FILTER (STR(?label) = "$mangaTitle")
+             ?manga rdfs:label ?labelm .
+             FILTER (STR(?labelm) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
@@ -163,7 +167,7 @@ PREDEFINED_QUERIES = {
             SELECT ?numVol
             WHERE { 
                 ?manga rdfs:label ?label .
-                ?manga jm:numeroEpisodi ?numVol .
+                ?manga jm:numeroVolumi ?numVol .
                 FILTER (STR(?label) = "$mangaTitle")
             }
         """,
@@ -177,7 +181,7 @@ PREDEFINED_QUERIES = {
             SELECT ?casaEditrice
             WHERE { 
                 ?manga rdfs:label ?label .
-                ?manga jm:sottoLicenzaDi ? casaEditrice.
+                ?manga jm:sottoLicenzaDi ?casaEditrice.
                 FILTER (STR(?label) = "$mangaTitle")
             }
         """,
@@ -187,11 +191,12 @@ PREDEFINED_QUERIES = {
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?label
+            SELECT ?labelm
             WHERE { 
-                ?manga rdfs:label ?label .
-                jm:$casaEditrice jm:detieneDiritti ?manga .
-                FILTER (STR(?label) = ?manga)
+                ?casaEditrice rdfs:label ?label .
+                ?manga jm:sottoLicenzaDi ?casaEditrice ;
+                    rdfs:label ?labelm .
+                FILTER (STR(?label) = "$casaEditrice")
             }
         """,
         'required_params': ['casaEditrice']
@@ -215,12 +220,13 @@ PREDEFINED_QUERIES = {
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-            SELECT ?manga
+            SELECT ?labelm
             WHERE { 
-                ?manga rdfs:label ?label .
-                jm:$rivista jm:pubblica ?manga .
-                FILTER (STR(?label) = ?manga)
-            }   
+                ?rivista rdfs:label ?labelr .
+                ?manga jm:pubblicatoIn ?rivista ;
+                    rdfs:label ?labelm .
+                FILTER (STR(?labelr) = "$rivista")
+            } 
         """,
         'required_params': ['rivista']
     },
@@ -273,48 +279,35 @@ PREDEFINED_QUERIES = {
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
-            SELECT ?anime
+            SELECT ?labela
             WHERE { 
                 ?manga rdfs:label ?label .
-                ?manga jm:haAdattamentoAnime ?anime
+                ?anime jm:èAdattamentodi ?manga ;
+                    rdfs:label ?labela .
                 FILTER (STR(?label) = "$mangaTitle")
             }
         """,
         'required_params': ['mangaTitle']
     },
     
-    21: {# Quali manga hanno anche un adattamento anime
-# TODO: credo serva una label di qualche tipo per mostrare i risultati decentemente
-        'query': """
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            PREFIX jm: <http://www.semanticweb.org/japanese-media/>
-
-            SELECT ?anime
-            WHERE { 
-                jm:manga jm:haAdattamentoAnime ?anime
-            }        
-        """,
-        'required_params': ['']
-    },
-    
     #  --- Query persone --- #
 
-    22: {# Chi sono i colleghi di una data persona
+    21: {# Chi sono i colleghi di una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
 
-            SELECT ?altraPersona
+            SELECT DISTINCT ?Collega
             WHERE { 
                 ?persona rdfs:label ?label .
-                ?persoan jm:ccollegaDi ?altraPersona
+                ?persona jm:collegaDi ?Collega
                 FILTER (STR(?label) = "$persona")
-            }       
+            }   
         """,
         'required_params': ['persona']
     },
     
-    23: {# Di quale studio d'animazione è dipendente una data persona
+    22: {# Di quale studio d'animazione è dipendente una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -329,7 +322,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['persona']
     },
     
-    24: {# Chi sono i dipendenti di un dato studio d'animazione
+    23: {# Chi sono i dipendenti di un dato studio d'animazione
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             
@@ -341,7 +334,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['studio']
     },
     
-    25: {# Cosa ha diretto una data persona
+    24: {# Cosa ha diretto una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -356,7 +349,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['persona']
     },
     
-    26: {# Cosa ha doppiato una data persona
+    25: {# Cosa ha doppiato una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -371,7 +364,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['persona']
     },
     
-    27: {# Con chi ha lavorato una data persona
+    26: {# Con chi ha lavorato una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -386,7 +379,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['persona']
     },
     
-    28: {# Cosa ha scritto una data persona
+    27: {# Cosa ha scritto una data persona
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -403,7 +396,7 @@ PREDEFINED_QUERIES = {
     
     #  --- Query endpoint pubblico --- #
 
-    29: {# Chi sono i doppiatori in una dato anime
+    28: {# Chi sono i doppiatori in una dato anime
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -416,7 +409,7 @@ PREDEFINED_QUERIES = {
 
             SELECT DISTINCT ?voiceActorName ?characterName
             WHERE {
-                jm:$animeTitle skos:exactMatch ?wikidataURL .
+                ?animeTitle skos:exactMatch ?wikidataURL .
                 BIND(IRI(REPLACE(STR(?wikidataURL), "https://www.wikidata.org/wiki/", "http://www.wikidata.org/entity/")) AS ?wikidata) 
                 
                 SERVICE <https://query.wikidata.org/sparql> {
@@ -438,12 +431,14 @@ PREDEFINED_QUERIES = {
                         FILTER(LANG(?characterName) = "en")
                     }
                 }
+                ?animeTitle rdfs:label ?labelt .
+                FILTER (STR(?labelt) = "$animeTitle")
             }
         """,
         'required_params': ['animeTitle']
     },
     
-    30: {# Quali comics pubblica una data casa editrice
+    29: {# Quali comics pubblica una data casa editrice
         'query': """
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -472,9 +467,8 @@ PREDEFINED_QUERIES = {
         'required_params': ['casaEditrice']
     },
     
-    31: {# Quali sono i generi di un dato anime
+    30: {# Quali sono i generi di un dato anime
         'query': """
-            Quali generi ha il manga hunterxhunter
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -485,7 +479,7 @@ PREDEFINED_QUERIES = {
 
             SELECT DISTINCT ?genreName
             WHERE {
-                jm:$animeTitle skos:exactMatch ?wikidataURL .
+                ?animeTitle skos:exactMatch ?wikidataURL .
                 BIND(IRI(REPLACE(STR(?wikidataURL), "https://www.wikidata.org/wiki/", "http://www.wikidata.org/entity/")) AS ?wikidata) 
                 
                 SERVICE <https://query.wikidata.org/sparql> {
@@ -497,8 +491,9 @@ PREDEFINED_QUERIES = {
                         FILTER(LANG(?genreName) = "en")
                     }
                 }
-            }
-        """,
+                ?animeTitle rdfs:label ?labelt .
+                FILTER (STR(?labelt) = "$animeTitle")
+            }        """,
         'required_params': ['animeTitle']
     }
 }
