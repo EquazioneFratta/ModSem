@@ -343,7 +343,8 @@ const Home: React.FC = () => {
               }}
             >
               <img
-                src={nika}
+                // src={nika}
+                src="dio"
                 alt="Immagine"
                 style={{
                   width: "35%",
@@ -489,6 +490,7 @@ const Home: React.FC = () => {
             display: "flex",
             gap: 2,
             mt: "12vh",
+            width: "80%", 
           }}
         >
           {renderContent()}

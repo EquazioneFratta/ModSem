@@ -1,16 +1,15 @@
 import { useState } from "react";
 import {
-  Container,
   Box,
   Typography,
   TextField,
   FormControl,
   Button,
   Autocomplete,
-  CircularProgress
+  CircularProgress,
 } from "@mui/material";
-import { Query } from "../QueryInterface"
-import ResultsTable from "../ResultsTable"
+import { Query } from "../QueryInterface";
+import ResultsTable from "../ResultsTable";
 
 const BACKEND_URL = "http://127.0.0.1:8000/";
 
@@ -29,7 +28,7 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  //Funzioni che tengono traccia del cambiamento dei campi query e parametri 
+  //Funzioni che tengono traccia del cambiamento dei campi query e parametri
   const handleQueryChange = (_event: any, newQuery: Query | null) => {
     setSelectedQuery(newQuery || undefined);
     if (newQuery) {
@@ -50,36 +49,36 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
     setError(false);
     setErrorMessage("");
     if (selectedQuery) {
-      // Trasforma l'array in un oggetto vuoto di tipo `Record<string, string>` 
+      // Trasforma l'array in un oggetto vuoto di tipo `Record<string, string>`
       // oggetto dizionario in cui ogni chiave è una stringa e ogni valore è una stringa
       //queryParameters: oggetto che conterrá i parametri finali, paramLabel: nome del parametro corrente, i: indice dell'elemento nell'array
-      const parameterMap = selectedQuery.paramValue.reduce((queryParameters, paramValue, i) => {
-        queryParameters[paramValue] = paramValues[i]; //Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
-        return queryParameters;
-      }, {} as Record<string, string>); //Definisce il tipo dell'oggetto vuoto iniziale
+      const parameterMap = selectedQuery.paramValue.reduce(
+        (queryParameters, paramValue, i) => {
+          queryParameters[paramValue] = paramValues[i]; //Associa a ciascun parametro il valore corrispondente nell'array `paramValues`
+          return queryParameters;
+        },
+        {} as Record<string, string>
+      ); //Definisce il tipo dell'oggetto vuoto iniziale
 
       const jsonData = {
         id: selectedQuery.id,
         parameters: parameterMap,
       };
-      
-      try {
-        const response = await fetch(
-          BACKEND_URL + "sparql/",
-          {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
 
-            body: JSON.stringify(jsonData),
-          }
-        );
+      try {
+        const response = await fetch(BACKEND_URL + "sparql/", {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+
+          body: JSON.stringify(jsonData),
+        });
         if (response.ok) {
           const data = await response.json();
-          setIsLoading(false)
+          setIsLoading(false);
           setError(false);
           setErrorMessage("");
           setResults(data.results);
@@ -87,90 +86,85 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
           const data = await response.json();
           setError(true);
           setErrorMessage(data.error);
-          setIsLoading(false)
+          setIsLoading(false);
         }
       } catch (error: any) {
-        setIsLoading(false)
+        setIsLoading(false);
         setError(true);
         setErrorMessage("Server al momento non raggiungibile");
       }
     }
-  };
+  }
 
   return (
-    <Container maxWidth="lg" sx={{ pt: 4 }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          gap: 3
-        }}
-      >
-        <Typography variant="h4" align="center">
-          {sectionLabel}
-        </Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        gap: 3,
+      }}
+    >
+      <Typography variant="h4" align="center">
+        {sectionLabel}
+      </Typography>
 
-        <Box sx={{ display: "flex", gap: 2 }}>
-          <FormControl sx={{ flex: 1 }}>
-            {/* Gestisce la selezione della query */}
-            <Autocomplete
-              disablePortal
-              id="queryAutocomplete"
-              options={queryList}
-              value={selectedQuery || null}
-              onChange={handleQueryChange}
-              isOptionEqualToValue={(option, value) => option.label === value.label}
-              renderInput={(params) => (
-                <TextField {...params} label="Query" key={"queryTextField"} />
-              )}
-            />
-          </FormControl>
-          
-          {/* Gestisce la selezione dei parametri sulla base della query scelta */}
-          {selectedQuery && selectedQuery.paramLabel.map((label, index) => (
-            <TextField
-              key={`${selectedQuery.label}-${selectedQuery.paramLabel[index]}`}
-              sx={{ flex: 1 }}
-              label={label}
-              value={paramValues[index] || ""}
-              onChange={(e) => handleParamChange(index, e.target.value)}
-            />
-          ))}
+      <Box sx={{ display: "flex", gap: 2 }}>
+        <FormControl sx={{ flex: 1, minWidth: "50%" }}>
+          {/* Gestisce la selezione della query */}
+          <Autocomplete
+            disablePortal
+            id="queryAutocomplete"
+            options={queryList}
+            value={selectedQuery || null}
+            onChange={handleQueryChange}
+            isOptionEqualToValue={(option, value) =>
+              option.label === value.label
+            }
+            renderInput={(params) => (
+              <TextField {...params} label="Query" key={"queryTextField"} />
+            )}
+          />
+        </FormControl>
 
-          <Button
-            variant="contained"
-            onClick={executeQuery}
-            disabled={!selectedQuery}
-            sx={{
-              height: "56px",
-              whiteSpace: "nowrap",
-              px: 4,
-            }}
-          >
-            Esegui Query
-          </Button>
-        </Box>
+        {/* Gestisce la selezione dei parametri sulla base della query scelta */}
+        <TextField
+          key={"paramInputField"}
+          sx={{ flex: 1 }}
+          label={selectedQuery ? selectedQuery.paramLabel[0] : ""}
+          value={paramValues[0] || ""}
+          onChange={(e) => handleParamChange(0, e.target.value)}
+        />
 
-        <Box>
-          {isLoading && (
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-              <CircularProgress />
-            </Box>
-          )}
-
-          {results && (
-            <ResultsTable results={results} />
-          )}
-        </Box>
-
-        {error && (
-          <Typography color="error">
-            {errorMessage}
-          </Typography>
-        )}
+        {/* Pulsante per eseguire la query */}
+        <Button
+          variant="contained"
+          onClick={executeQuery}
+          disabled={!selectedQuery}
+          sx={{
+            height: "56px",
+            whiteSpace: "nowrap",
+            px: 4,
+          }}
+        >
+          Esegui Query
+        </Button>
       </Box>
-    </Container>
+
+      <Box>
+        {isLoading && (
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <CircularProgress />
+          </Box>
+        )}
+
+        {/* Se la query ha prodotto dei risultati li mostra */}
+        {results && <ResultsTable results={results} />}
+      </Box>
+
+      {/* Se il backend o il frontend incontrano un errore viene mostrato   */}
+      {error && <Typography color="error">{errorMessage}</Typography>}
+    </Box>
   );
 }
 
