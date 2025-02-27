@@ -53,7 +53,7 @@ const Home: React.FC = () => {
     {
       id: 8,
       label: "Quali anime sono stagionali",
-      paramLabel: [""],
+      paramLabel: ["Nessun parametro richiesto", ""],
       paramValue: [""],
     },
     {
@@ -110,7 +110,7 @@ const Home: React.FC = () => {
     {
       id: 17,
       label: "Quali manga sono in produzione",
-      paramLabel: [""],
+      paramLabel: ["Nessun parametro richiesto",""],
       paramValue: [""],
     },
     {
@@ -343,8 +343,7 @@ const Home: React.FC = () => {
               }}
             >
               <img
-                // src={nika}
-                src="dio"
+                src={nika}
                 alt="Immagine"
                 style={{
                   width: "35%",

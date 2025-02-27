@@ -103,7 +103,7 @@ PREDEFINED_QUERIES = {
         'required_params': ['award']
     },
     
-    8: {# Quali anime sono stagionali TODO: gestire i required_param vuoti
+    8: {# Quali anime sono stagionali
         'query': """
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX jm: <http://www.semanticweb.org/japanese-media/>
@@ -114,7 +114,7 @@ PREDEFINED_QUERIES = {
                 FILTER (STR(?label) = ?anime)
             }         
         """,
-        'required_params': [''] 
+        'required_params': [] 
     },
     
     9: {# È in produzione un dato anime
@@ -242,7 +242,7 @@ PREDEFINED_QUERIES = {
                 FILTER (STR(?label) = ?manga)
             } 
         """,
-        'required_params': ['']
+        'required_params': []
     },
     
     18: {# Qual è il target di un dato manga

@@ -21,7 +21,6 @@ interface JMQueryProps {
 function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
   const [selectedQuery, setSelectedQuery] = useState<Query>(); //Indica la query che si vuole eseuguire scelta da un insieme predefinito
   const [paramValues, setParamValues] = useState<string[]>([]); //Valori dei parametri della query, array di stringhe
-
   const [results, setResults] = useState(); //Risultato della query, array di oggetti [{},{}]
 
   const [isLoading, setIsLoading] = useState(false);
@@ -130,7 +129,12 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
         {/* Gestisce la selezione dei parametri sulla base della query scelta */}
         <TextField
           key={"paramInputField"}
-          sx={{ flex: 1 }}
+          sx={{
+            flex: 1,
+            backgroundColor:
+              selectedQuery?.paramLabel[1] === "" ? "#f2f2f2" : "transparent",
+          }}
+          disabled={selectedQuery?.paramLabel[1] === ""}
           label={selectedQuery ? selectedQuery.paramLabel[0] : ""}
           value={paramValues[0] || ""}
           onChange={(e) => handleParamChange(0, e.target.value)}
