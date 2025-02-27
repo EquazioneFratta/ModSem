@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/japanese-media/"
-     xml:base="http://www.semanticweb.org/japanese-media/"
+<rdf:RDF xmlns="http://www.semanticweb.org/japanese-media#"
+     xml:base="http://www.semanticweb.org/japanese-media"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:bag="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -15,7 +15,7 @@
      xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
      xmlns:japanese-media="http://www.semanticweb.org/japanese-media/"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/japanese-media/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/japanese-media">
         <dc:creator>Frattarola Marco</dc:creator>
         <dc:creator>Ghione Alessio</dc:creator>
         <dc:date>2025-01-20</dc:date>
@@ -1274,8 +1274,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
         <rdfs:comment>Doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Aoi Yuuki</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1347031</skos:exactMatch>
@@ -1289,7 +1289,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/York_Shin_City"/>
         <rdfs:comment xml:lang="it">Arco narrativo di HxH che tratta le vicende di Gon e Killua nella scalata all&apos;arena celeste</rdfs:comment>
         <rdfs:label xml:lang="it">Arena celeste</rdfs:label>
@@ -1303,7 +1303,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
         <rdfs:comment xml:lang="it">Arco narrativo che tratta l&apos;assassinio del portatore della spada</rdfs:comment>
         <rdfs:label xml:lang="it">Assassinio del portatore della spada</rdfs:label>
     </owl:NamedIndividual>
@@ -1316,8 +1316,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
         <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Atsumi Tanezaki</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q3183413</skos:exactMatch>
@@ -1330,8 +1330,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/CloverWorks">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">CloverWorks</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q52700115</skos:exactMatch>
@@ -1345,7 +1345,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
-        <haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <japanese-media:haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
         <rdfs:comment xml:lang="it">Premio annuale dato al miglior anime da Crunchyroll annata 2017</rdfs:comment>
         <rdfs:label xml:lang="en">Crunchyroll anime of the year 2017</rdfs:label>
@@ -1361,7 +1361,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/AnimeAward"/>
         <participation:hasParticipant rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
-        <haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <japanese-media:haVincitore rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
         <sequence:follows rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
         <rdfs:comment xml:lang="it">Premio annuale dato al miglior anime da Crunchyroll annata 2022</rdfs:comment>
         <rdfs:label xml:lang="en">Crunchyroll anime of the year 2022</rdfs:label>
@@ -1381,15 +1381,15 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
-        <èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</numeroEpisodi>
-        <titoloAlternativo>Cyberpunk</titoloAlternativo>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
+        <japanese-media:èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</japanese-media:numeroEpisodi>
+        <japanese-media:titoloAlternativo>Cyberpunk</japanese-media:titoloAlternativo>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime di cyberpunk</rdfs:comment>
         <rdfs:label xml:lang="it">Cyberpunk: Edgerunners</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q96677963</skos:exactMatch>
@@ -1406,12 +1406,12 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Tomoaki_Maeno"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Tomoaki_Maeno"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime che tratta varie storie ambientate in purgatorio in cui vengono messe alla prova persone per decidere se mandarle all&apos;inferno o in paradiso</rdfs:comment>
         <rdfs:label xml:lang="it">Anime di Death Parade</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11320614</skos:exactMatch>
@@ -1436,7 +1436,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
         <rdfs:comment xml:lang="it">Primo arco narrativo del manga di HxH dove Gon si cimenta nel test per diventare hunter seguendo le orme del padre</rdfs:comment>
         <rdfs:label xml:lang="it">Esame degli hunter</rdfs:label>
@@ -1450,7 +1450,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
         <rdfs:comment xml:lang="it">Arco di HxH che tratta l&apos;avvento delle formichimere e lo scontro con gli hunter</rdfs:comment>
         <rdfs:label xml:lang="it">Formichimere</rdfs:label>
@@ -1463,9 +1463,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Futabasha">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
-        <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
-        <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <stampa rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:stampa rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
         <rdfs:comment xml:lang="it">Casa editrice giapponese con sede a Shinjuku, Tokyo</rdfs:comment>
         <rdfs:label xml:lang="it">Futabasha</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q2579061</skos:exactMatch>
@@ -1479,7 +1479,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Formichimere"/>
         <rdfs:comment xml:lang="it">Arco narrativo nel quale Gon e Killua entrano nel gioco Greed Island, creato dal padre di Gon</rdfs:comment>
         <rdfs:label xml:lang="it">Greed island</rdfs:label>
@@ -1493,10 +1493,10 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
         <rdfs:comment xml:lang="it">Regista che lavora alla Madhouse e direttore della seconda trasposizione di HxH</rdfs:comment>
         <rdfs:label xml:lang="it">Hiroshi Kojina</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11589697</skos:exactMatch>
@@ -1510,9 +1510,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Trigger"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Aoi_Yuuki"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label>Hiroyuki Imaishi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q3023829</skos:exactMatch>
@@ -1529,14 +1529,14 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <owl:differentFrom rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
-        <haSequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
-        <pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
-        <sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroVolumi>
-        <titoloAlternativo>Il cane che guarda le stelle</titoloAlternativo>
+        <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
+        <japanese-media:haSequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</japanese-media:numeroVolumi>
+        <japanese-media:titoloAlternativo>Il cane che guarda le stelle</japanese-media:titoloAlternativo>
         <rdfs:comment xml:lang="it">Manga one shot de &quot;il cane che guarda le stelle&quot;</rdfs:comment>
         <rdfs:label xml:lang="ja">Hoshi Mamoru Inu</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q16951255</skos:exactMatch>
@@ -1552,14 +1552,14 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/MangaOneShot"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
-        <haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
-        <haPrequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
-        <pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
-        <sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</numeroVolumi>
-        <titoloAlternativo>Il cane che guarda le stelle 2</titoloAlternativo>
+        <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takashi_Murakami"/>
+        <japanese-media:haPrequel rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</japanese-media:numeroVolumi>
+        <japanese-media:titoloAlternativo>Il cane che guarda le stelle 2</japanese-media:titoloAlternativo>
         <rdfs:comment xml:lang="it">Sequel del manga one shot &quot;il cane che guarda le stelle&quot;</rdfs:comment>
         <rdfs:label xml:lang="ja">Hoshi Mamoru Inu 2</rdfs:label>
     </owl:NamedIndividual>
@@ -1584,23 +1584,23 @@
         <bag:hasItem rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
         <list:hasFirstItem rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
         <list:hasLastItem rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
-        <haAdattamentoAnime rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Arena_Celeste"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Formichimere"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Greed_Island"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/York_Shin_City"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
-        <haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Yoshihiro_Togashi"/>
-        <haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <haUltimoArcoNrattaivo rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
-        <pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
-        <sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</numeroVolumi>
-        <prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</prezzoVolumeEuro>
-        <titoloAlternativo>HxH</titoloAlternativo>
+        <japanese-media:haAdattamentoAnime rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Arena_Celeste"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Formichimere"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Greed_Island"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/York_Shin_City"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Zoldyck_e_il_recupero_di_Killua"/>
+        <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Yoshihiro_Togashi"/>
+        <japanese-media:haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Esame_Degli_Hunter"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:haUltimoArcoNrattaivo rdf:resource="http://www.semanticweb.org/japanese-media/Elezione_Nuovo_Predisente"/>
+        <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</japanese-media:numeroVolumi>
+        <japanese-media:prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</japanese-media:prezzoVolumeEuro>
+        <japanese-media:titoloAlternativo>HxH</japanese-media:titoloAlternativo>
         <rdfs:comment xml:lang="it">Manga di hunter x hunter,manga scritto e disegnato da Yoshihiro Togashi</rdfs:comment>
         <rdfs:label xml:lang="it">Hunter x Hunter</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q696071</skos:exactMatch>
@@ -1617,14 +1617,14 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaArtistica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
-        <èAdattamentodi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
+        <japanese-media:èAdattamentodi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">serie televisiva anime del 2011</rdfs:comment>
         <rdfs:label xml:lang="it">Hunter x Hunter (Anime)</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q70209136</skos:exactMatch>
@@ -1656,16 +1656,16 @@
         <bag:hasItem rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
         <bag:hasItem rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
         <list:hasFirstItem rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
-        <haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
-        <haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takeru_Hokazono"/>
-        <haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
-        <sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</inProduzione>
-        <numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numeroVolumi>
-        <prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</prezzoVolumeEuro>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
+        <japanese-media:haArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Rakuzaichi"/>
+        <japanese-media:haAutore rdf:resource="http://www.semanticweb.org/japanese-media/Takeru_Hokazono"/>
+        <japanese-media:haPrimoArcoNarrativo rdf:resource="http://www.semanticweb.org/japanese-media/Versus_Shojo"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:pubblicatoIn rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
+        <japanese-media:sottoLicenzaDi rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:inProduzione>
+        <japanese-media:numeroVolumi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</japanese-media:numeroVolumi>
+        <japanese-media:prezzoVolumeEuro rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</japanese-media:prezzoVolumeEuro>
         <rdfs:comment xml:lang="it">manga scritto e disegnato da Takeru Hokazono</rdfs:comment>
         <rdfs:label xml:lang="it">Kagurabachi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q122713274</skos:exactMatch>
@@ -1679,9 +1679,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kazuhiro Furuhashi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q377730</skos:exactMatch>
@@ -1695,8 +1695,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
         <rdfs:comment xml:lang="it">Doppiatore giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kengo Kawanishi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11554087</skos:exactMatch>
@@ -1710,9 +1710,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kenjirou Okada</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q104236965</skos:exactMatch>
@@ -1725,8 +1725,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Kinema_Citrus">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kinema Citrus</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q6410686</skos:exactMatch>
@@ -1751,9 +1751,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Kojima Masayuki</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q219332</skos:exactMatch>
@@ -1771,13 +1771,13 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
         <rdfs:label xml:lang="ja">Houseki no Kuni</rdfs:label>
         <rdfs:label xml:lang="it">Land of the Lustrous</rdfs:label>
@@ -1791,8 +1791,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/MAPPA">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">MAPPA</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11231001</skos:exactMatch>
@@ -1810,14 +1810,14 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
-        <èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kinema_Citrus"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <japanese-media:èVincitoreDi rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Made in abyss</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q61853333</skos:exactMatch>
@@ -1830,10 +1830,10 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Madhouse">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
         <rdfs:comment xml:lang="it">studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Madhouse</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q650867</skos:exactMatch>
@@ -1851,14 +1851,14 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2017"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</numeroEpisodi>
-        <titoloAlternativo>3-gatsu</titoloAlternativo>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Seinen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Shaft"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kengo_Kawanishi"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</japanese-media:numeroEpisodi>
+        <japanese-media:titoloAlternativo>3-gatsu</japanese-media:titoloAlternativo>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">March Comes in Like a Lion</rdfs:label>
         <rdfs:label xml:lang="ja">Sangatsu no Lion</rdfs:label>
@@ -1872,11 +1872,11 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <collegaDi rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
+        <japanese-media:collegaDi rdf:resource="http://www.semanticweb.org/japanese-media/Megumi_Han"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Kojima_Masayuki"/>
         <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Mariya Ise</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1333938</skos:exactMatch>
@@ -1890,9 +1890,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <collegaDi rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
+        <japanese-media:collegaDi rdf:resource="http://www.semanticweb.org/japanese-media/Mariya_Ise"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunterAnime"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Hiroshi_Kojina"/>
         <rdfs:comment xml:lang="it">doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Megumi Han</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q8966502</skos:exactMatch>
@@ -1906,8 +1906,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
         <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Minami Hinata</rdfs:label>
     </owl:NamedIndividual>
@@ -1919,8 +1919,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Orange">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Orange</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11292922</skos:exactMatch>
@@ -1934,7 +1934,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Assassinio_del_portatore_della_spada"/>
         <rdfs:comment xml:lang="it">Arco che si concentra sugli avvenimenti dell&apos;asta Rakuzaichi</rdfs:comment>
         <rdfs:label xml:lang="it">Rakuzaichi</rdfs:label>
@@ -1952,13 +1952,13 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Ranking of Kings</rdfs:label>
         <rdfs:label xml:lang="ja">Ōsama Ranking</rdfs:label>
@@ -1971,11 +1971,11 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Seinen">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Made_in_abyss"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
         <rdfs:comment xml:lang="it">manga indirizzato a un pubblico di uomini adulti</rdfs:comment>
         <rdfs:label xml:lang="it">Seinen</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q237338</skos:exactMatch>
@@ -1988,8 +1988,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shaft">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Kenjirou_Okada"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/March_Comes_in_Like_a_Lion"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Shaft</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1204821</skos:exactMatch>
@@ -2012,12 +2012,12 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shonen">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Target"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
-        <èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/SpyXFamily"/>
+        <japanese-media:èTargetDi rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
         <rdfs:comment xml:lang="it">manga indirizzato a un pubblico maschile di ragazzi</rdfs:comment>
         <rdfs:label xml:lang="it">Shonen</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q231302</skos:exactMatch>
@@ -2029,9 +2029,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shonen_Jump">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
-        <pubblica rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
-        <stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Shueisha"/>
         <rdfs:comment xml:lang="it">rivista settimanale giapponese di manga</rdfs:comment>
         <rdfs:label xml:lang="it">Shonen jump</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q220015</skos:exactMatch>
@@ -2044,9 +2044,9 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Shueisha">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/CasaEditrice"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
-        <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
-        <stampa rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:detieneDiritti rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:stampa rdf:resource="http://www.semanticweb.org/japanese-media/Shonen_Jump"/>
         <rdfs:comment xml:lang="it">casa editrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Shueisha</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q844822</skos:exactMatch>
@@ -2064,13 +2064,13 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/CloverWorks"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Atsumi_Tanezaki"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Anime di genere commedia con tema spie e investigazioni</rdfs:comment>
         <rdfs:label xml:lang="it">Spy X Family</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q109333365</skos:exactMatch>
@@ -2084,9 +2084,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Orange"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Tomoyo_Kurosawa"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Takahiko Kyougoku</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q17129674</skos:exactMatch>
@@ -2099,8 +2099,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Takashi_Murakami">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Autore"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
-        <haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
-        <haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
         <rdfs:comment xml:lang="it">Scrittore giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Takashi Murakami</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q11522652</skos:exactMatch>
@@ -2113,7 +2113,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Takeru_Hokazono">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Autore"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
-        <haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
+        <japanese-media:haScritto rdf:resource="http://www.semanticweb.org/japanese-media/Kagurabachi"/>
         <rdfs:comment xml:lang="it">Autore giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Takeru Hokazono</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q126006258</skos:exactMatch>
@@ -2127,8 +2127,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuzuru_Tachikawa"/>
         <rdfs:comment xml:lang="it">Doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Tomoaki Maeno</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1206674</skos:exactMatch>
@@ -2142,8 +2142,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Land_of_the_Lustrous"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Takahiko_Kyougoku"/>
         <rdfs:comment xml:lang="it">Attrice e doppiatrice giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Tomoyo Kurosawa</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1955926</skos:exactMatch>
@@ -2156,8 +2156,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Trigger">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Hiroyuki_Imaishi"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Cyberpunk_Edgerunners"/>
         <rdfs:comment xml:lang="it">Studio animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Trigger</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q10813424</skos:exactMatch>
@@ -2181,9 +2181,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Weekly_Manga_Action">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Rivista"/>
-        <pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
-        <pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
-        <stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu"/>
+        <japanese-media:pubblica rdf:resource="http://www.semanticweb.org/japanese-media/Hoshi_Mamoru_Inu_2"/>
+        <japanese-media:stampataDa rdf:resource="http://www.semanticweb.org/japanese-media/Futabasha"/>
         <rdfs:comment xml:lang="it">Rivista giapponese settimanale</rdfs:comment>
         <rdfs:label xml:lang="it">Weekly Manga Action</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q922549</skos:exactMatch>
@@ -2196,8 +2196,8 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Wit_Studio">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Organizzazione"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/StudioAnimazione"/>
-        <haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
-        <haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <japanese-media:haDipendente rdf:resource="http://www.semanticweb.org/japanese-media/Yousuke_Hatta"/>
+        <japanese-media:haProdotto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
         <rdfs:comment xml:lang="it">Studio di animazione giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Wit Studio</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q14508383</skos:exactMatch>
@@ -2211,7 +2211,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Greed_Island"/>
         <rdfs:comment xml:lang="it">Arco narrativo che tratta gli eventi accaduti alla città York Shin</rdfs:comment>
         <rdfs:label xml:lang="it">York Shin City</rdfs:label>
@@ -2224,7 +2224,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/japanese-media/Yoshihiro_Togashi">
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Autore"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
-        <haScritto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:haScritto rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <rdfs:comment xml:lang="it">Scritto giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Yoshihiro Togashi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q550311</skos:exactMatch>
@@ -2238,9 +2238,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Wit_Studio"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Ranking_of_Kings"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Minami_Hinata"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Yousuke Hatta</rdfs:label>
     </owl:NamedIndividual>
@@ -2253,9 +2253,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Yuichiro Hayashi</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q106447941</skos:exactMatch>
@@ -2269,8 +2269,8 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/VoiceActorOrActress"/>
-        <haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
+        <japanese-media:haDoppiato rdf:resource="http://www.semanticweb.org/japanese-media/Shingeki_no_Kyojin:_The_Final_Season"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
         <rdfs:comment xml:lang="it">Doppiatore giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Yuuki Kaji</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q1369257</skos:exactMatch>
@@ -2284,9 +2284,9 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Persona"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Regista"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Staff"/>
-        <dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
-        <haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
-        <haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Tomoaki_Maeno"/>
+        <japanese-media:dipendenteDi rdf:resource="http://www.semanticweb.org/japanese-media/Madhouse"/>
+        <japanese-media:haDiretto rdf:resource="http://www.semanticweb.org/japanese-media/Death_Parade_Anime"/>
+        <japanese-media:haLavoratoCon rdf:resource="http://www.semanticweb.org/japanese-media/Tomoaki_Maeno"/>
         <rdfs:comment xml:lang="it">Regista giapponese</rdfs:comment>
         <rdfs:label xml:lang="it">Yuzuru Tachikawa</rdfs:label>
         <skos:exactMatch>https://www.wikidata.org/wiki/Q17350112</skos:exactMatch>
@@ -2300,7 +2300,7 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/ArcoNarrativo"/>
         <bag:itemOf rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
-        <arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
+        <japanese-media:arcoNarrativoDi rdf:resource="http://www.semanticweb.org/japanese-media/HunterXHunter"/>
         <sequence:precedes rdf:resource="http://www.semanticweb.org/japanese-media/Arena_Celeste"/>
         <rdfs:comment xml:lang="it">Arco narrativo che tratta della tenuta degli Zoldyck e il recupero del figlio Killua</rdfs:comment>
         <rdfs:label xml:lang="it">Zoldyck e il recupero di Killua</rdfs:label>
@@ -2318,13 +2318,13 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/OperaNipponica"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/japanese-media/Stagionale"/>
         <participation:isParticipantIn rdf:resource="http://www.semanticweb.org/japanese-media/Crunchyroll_anime_of_the_year_2022"/>
-        <direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
-        <haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
-        <prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
-        <èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
-        <inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</inProduzione>
-        <numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</numeroEpisodi>
-        <èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èStagionale>
+        <japanese-media:direttoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuichiro_Hayashi"/>
+        <japanese-media:haTarget rdf:resource="http://www.semanticweb.org/japanese-media/Shonen"/>
+        <japanese-media:prodottoDa rdf:resource="http://www.semanticweb.org/japanese-media/MAPPA"/>
+        <japanese-media:èDoppiatoDa rdf:resource="http://www.semanticweb.org/japanese-media/Yuuki_Kaji"/>
+        <japanese-media:inProduzione rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</japanese-media:inProduzione>
+        <japanese-media:numeroEpisodi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</japanese-media:numeroEpisodi>
+        <japanese-media:èStagionale rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</japanese-media:èStagionale>
         <rdfs:comment xml:lang="it">Stagione conclusiva dell&apos;anime l&apos;attacco dei giganti</rdfs:comment>
         <rdfs:label xml:lang="it">L&apos;attacco dei giganti: stagione finale</rdfs:label>
         <rdfs:label xml:lang="ja">Shingeki no Kyojin: The Final Season</rdfs:label>
