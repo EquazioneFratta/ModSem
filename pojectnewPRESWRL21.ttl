@@ -50,6 +50,14 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
+###  http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements
+<http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2000/01/rdf-schema#label
 rdfs:label rdf:type owl:AnnotationProperty .
 
@@ -78,6 +86,30 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem
+<http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem
+<http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant
+<http://www.ontologydesignpatterns.org/cp/owl/participation.owl#hasParticipant> rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn
+<http://www.ontologydesignpatterns.org/cp/owl/participation.owl#isParticipantIn> rdf:type owl:ObjectProperty .
+
+
 ###  http://www.semanticweb.org/japanese-media/arcoNarrativoDi
 jm:arcoNarrativoDi rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
@@ -91,8 +123,7 @@ jm:arcoNarrativoDi rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/japanese-media/collegaDi
 jm:collegaDi rdf:type owl:ObjectProperty ,
-                      owl:SymmetricProperty ,
-                      owl:TransitiveProperty ;
+                      owl:SymmetricProperty ;
              rdfs:domain jm:Staff ;
              rdfs:range jm:Staff ;
              rdfs:comment "Crea un collegamento che lega due colleghi"@it ;
@@ -474,6 +505,26 @@ jm:èStagionale rdf:type owl:DatatypeProperty ,
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#List
+<http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem
+<http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event
+<http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object
+<http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object> rdf:type owl:Class .
+
 
 ###  http://www.semanticweb.org/japanese-media/Anime
 jm:Anime rdf:type owl:Class ;
@@ -1066,7 +1117,8 @@ jm:Kagurabachi rdf:type owl:NamedIndividual ;
                jm:numeroVolumi 5 ;
                jm:prezzoVolumeEuro 5.5 ;
                rdfs:comment "manga scritto e disegnato da Takeru Hokazono"@it ;
-               rdfs:label "Kagurabachi"@it .
+               rdfs:label "Kagurabachi"@it ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q122713274" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Kazuhiro_Furuhashi
@@ -1171,7 +1223,9 @@ jm:March_Comes_in_Like_a_Lion rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Mariya_Ise
 jm:Mariya_Ise rdf:type owl:NamedIndividual ;
-              jm:haDoppiato jm:Made_in_abyss ;
+              jm:collegaDi jm:Megumi_Han ;
+              jm:haDoppiato jm:HunterXHunterAnime ,
+                            jm:Made_in_abyss ;
               rdfs:comment "Doppiatrice giapponese"@it ;
               rdfs:label "Mariya Ise"@it ;
               <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q1333938" .
