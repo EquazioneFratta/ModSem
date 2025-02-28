@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     },
     {
       id: 2,
-      label: "Qual'è il target di",
+      label: "Qual è il target di",
       paramLabel: ["Titolo anime"],
       paramValue: ["animeTitle"],
     },
@@ -265,7 +265,7 @@ const Home: React.FC = () => {
                   </Typography>
                   <ul>
                     <li>Quale studio ha animato</li>
-                    <li>Qual'è il target di</li>
+                    <li>Qual è il target di</li>
                     <li>Quali anime hanno target</li>
                     <li>Quali anime ha prodotto lo studio</li>
                     <li>Chi ha diretto l'anime</li>

@@ -30,6 +30,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
       </Box>
     );
   }
+
   // Estrai le chiavi della prima riga per creare le colonne
   const columns = Object.keys(results[0]);
 
@@ -52,7 +53,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody>              
             {results.map((row, index) => (
               <TableRow key={index} hover>
                 {columns.map((column) => (
