@@ -11,6 +11,7 @@ import {
 import { Query } from "../QueryInterface";
 import ResultsTable from "../ResultsTable";
 
+// URL per effettuare le richieste al backend
 const BACKEND_URL = "http://127.0.0.1:8000/";
 
 interface JMQueryProps {
@@ -21,6 +22,7 @@ interface JMQueryProps {
 function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
   const [selectedQuery, setSelectedQuery] = useState<Query>(); //Indica la query che si vuole eseuguire scelta da un insieme predefinito
   const [paramValues, setParamValues] = useState<string[]>([]); //Valori dei parametri della query, array di stringhe
+  
   const [results, setResults] = useState(); //Risultato della query, array di oggetti [{},{}]
 
   const [isLoading, setIsLoading] = useState(false);
@@ -65,6 +67,7 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
       };
 
       try {
+        // Effettua la richiesta al backend
         const response = await fetch(BACKEND_URL + "sparql/", {
           method: "POST",
           mode: "cors",
@@ -75,6 +78,7 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
 
           body: JSON.stringify(jsonData),
         });
+        // Handling risposta del backend
         if (response.ok) {
           const data = await response.json();
           setIsLoading(false);
@@ -109,8 +113,8 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
       </Typography>
 
       <Box sx={{ display: "flex", gap: 2 }}>
+        {/* Gestisce la selezione della query */}
         <FormControl sx={{ flex: 1, minWidth: "50%" }}>
-          {/* Gestisce la selezione della query */}
           <Autocomplete
             disablePortal
             id="queryAutocomplete"

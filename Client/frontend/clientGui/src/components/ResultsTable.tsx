@@ -38,6 +38,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
     <Box overflow={"auto"} sx={{ maxHeight: "50vh" }}>
       <TableContainer component={Paper} sx={{ mt: 3 }}>
         <Table key={"tableResults"}>
+          {/* Header tabella */}
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -53,6 +54,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
               ))}
             </TableRow>
           </TableHead>
+          {/* Contenuto tabella */}
           <TableBody>              
             {results.map((row, index) => (
               <TableRow key={index} hover>

@@ -210,6 +210,7 @@ const Home: React.FC = () => {
 
   localStorage.setItem("render", "gui");
 
+  // Renderizza la sezione centrale della pagina in base alla scelta dell'utente
   const renderContent = () => {
     switch (renderedItem) {
       case "anime":

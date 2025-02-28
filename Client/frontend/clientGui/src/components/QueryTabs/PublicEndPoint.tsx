@@ -11,6 +11,7 @@ import {
 import { Query } from "../QueryInterface";
 import ResultsTable from "../ResultsTable";
 
+// URL per effettuare le richieste al backend
 const BACKEND_URL = "http://127.0.0.1:8000/";
 
 interface publicEndPointProps {
@@ -66,6 +67,7 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
       };
 
       try {
+        // Effettua la richiesta al backend
         const response = await fetch(BACKEND_URL + "sparql/", {
           method: "POST",
           mode: "cors",
@@ -76,6 +78,7 @@ function PublicEndPoint({ queryList }: publicEndPointProps) {
 
           body: JSON.stringify(jsonData),
         });
+        // Handling risposta del backend
         if (response.ok) {
           const data = await response.json();
           setIsLoading(false);
