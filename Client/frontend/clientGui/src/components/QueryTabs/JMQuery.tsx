@@ -104,8 +104,9 @@ function JMQuery({ queryList, sectionLabel }: JMQueryProps) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        width: "100%",
+        width: "70%",
         gap: 3,
+        marginLeft: "10%", 
       }}
     >
       <Typography variant="h4" align="center">

@@ -234,6 +234,7 @@ const Home: React.FC = () => {
       case "publicEndPoint":
         return <PublicEndPoint queryList={publicEndPointQuery} />;
       default:
+        // Home
         return (
           <Box
             display={"flex"}
@@ -260,7 +261,7 @@ const Home: React.FC = () => {
                   mt: "5vh",
                 }}
               >
-                <Box width={"30%"}>
+                <Box width={"35%"}>
                   <Typography variant="h5" color={"#3B82F6"}>
                     Query sugli Anime
                   </Typography>
@@ -306,7 +307,7 @@ const Home: React.FC = () => {
                   mt: "5vh",
                 }}
               >
-                <Box width={"30%"}>
+                <Box width={"35%"}>
                   <Typography variant="h5" color={"#3B82F6"}>
                     Query sulle persone
                   </Typography>
@@ -347,7 +348,7 @@ const Home: React.FC = () => {
                 src={nika}
                 alt="Immagine"
                 style={{
-                  width: "35%",
+                  width: "40%",
                   height: "auto",
                   scale: "4",
                 }}
@@ -359,13 +360,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ pt: 4, margin: "0" }}>
+    <Container maxWidth="lg" sx={{ margin: "0" }}>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           width: "100%",
-          gap: 3,
           ml: "10em",
         }}
       >
@@ -488,9 +488,8 @@ const Home: React.FC = () => {
           sx={{
             position: "fixed",
             display: "flex",
-            gap: 2,
             mt: "12vh",
-            width: "80%", 
+            width: "95%", 
           }}
         >
           {renderContent()}
