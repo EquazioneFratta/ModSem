@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Container, Box, Button, Typography } from "@mui/material";
 import { Query } from "./QueryInterface";
-import nika from "../assets/nika.png"
-import JMQuery from "./QueryTabs/JMQuery";
-import PublicEndPoint from "./QueryTabs/PublicEndPoint";
+import nika from "../assets/nika.png";
+import QueryTab from "./QueryTab";
 
 const Home: React.FC = () => {
   //Elenco delle query
@@ -110,7 +109,7 @@ const Home: React.FC = () => {
     {
       id: 17,
       label: "Quali manga sono in produzione",
-      paramLabel: ["Nessun parametro richiesto",""],
+      paramLabel: ["Nessun parametro richiesto", ""],
       paramValue: [""],
     },
     {
@@ -215,24 +214,29 @@ const Home: React.FC = () => {
     switch (renderedItem) {
       case "anime":
         return (
-          <JMQuery
+          <QueryTab
             queryList={animeQueryList}
             sectionLabel="Query sugli Anime"
           />
         );
       case "manga":
         return (
-          <JMQuery queryList={mangaQueryList} sectionLabel="Query sui Manga" />
+          <QueryTab queryList={mangaQueryList} sectionLabel="Query sui Manga" />
         );
       case "persone":
         return (
-          <JMQuery
+          <QueryTab
             queryList={personQueryList}
             sectionLabel="Query sulle persone"
           />
         );
       case "publicEndPoint":
-        return <PublicEndPoint queryList={publicEndPointQuery} />;
+        return (
+          <QueryTab
+            queryList={publicEndPointQuery}
+            sectionLabel="Query su EndPoint pubblico"
+          />
+        );
       default:
         // Home
         return (
@@ -489,27 +493,12 @@ const Home: React.FC = () => {
             position: "fixed",
             display: "flex",
             mt: "12vh",
-            width: "95%", 
+            width: "95%",
           }}
         >
           {renderContent()}
         </Box>
       </Box>
-      {/* footer, boh non so  */}
-      {/* <Box
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100vw",
-          height: "5vh",
-          backgroundColor: "#80888F",
-          color: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      /> */}
     </Container>
   );
 };
