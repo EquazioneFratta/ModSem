@@ -46,7 +46,7 @@ def query_sparql(request):
     #Trasforma "results", rendendolo piu' semplice da gestire
     parsed_results = []
     for result in results["results"]["bindings"]:
-        parsed_results.append({key: value['value'] for key, value in result.items()})
+        parsed_results.append({key: value['value'].split("/")[-1].replace("_", " ")  for key, value in result.items()})
     
     return JsonResponse({'results': parsed_results,})
 
