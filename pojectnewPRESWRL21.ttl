@@ -442,6 +442,13 @@ jm:èVincitoreDi rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/japanese-media/haNazionalità
+jm:haNazionalità rdf:type owl:DatatypeProperty ;
+                 rdfs:comment "Indica di che nazionalità è una persona"@it ;
+                 rdfs:label "Ha nazionalità"@it ;
+                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q42138" .
+
+
 ###  http://www.semanticweb.org/japanese-media/inProduzione
 jm:inProduzione rdf:type owl:DatatypeProperty ,
                          owl:FunctionalProperty ;
@@ -1218,7 +1225,8 @@ jm:March_Comes_in_Like_a_Lion rdf:type owl:NamedIndividual ;
                               jm:èStagionale "true"^^xsd:boolean ;
                               rdfs:comment "Anime giapponese"@it ;
                               rdfs:label "March Comes in Like a Lion"@it ,
-                                         "Sangatsu no Lion"@ja .
+                                         "Sangatsu no Lion"@ja ;
+                              <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q112573940" .
 
 
 ###  http://www.semanticweb.org/japanese-media/Mariya_Ise
