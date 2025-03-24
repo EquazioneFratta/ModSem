@@ -444,6 +444,8 @@ jm:èVincitoreDi rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/japanese-media/haNazionalità
 jm:haNazionalità rdf:type owl:DatatypeProperty ;
+                 rdfs:domain jm:Persona ;
+                 rdfs:range xsd:string ;
                  rdfs:comment "Indica di che nazionalità è una persona"@it ;
                  rdfs:label "Ha nazionalità"@it ;
                  <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q42138" .
