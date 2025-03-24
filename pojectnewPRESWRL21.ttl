@@ -481,6 +481,15 @@ jm:numeroVolumi rdf:type owl:DatatypeProperty ,
                                                                  "https://www.wikidata.org/wiki/Property:P478" .
 
 
+###  http://www.semanticweb.org/japanese-media/prezzoTotaleOperaManga
+jm:prezzoTotaleOperaManga rdf:type owl:DatatypeProperty ;
+                          rdfs:domain jm:Manga ;
+                          rdfs:range xsd:decimal ;
+                          rdfs:comment "Indica quanto costerebbe comprare un'intera collezione di un opera manga"@it ;
+                          rdfs:label "Prezzo totale dell'opera"@it ;
+                          <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Property:P2284" .
+
+
 ###  http://www.semanticweb.org/japanese-media/prezzoVolumeEuro
 jm:prezzoVolumeEuro rdf:type owl:DatatypeProperty ,
                              owl:FunctionalProperty ;
@@ -515,6 +524,10 @@ jm:èStagionale rdf:type owl:DatatypeProperty ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item
 <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection
+<http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event> .
 
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#List
@@ -555,6 +568,7 @@ jm:AnimeAward rdf:type owl:Class ;
 ###  http://www.semanticweb.org/japanese-media/AnimeFilm
 jm:AnimeFilm rdf:type owl:Class ;
              rdfs:subClassOf jm:Anime ;
+             owl:disjointWith jm:AnimeSerie ;
              rdfs:comment "Film di animazione giapponese"@it ;
              rdfs:label "Film anime"@it ;
              <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/Movie" ;
@@ -616,6 +630,7 @@ jm:Autore rdf:type owl:Class ;
 ###  http://www.semanticweb.org/japanese-media/CasaEditrice
 jm:CasaEditrice rdf:type owl:Class ;
                 rdfs:subClassOf jm:Organizzazione ;
+                owl:disjointWith jm:StudioAnimazione ;
                 rdfs:comment "Organizzazione che si occupa della pubblicazione di opere letterarie"@it ;
                 rdfs:label "Casa editrice"@it ;
                 <http://www.w3.org/2004/02/skos/core#closeMatch> "https://schema.org/publisher" ;
@@ -633,6 +648,7 @@ jm:LongRunning rdf:type owl:Class ;
                                      rdf:type owl:Class
                                    ] ;
                rdfs:subClassOf jm:AnimeSerie ;
+               owl:disjointWith jm:Stagionale ;
                rdfs:comment "Serie anime non divisa per stagioni ma con continua pubblicazione di episodi in maniera regolare"@it ;
                rdfs:label "Long running"@en ;
                <http://www.w3.org/2004/02/skos/core#broadMatch> "https://www.wikidata.org/wiki/Q63952888" .
@@ -675,6 +691,7 @@ jm:MangaCompleto rdf:type owl:Class ;
                                        rdf:type owl:Class
                                      ] ;
                  rdfs:subClassOf jm:MangaSerie ;
+                 owl:disjointWith jm:MangaInCorso ;
                  rdfs:comment "Serie manga di cui è stata conclusa la narrazione"@it ;
                  rdfs:label "Manga Completo"@it .
 
@@ -718,6 +735,7 @@ jm:MangaOneShot rdf:type owl:Class ;
                                       rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf jm:Manga ;
+                owl:disjointWith jm:MangaSerie ;
                 rdfs:comment "Fumetto giapponese composto da un solo volume con storia autoconclusiva"@it ;
                 rdfs:label "Manga one shot"@en ;
                 <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q21202185" .
@@ -805,6 +823,8 @@ jm:OperaNipponica rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/japanese-media/Organizzazione
 jm:Organizzazione rdf:type owl:Class ;
+                  owl:disjointWith jm:Persona ,
+                                   jm:Target ;
                   rdfs:comment "Un'organizzazione come una scuola o una società"@it ;
                   rdfs:label "Organizzazione"@it ;
                   <http://www.w3.org/2004/02/skos/core#closeMatch> "https://www.wikidata.org/wiki/Q43229" ;
@@ -1033,6 +1053,7 @@ jm:Greed_Island rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Hiroshi_Kojina
 jm:Hiroshi_Kojina rdf:type owl:NamedIndividual ;
+                  owl:differentFrom jm:Yuzuru_Tachikawa ;
                   jm:haDiretto jm:HunterXHunterAnime ;
                   rdfs:comment "Regista che lavora alla Madhouse e direttore della seconda trasposizione di HxH"@it ;
                   rdfs:label "Hiroshi Kojina"@it ;
@@ -1440,6 +1461,7 @@ jm:Yuichiro_Hayashi rdf:type owl:NamedIndividual ;
 
 ###  http://www.semanticweb.org/japanese-media/Yuuki_Kaji
 jm:Yuuki_Kaji rdf:type owl:NamedIndividual ;
+              owl:differentFrom jm:Yuzuru_Tachikawa ;
               jm:haDoppiato jm:Shingeki_no_Kyojin:_The_Final_Season ;
               rdfs:comment "Doppiatore giapponese"@it ;
               rdfs:label "Yuuki Kaji"@it ;
@@ -1472,6 +1494,98 @@ jm:Shingeki_no_Kyojin:_The_Final_Season rdf:type owl:NamedIndividual ;
                                         rdfs:label "L'attacco dei giganti: stagione finale"@it ,
                                                    "Shingeki no Kyojin: The Final Season"@ja ;
                                         <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.wikidata.org/wiki/Q100332172" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
+                <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event>
+                <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object>
+                jm:Organizzazione
+                jm:Persona
+                jm:Rivista
+                jm:Target
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( jm:Persona
+                jm:Rivista
+                jm:Target
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( jm:Aoi_Yuuki
+                        jm:Arena_Celeste
+                        jm:Assassinio_del_portatore_della_spada
+                        jm:Atsumi_Tanezaki
+                        jm:CloverWorks
+                        jm:Crunchyroll_anime_of_the_year_2017
+                        jm:Crunchyroll_anime_of_the_year_2022
+                        jm:Cyberpunk_Edgerunners
+                        jm:Death_Parade_Anime
+                        jm:Elezione_Nuovo_Predisente
+                        jm:Esame_Degli_Hunter
+                        jm:Formichimere
+                        jm:Futabasha
+                        jm:Greed_Island
+                        jm:Hiroshi_Kojina
+                        jm:Hiroyuki_Imaishi
+                        jm:Hoshi_Mamoru_Inu
+                        jm:Hoshi_Mamoru_Inu_2
+                        jm:HunterXHunter
+                        jm:HunterXHunterAnime
+                        jm:Josei
+                        jm:Kagurabachi
+                        jm:Kazuhiro_Furuhashi
+                        jm:Kengo_Kawanishi
+                        jm:Kenjirou_Okada
+                        jm:Kinema_Citrus
+                        jm:Kodomo
+                        jm:Kojima_Masayuki
+                        jm:Land_of_the_Lustrous
+                        jm:MAPPA
+                        jm:Made_in_abyss
+                        jm:Madhouse
+                        jm:March_Comes_in_Like_a_Lion
+                        jm:Mariya_Ise
+                        jm:Megumi_Han
+                        jm:Minami_Hinata
+                        jm:Orange
+                        jm:Rakuzaichi
+                        jm:Ranking_of_Kings
+                        jm:Seinen
+                        jm:Shaft
+                        jm:Shojo
+                        jm:Shonen
+                        jm:Shonen_Jump
+                        jm:Shueisha
+                        jm:SpyXFamily
+                        jm:Takahiko_Kyougoku
+                        jm:Takashi_Murakami
+                        jm:Takeru_Hokazono
+                        jm:Tomoaki_Maeno
+                        jm:Tomoyo_Kurosawa
+                        jm:Trigger
+                        jm:Versus_Shojo
+                        jm:Weekly_Manga_Action
+                        jm:Wit_Studio
+                        jm:York_Shin_City
+                        jm:Yoshihiro_Togashi
+                        jm:Yousuke_Hatta
+                        jm:Yuichiro_Hayashi
+                        jm:Yuuki_Kaji
+                        jm:Yuzuru_Tachikawa
+                        jm:Zoldyck_e_il_recupero_di_Killua
+                        jm:Shingeki_no_Kyojin:_The_Final_Season
+                      )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
